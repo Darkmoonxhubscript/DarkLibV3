@@ -338,7 +338,7 @@ function NewTab(Configs)
     
     local BagulhoAzul = Create("Frame", TabButton, {
         Position = UDim2.new(0, 3, 0, 5),
-        BackgroundColor3 = Color3.fromRGB(52, 133, 255),
+        BackgroundColor3 = Color3.fromRGB(0, 170, 255),
         Size = UDim2.new(0, 6, 0, 20),
         BackgroundTransparency = 1
     })
@@ -351,6 +351,7 @@ function NewTab(Configs)
         Font = Enum.Font.FredokaOne,
         TextSize = 15,
         TextDirection = "LeftToRight",
+        TextTruncate = "AtEnd",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center,
         Size = UDim2.new(0, 110, 0, 20),
@@ -420,7 +421,7 @@ function NewTab(Configs)
         SetProps(TabNameLabel, {
         TextColor3 = Color3.fromRGB(240, 240, 240)
       })
-        TabButton.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+        TabButton.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
 
         for _, frame in pairs(Tabs) do
             frame.Visible = false
