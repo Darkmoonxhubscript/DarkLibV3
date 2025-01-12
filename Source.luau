@@ -337,9 +337,9 @@ function NewTab(Configs)
     Corner(TabButton, UDim.new(0.3, 0))  
     
     local BagulhoAzul = Create("Frame", TabButton, {
-        Position = UDim2.new(0, 4, 0, 5),
+        Position = UDim2.new(0, 3, 0, 5),
         BackgroundColor3 = Color3.fromRGB(0, 165, 255),
-        Size = UDim2.new(0, 5, 0, 20),
+        Size = UDim2.new(0, 6, 0, 20),
         BackgroundTransparency = 1
     })
     Corner(BagulhoAzul, UDim.new(0.3, 0))  
