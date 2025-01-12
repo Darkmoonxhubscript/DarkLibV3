@@ -338,11 +338,11 @@ function NewTab(Configs)
     
     local BagulhoAzul = Create("Frame", TabButton, {
         Position = UDim2.new(0, 3, 0, 5),
-        BackgroundColor3 = Color3.fromRGB(140, 0, 219),
+        BackgroundColor3 = Color3.fromRGB(52, 133, 255),
         Size = UDim2.new(0, 6, 0, 20),
         BackgroundTransparency = 1
     })
-    Corner(BagulhoAzul, UDim.new(0.3, 0))  
+    Corner(BagulhoAzul, UDim.new(1, 0))  
     
     local TabNameLabel = Create("TextLabel", TabButton,{
         Text = TabName,
@@ -390,7 +390,7 @@ function NewTab(Configs)
         TabFrame.Visible = true
         local tween = TweenService:Create(BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween:Play()
-        TabButton.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+        TabButton.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
     end
 
     TabButton.MouseButton1Click:Connect(function()
