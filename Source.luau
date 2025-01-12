@@ -338,7 +338,7 @@ function NewTab(Configs)
     
     local BagulhoAzul = Create("Frame", TabButton, {
         Position = UDim2.new(0, 3, 0, 5),
-        BackgroundColor3 = Color3.fromRGB(0, 165, 255),
+        BackgroundColor3 = Color3.fromRGB(140, 0, 219),
         Size = UDim2.new(0, 6, 0, 20),
         BackgroundTransparency = 1
     })
