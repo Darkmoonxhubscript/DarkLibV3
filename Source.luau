@@ -235,7 +235,7 @@ local HubTitle = Create("TextLabel", TopBar, {
     Text = Title,
     TextColor3 = Color3.new(1, 1, 1),
     Font = Enum.Font.FredokaOne,
-    TextSize = 20,
+    TextSize = 22,
     TextXAlignment = Enum.TextXAlignment.Left,
     Size = UDim2.new(0.8, 0, 1, 0),
     Position = UDim2.new(0, 10, 0, 0),
@@ -337,7 +337,7 @@ function NewTab(Configs)
     Corner(TabButton, UDim.new(0.3, 0))  
     
     local BagulhoAzul = Create("Frame", TabButton, {
-        Position = UDim2.new(0, 5, 0, 5),
+        Position = UDim2.new(0, 4, 0, 5),
         BackgroundColor3 = Color3.fromRGB(0, 165, 255),
         Size = UDim2.new(0, 5, 0, 20),
         BackgroundTransparency = 1
