@@ -359,7 +359,7 @@ function NewTab(Configs)
     })
   
     local TabIcon = Create("ImageLabel", TabButton, {
-        Image = TabIcon or "",
+        Image = TabIcon or GetIcon(House),
         Size = UDim2.new(0, 20, 0, 20),
         Position = UDim2.new(0, 10, 0, 5),
         BackgroundTransparency = 1
