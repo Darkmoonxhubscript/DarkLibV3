@@ -304,7 +304,7 @@ local FirstTab = nil
 
 function NewTab(Configs)
     local TabName = Configs.Name or Configs.Text or "Tab Name"
-    local TabIcon = Configs.Icon or "House"
+    local TabIcon = Configs.Icon or "Home"
     local TabButton
     local TabFrame
      
@@ -359,7 +359,7 @@ function NewTab(Configs)
     })
   
     local TabIcon = Create("ImageLabel", TabButton, {
-        Image = TabIcon or GetIcon(House),
+        Image = TabIcon or GetIcon(Home),
         Size = UDim2.new(0, 20, 0, 20),
         Position = UDim2.new(0, 10, 0, 5),
         BackgroundTransparency = 1
