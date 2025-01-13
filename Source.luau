@@ -432,6 +432,7 @@ function NewTab(Configs)
         local tween = TweenService:Create(BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween:Play()
         TabButton.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+        TabIcon.ImageColor3 = Color3.fromRGB(240, 240, 240)
     end
 
     TabButton.MouseButton1Click:Connect(function()
@@ -445,6 +446,7 @@ function NewTab(Configs)
                 end
                 
                 button.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+                TabIcon.ImageColor3 = Color3.fromRGB(200, 200, 200)
             end
         end
         
@@ -452,6 +454,14 @@ function NewTab(Configs)
             if Text:IsA("TextLabel") then
               SetProps(Text, {
         TextColor3 = Color3.fromRGB(200, 200, 200)
+      })
+            end
+        end
+          
+          for _, Img in pairs(LeftScrollFrame:GetDescendants()) do
+            if Img:IsA("ImageLabel") then
+              SetProps(Img, {
+        ImageColor3 = Color3.fromRGB(200, 200, 200)
       })
             end
             end
@@ -462,6 +472,7 @@ function NewTab(Configs)
         TextColor3 = Color3.fromRGB(240, 240, 240)
       })
         TabButton.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+        TabIcon.ImageColor3 = Color3.fromRGB(240, 240, 240)
 
         for _, frame in pairs(Tabs) do
             frame.Visible = false
