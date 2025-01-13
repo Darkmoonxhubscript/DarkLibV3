@@ -111,6 +111,11 @@ end
 
 function MakeWindow(WindowConfig)
 local Title = WindowConfig[1] or WindowConfig.Title or "DarkLib V3"
+local KeySystem = WindowConfig.KeySystem or false
+local KeyTitle = WindowConfig.KeyTitle or "Key System"
+local KeyDescription = WindowConfig.KeyDescription or "Description Of Key System"
+local Keys = WindowConfig.Keys or {"Key1", "Key2"}
+local KeyLink = WindowConfig.KeyLink or "No Link Provided"
   
 local ScreenGui = Create("ScreenGui", CoreGui, {
     Name = "DarkLibraryV3",
@@ -254,10 +259,47 @@ local CloseButton = Create("TextButton", TopBar, {
     Position = UDim2.new(1, -30, 0, 5)
 })
 CloseButton.MouseButton1Click:Connect(function()
-  local tween = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0, 0, 0, 0)})
+  local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
   tween:Play()
   tween.Completed:Wait()
   ScreenGui:Destroy()
+end)
+
+local Minimized = false
+local MinimizeButton = Create("TextButton", TopBar, {
+    Name = "Close",
+    Text = "-",
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    Font = Enum.Font.FredokaOne,
+    TextSize = 30,
+    BackgroundTransparency = 1,
+    Size = UDim2.new(0, 30, 0, 30),
+    Position = UDim2.new(1, -60, 0, 2)
+})
+MinimizeButton.MouseButton1Click:Connect(function()
+  if Minimized then
+    for _, Comp in pairs(MainFrame:GetChildren()) do
+        if not Comp.Name == "UICorner" and not Comp.Name == "TopBar" then
+          Comp.Visible = true
+          end
+      end
+      local tween = TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0.6, 0)})
+  tween:Play()
+  tween.Completed:Wait()
+  MinimizeButton.Text = "-"
+  local Minimized = false
+    else
+      for _, Comp in pairs(MainFrame:GetChildren()) do
+        if not Comp.Name == "UICorner" and not Comp.Name == "TopBar" then
+          Comp.Visible = false
+          end
+      end
+      local tween = TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0, 36)})
+  tween:Play()
+  tween.Completed:Wait()
+  MinimizeButton.Text = "+"
+  local Minimized = true
+    end
 end)
 
 local LeftBar = Create("Frame", MainFrame, {
@@ -351,7 +393,7 @@ function NewTab(Configs)
         Font = Enum.Font.FredokaOne,
         TextSize = 14,
         TextDirection = "LeftToRight",
-        TextTruncate = "AtEnd",
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center,
         Size = UDim2.new(0, 140, 0, 20),
@@ -433,11 +475,6 @@ function NewTab(Configs)
 
     return TabFrame
 end
-
-
-
-
-
 
 end
 
