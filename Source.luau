@@ -279,7 +279,7 @@ local MinimizeButton = Create("TextButton", TopBar, {
 MinimizeButton.MouseButton1Click:Connect(function()
   if Minimized then
     for _, Comp in pairs(MainFrame:GetChildren()) do
-        if Comp.Name ~= "UICorner" then
+        if Comp.Name ~= "UICorner" and Comp.Name ~= "TopBar" then
           Comp.Visible = true
           end
       end
