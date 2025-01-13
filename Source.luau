@@ -485,7 +485,7 @@ function AddButton(Parent, Configs)
         Font = Enum.Font.FredokaOne,
         TextSize = 20,
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
-        Size = UDim2.new(0, 490, 0, 40),
+        Size = UDim2.new(0, 455, 0, 40),
         TextWrapped = false,
         Position = UDim2.new(0, 10, 0, 0),
         BorderSizePixel = 0,
@@ -494,14 +494,14 @@ function AddButton(Parent, Configs)
         TextYAlignment = Enum.TextYAlignment.Center,
         AutoButtonColor = false
     })
-    Corner(Button, UDim.new(0.3, 0)) 
+    Corner(Button, UDim.new(0.1, 0)) 
 
     local TextLabel = Create("TextLabel", Button, {
       Text = Name,
       TextColor3 = Color3.fromRGB(240, 240, 240),
       Font = Enum.Font.FredokaOne,
-      TextSize = 20,
-      Size = UDim2.new(0, 450, 0, 40),
+      TextSize = 18,
+      Size = UDim2.new(0, 408, 0, 40),
       TextWrapped = false,
       BackgroundTransparency = 1,
       Position = UDim2.new(0, 10, 0, 0),
@@ -511,8 +511,8 @@ function AddButton(Parent, Configs)
 
     local Image = Create("ImageLabel", Button, {
         Image = "rbxassetid://10734898355",
-        Size = UDim2.new(0, 25, 0, 30),
-        Position = UDim2.new(1, -30, 0, 5),
+        Size = UDim2.new(0, 30, 0, 30),
+        Position = UDim2.new(1, -35, 0, 5),
         BackgroundTransparency = 1
     })
 
