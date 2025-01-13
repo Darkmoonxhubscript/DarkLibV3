@@ -263,7 +263,7 @@ end)
 local LeftBar = Create("Frame", MainFrame, {
     Name = "TabsBar",
     BackgroundColor3 = Color3.fromRGB(30, 30, 30),
-    Size = UDim2.new(0, 150, 0.9, 0),
+    Size = UDim2.new(0, 176, 0.9, 0),
     Position = UDim2.new(0, 0, 0.1, 0)
 })
 Corner(LeftBar, UDim.new(0.05, 0))
@@ -286,8 +286,8 @@ local RightScrollFrame = Create("Frame", MainFrame, {
     Name = "Containers",
     BackgroundColor3 = Color3.fromRGB(28, 28, 28),
     BorderSizePixel = 0,
-    Size = UDim2.new(0, 497, 0.9, 0),
-    Position = UDim2.new(0.2, 20, 0.1, 0)
+    Size = UDim2.new(0, 470, 0.9, 0),
+    Position = UDim2.new(0.3, -17, 0.1, 0)
 })
 Corner(RightScrollFrame)
 
@@ -349,19 +349,19 @@ function NewTab(Configs)
         BackgroundTransparency = 1,
         TextColor3 = Color3.fromRGB(200, 200, 200),
         Font = Enum.Font.FredokaOne,
-        TextSize = 15,
+        TextSize = 14,
         TextDirection = "LeftToRight",
         TextTruncate = "AtEnd",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center,
-        Size = UDim2.new(0, 110, 0, 20),
+        Size = UDim2.new(0, 140, 0, 20),
         Position = UDim2.new(0, 35, 0, 5)
     })
   
     local TabIcon = Create("ImageLabel", TabButton, {
         Image = TabIcon or GetIcon(Home),
         Size = UDim2.new(0, 20, 0, 20),
-        Position = UDim2.new(0, 10, 0, 5),
+        Position = UDim2.new(0, 11, 0, 5),
         BackgroundTransparency = 1
     })
 
