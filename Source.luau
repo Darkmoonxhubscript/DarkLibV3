@@ -250,8 +250,8 @@ local CloseButton = Create("TextButton", TopBar, {
     Font = Enum.Font.FredokaOne,
     TextSize = 20,
     BackgroundTransparency = 1,
-    Size = UDim2.new(0.1, 0, 1, 0),
-    Position = UDim2.new(1, -50, 0, 0)
+    Size = UDim2.new(0, 30, 0, 30),
+    Position = UDim2.new(1, -30, 0, 5)
 })
 CloseButton.MouseButton1Click:Connect(function()
   local tween = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0, 0, 0, 0)})
