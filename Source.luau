@@ -289,7 +289,7 @@ MinimizeButton.MouseButton1Click:Connect(function()
   Minimized = false
     elseif not Minimized then
       for _, Comp in pairs(MainFrame:GetChildren()) do
-        if Comp.Name ~= "UICorner" then
+        if Comp.Name ~= "UICorner" and Comp.Name ~= "TopBar" then
           Comp.Visible = false
           end
       end
