@@ -230,7 +230,7 @@ MakeDrag(MainFrame)
 local TopBar = Create("Frame", MainFrame, {
     Name = "TopBar",
     BackgroundColor3 = Color3.fromRGB(35, 35, 35),
-    Size = UDim2.new(1, 0, 0.1, 0),
+    Size = UDim2.new(1, 0, 0, 36),
     Position = UDim2.new(0, 0, 0, 0)
 })
 Corner(TopBar, UDim.new(0.2, 0))
@@ -267,7 +267,7 @@ end)
 
 local Minimized = false
 local MinimizeButton = Create("TextButton", TopBar, {
-    Name = "Close",
+    Name = "Minimize",
     Text = "-",
     TextColor3 = Color3.fromRGB(255, 255, 255),
     Font = Enum.Font.FredokaOne,
@@ -279,26 +279,24 @@ local MinimizeButton = Create("TextButton", TopBar, {
 MinimizeButton.MouseButton1Click:Connect(function()
   if Minimized then
     for _, Comp in pairs(MainFrame:GetChildren()) do
-        if not Comp.Name == "UICorner" and not Comp.Name == "TopBar" then
+        if Comp.Name ~= "UICorner" then
           Comp.Visible = true
           end
       end
-      local tween = TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0.6, 0)})
-  tween:Play()
-  tween.Completed:Wait()
+      local tween1 = TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0.6, 0)})
+  tween1:Play()
   MinimizeButton.Text = "-"
-  local Minimized = false
-    else
+  Minimized = false
+    elseif not Minimized then
       for _, Comp in pairs(MainFrame:GetChildren()) do
-        if not Comp.Name == "UICorner" and not Comp.Name == "TopBar" then
+        if Comp.Name ~= "UICorner" then
           Comp.Visible = false
           end
       end
       local tween = TweenService:Create(MainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0, 36)})
   tween:Play()
-  tween.Completed:Wait()
   MinimizeButton.Text = "+"
-  local Minimized = true
+  Minimized = true
     end
 end)
 
