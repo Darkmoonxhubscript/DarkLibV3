@@ -340,7 +340,7 @@ function NewTab(Configs)
         Position = UDim2.new(0, 3, 0, 5),
         BackgroundColor3 = Color3.fromRGB(0, 170, 255),
         Size = UDim2.new(0, 6, 0, 20),
-        BackgroundTransparency = 1
+        BackgroundTransparency = 0.8
     })
     Corner(BagulhoAzul, UDim.new(1, 0))  
     
@@ -400,7 +400,7 @@ function NewTab(Configs)
 
                 local azul = button:FindFirstChild("Frame")
                 if azul then
-                    local tween = TweenService:Create(azul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 1})
+                    local tween = TweenService:Create(azul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.8})
                     tween:Play()
                 end
                 
