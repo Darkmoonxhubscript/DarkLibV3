@@ -402,6 +402,7 @@ function NewTab(Configs)
         Image = TabIcon or GetIcon(Home),
         Size = UDim2.new(0, 20, 0, 20),
         Position = UDim2.new(0, 11, 0, 5),
+        ImageColor3 = Color3.fromRGB(200, 200, 200),
         BackgroundTransparency = 1
     })
 
