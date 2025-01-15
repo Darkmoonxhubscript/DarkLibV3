@@ -544,6 +544,26 @@ function AddButton(Parent, Configs)
     return Button
 end
 
+function AddSection(Parent, Configs)
+    local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Section"
+    
+    local SectionLabel = Create("TextLabel", Parent, {
+        Size = UDim2.new(0, 490, 0, 40),
+        Position = UDim2.new(0, 0, 0, 0),
+        Text = Name,
+        Font = Enum.Font.FredokaOne,
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextSize = 25,
+        BackgroundTransparency = 1,
+        TextWrapped = false,
+        TextTruncate = "AtEnd",
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Center
+    })
+
+    return SectionLabel
+end
+
 end
 
 return darklib
