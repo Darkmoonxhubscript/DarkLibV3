@@ -486,6 +486,10 @@ function NewTab(Configs)
     return TabFrame
 end
 
+function DestroyTab(Tab)
+  Tab:Destroy()
+  end
+
 function AddButton(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or "Button"
     local Callback = Configs.Callback or function() print("Clicked") end
@@ -541,19 +545,28 @@ function AddButton(Parent, Configs)
   tween4:Play()
     end)
 
-    return Button
+    return {Button, TextLabel}
 end
+
+function DestroyButton(Button)
+  Button.Button:Destroy()
+  end
+
+function EditButtonText(Button, Text)
+  Button.TextLabel.Text = tostring(Text)
+  end
 
 function AddSection(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Section"
     
     local SectionLabel = Create("TextLabel", Parent, {
-        Size = UDim2.new(0, 490, 0, 40),
+        Name = "Section",
+        Size = UDim2.new(0, 455, 0, 20),
         Position = UDim2.new(0, 0, 0, 0),
         Text = Name,
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(240, 240, 240),
-        TextSize = 25,
+        TextSize = 22,
         BackgroundTransparency = 1,
         TextWrapped = false,
         TextTruncate = "AtEnd",
@@ -561,7 +574,52 @@ function AddSection(Parent, Configs)
         TextYAlignment = Enum.TextYAlignment.Center
     })
 
-    return SectionLabel
+    return {SectionLabel}
+end
+
+function DestroySection(Section)
+Section.SectionLabel:Destroy()
+end
+
+function EditSectionText(Section, Text)
+Section.SectionLabel.Text = tostring(Text)
+end
+
+function AddTextLabel(Parent, Configs)
+    local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "TextLabel"
+    
+    local TextFrame = Create("Frame", Parent, {
+        Name = "TextLabel",
+        Size = UDim2.new(0, 455, 0, 30),
+        Position = UDim2.new(0, 0, 0, 0),
+        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundTransparency = 0
+    })
+    Corner(TextFrame, UDim.new(0.3, 0)) 
+
+    local TextLabel = Create("TextLabel", TextFrame, {
+        Size = UDim2.new(0, 440, 0, 30),
+        Position = UDim2.new(0, 10, 0, 0),
+        Text = Name,
+        Font = Enum.Font.FredokaOne,
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextSize = 20,
+        BackgroundTransparency = 1,
+        TextWrapped = false,
+        TextTruncate = "AtEnd",
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Center
+    })
+
+    return {TextFrame, TextLabel}
+end
+
+function DestroyTextLabel(TextLabel)
+TextLabel.TextFrame:Destroy()
+end
+
+function EditTextLabelText(TextLabel, Text)
+TextLabel.TextLabel.Text = tostring(Text)
 end
 
 end
