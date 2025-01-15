@@ -574,7 +574,7 @@ function AddSection(Parent, Configs)
         TextYAlignment = Enum.TextYAlignment.Center
     })
 
-    return {SectionLabel}
+    return {SectionLabel = SectionLabel}
 end
 
 function DestroySection(Section)
