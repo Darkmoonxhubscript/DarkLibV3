@@ -608,7 +608,7 @@ function AddTextLabel(Parent, Configs)
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(TextFrame, UDim.new(0.3, 0)) 
+    Corner(TextFrame, UDim.new(0.1, 0)) 
 
     local TextLabel = Create("TextLabel", TextFrame, {
         Size = UDim2.new(0, 440, 0, 30),
@@ -648,16 +648,16 @@ function AddParagraph(Parent, Configs)
     
     local ParagraphFrame = Create("Frame", Parent, {
         Name = "Paragraph",
-        Size = UDim2.new(0, 490, 0, 60),
+        Size = UDim2.new(0, 455, 0, 80),
         Position = UDim2.new(0, 0, 0, 0),
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(ParagraphFrame, UDim.new(0.3, 0)) 
+    Corner(ParagraphFrame, UDim.new(0.1, 0)) 
 
     local ParagraphLabel1 = Create("TextLabel", ParagraphFrame, {
-        Size = UDim2.new(0, 475, 0, 20),
-        Position = UDim2.new(0, 10, 0, 10),
+        Size = UDim2.new(0, 435, 0, 20),
+        Position = UDim2.new(0, 10, 0, 5),
         Text = Name,
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(240, 240, 240),
@@ -670,8 +670,8 @@ function AddParagraph(Parent, Configs)
     })
   
   local ParagraphLabel2 = Create("TextLabel", ParagraphFrame, {
-        Size = UDim2.new(0, 475, 0, 50),
-        Position = UDim2.new(0, 10, 0, 10),
+        Size = UDim2.new(0, 435, 0, 50),
+        Position = UDim2.new(0, 10, 0, 25),
         Text = Description,
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(150, 150, 150),
