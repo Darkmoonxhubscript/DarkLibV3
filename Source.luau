@@ -644,6 +644,73 @@ function EditTextLabelText(TextLabel, Text)
   })
 end
 
+function AddParagraph(Parent, Configs)
+    local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "My Title"
+    local Description = Configs[2] or Configs.Description or Configs.SubText or Configs.SubName or Configs.SubTitle or "My Paragraph"
+    
+    local ParagraphFrame = Create("Frame", Parent, {
+        Name = "Paragraph",
+        Size = UDim2.new(0, 490, 0, 60),
+        Position = UDim2.new(0, 0, 0, 0),
+        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundTransparency = 0
+    })
+    Corner(ParagraphFrame, UDim.new(0.3, 0)) 
+
+    local ParagraphLabel1 = Create("TextLabel", ParagraphFrame, {
+        Size = UDim2.new(0, 475, 0, 20),
+        Position = UDim2.new(0, 10, 0, 10),
+        Text = Name,
+        Font = Enum.Font.FredokaOne,
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextSize = 20,
+        BackgroundTransparency = 1,
+        TextWrapped = false,
+        TextTruncate = "SplitText",
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Top
+    })
+  
+  local ParagraphLabel2 = Create("TextLabel", ParagraphFrame, {
+        Size = UDim2.new(0, 475, 0, 50),
+        Position = UDim2.new(0, 10, 0, 10),
+        Text = Description,
+        Font = Enum.Font.FredokaOne,
+        TextColor3 = Color3.fromRGB(150, 150, 150),
+        TextSize = 17,
+        BackgroundTransparency = 1,
+        TextWrapped = true,
+        TextTruncate = "SplitText",
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Center
+    })
+
+    return {
+      ParagraphFrame = ParagraphFrame,
+      ParagraphLabel1 = ParagraphLabel1,
+      ParagraphLabel2 = ParagraphLabel2
+    }
+end
+
+function DestroyParagraph(TextLabel)
+  local TextLabel = TextLabel
+TextLabel.TextFrame:Destroy()
+end
+
+function EditParagraphTitle(Paragraph, Text)
+  local Paragraph = Paragraph
+  SetProps(Paragraph.ParagraphLabel1, {
+    Text = tostring(Text)
+  })
+end
+
+function EditParagraphDescription(Paragraph, Text)
+  local Paragraph = Paragraph
+  SetProps(Paragraph.ParagraphLabel2, {
+    Text = tostring(Text)
+  })
+end
+
 end
 
 return darklib
