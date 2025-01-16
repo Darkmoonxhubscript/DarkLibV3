@@ -369,7 +369,7 @@ function NewTab(Configs)
         TextWrapped = false,
         ClipsDescendants = true,
         TextXAlignment = Enum.TextXAlignment.Center,
-        TextTruncate = "SplitText",
+        TextTruncate = "SplitWord",
         AutomaticSize = Enum.AutomaticSize.X,
         Position = UDim2.new(0, 0, 0, 0),
         AutoButtonColor = false
@@ -576,7 +576,7 @@ function AddSection(Parent, Configs)
         TextSize = 22,
         BackgroundTransparency = 1,
         TextWrapped = false,
-        TextTruncate = "SplitText",
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
@@ -619,7 +619,7 @@ function AddTextLabel(Parent, Configs)
         TextSize = 20,
         BackgroundTransparency = 1,
         TextWrapped = false,
-        TextTruncate = "SplitText",
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
@@ -664,7 +664,7 @@ function AddParagraph(Parent, Configs)
         TextSize = 20,
         BackgroundTransparency = 1,
         TextWrapped = false,
-        TextTruncate = "SplitText",
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Top
     })
@@ -678,7 +678,7 @@ function AddParagraph(Parent, Configs)
         TextSize = 17,
         BackgroundTransparency = 1,
         TextWrapped = true,
-        TextTruncate = "SplitText",
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
