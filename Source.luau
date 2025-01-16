@@ -369,7 +369,7 @@ function NewTab(Configs)
         TextWrapped = false,
         ClipsDescendants = true,
         TextXAlignment = Enum.TextXAlignment.Center,
-        TextTruncate = "AtEnd",
+        TextTruncate = "SplitText",
         AutomaticSize = Enum.AutomaticSize.X,
         Position = UDim2.new(0, 0, 0, 0),
         AutoButtonColor = false
@@ -483,11 +483,14 @@ function NewTab(Configs)
         SelectedTab = TabName 
     end)
 
-    return TabFrame
+    return {
+      TabFrame = TabFrame
+    }
 end
 
 function DestroyTab(Tab)
-  Tab:Destroy()
+  local Tab = Tab
+  Tab.TabFrame:Destroy()
   end
 
 function AddButton(Parent, Configs)
@@ -545,15 +548,21 @@ function AddButton(Parent, Configs)
   tween4:Play()
     end)
 
-    return {Button, TextLabel}
+    return {
+      Button = Button,
+      TextLabel = TextLabel
+    }
 end
 
 function DestroyButton(Button)
+  local Button = Button
   Button.Button:Destroy()
   end
 
 function EditButtonText(Button, Text)
-  Button.TextLabel.Text = tostring(Text)
+  SetProps(Button.TextLabel, {
+    Text = tostring(Text)
+  })
   end
 
 function AddSection(Parent, Configs)
@@ -569,12 +578,14 @@ function AddSection(Parent, Configs)
         TextSize = 22,
         BackgroundTransparency = 1,
         TextWrapped = false,
-        TextTruncate = "AtEnd",
+        TextTruncate = "SplitText",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
 
-    return {SectionLabel = SectionLabel}
+    return {
+      SectionLabel = SectionLabel
+    }
 end
 
 function DestroySection(Section)
@@ -610,20 +621,27 @@ function AddTextLabel(Parent, Configs)
         TextSize = 20,
         BackgroundTransparency = 1,
         TextWrapped = false,
-        TextTruncate = "AtEnd",
+        TextTruncate = "SplitText",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
 
-    return {TextFrame, TextLabel}
+    return {
+      TextFrame = TextFrame,
+      TextLabel = TextLabel
+    }
 end
 
 function DestroyTextLabel(TextLabel)
+  local TextLabel = TextLabel
 TextLabel.TextFrame:Destroy()
 end
 
 function EditTextLabelText(TextLabel, Text)
-TextLabel.TextLabel.Text = tostring(Text)
+  local TextLabel = TextLabel
+  SetProps(TextLabel.TextLabel, {
+    Text = tostring(Text)
+  })
 end
 
 end
