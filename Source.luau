@@ -578,11 +578,15 @@ function AddSection(Parent, Configs)
 end
 
 function DestroySection(Section)
+  local Section = Section
 Section.SectionLabel:Destroy()
 end
 
 function EditSectionText(Section, Text)
-Section.SectionLabel.Text = tostring(Text)
+  local Section = Section
+    SetProps(Section.SectionLabel, {
+      Text = tostring(Text)
+    })
 end
 
 function AddTextLabel(Parent, Configs)
