@@ -483,14 +483,12 @@ function NewTab(Configs)
         SelectedTab = TabName 
     end)
 
-    return {
-      TabFrame = TabFrame
-    }
+    return TabFrame
 end
 
 function DestroyTab(Tab)
   local Tab = Tab
-  Tab.TabFrame:Destroy()
+  Tab:Destroy()
   end
 
 function AddButton(Parent, Configs)
