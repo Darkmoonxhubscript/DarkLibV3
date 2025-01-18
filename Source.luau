@@ -709,6 +709,134 @@ function EditParagraphDescription(Paragraph, Text)
   })
 end
 
+function AddToggle(Parent, Configs)
+    local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Toggle"
+    local Default = Configs[2] or Configs.Default or false
+    local Callback = Configs[3] or Configs.Callback or function() end
+
+    local ToggleFrame1 = Create("Frame", Parent, {
+        Name = "Toggle",
+        Size = UDim2.new(0, 455, 0, 40),
+        Position = UDim2.new(0, 0, 0, 0),
+        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundTransparency = 0
+    })
+    Corner(ToggleFrame1, UDim.new(0.1, 0))
+
+    
+    local ToggleFrame2 = Create("Frame", ToggleFrame1, {
+        Size = UDim2.new(0, 70, 0, 30),
+        Position = UDim2.new(1, -80, 0, 5),
+        BackgroundColor3 = Color3.fromRGB(70, 70, 70),
+        BackgroundTransparency = 1
+    })
+    local Stroke1 = Stroke(ToggleFrame2, Color3.fromRGB(100, 100, 100), 3)
+    Corner(ToggleFrame2, UDim.new(2, 0))
+
+    local ToggleActive = Create("Frame", ToggleFrame1, {
+        Size = UDim2.new(0, 23, 0, 20),
+        Position = UDim2.new(0, 415, 0, 28),
+        AnchorPoint = Vector2.new(0, 0.9),
+        BackgroundColor3 = Color3.fromRGB(160, 160, 160),
+        BackgroundTransparency = 0,
+        BorderMode = "Middle",
+        BorderSizePixel = 3
+        
+    })
+    local Stroke2 = Stroke(ToggleActive, Color3.fromRGB(160, 160, 160), 2.8)
+    Corner(ToggleActive, UDim.new(5, 0))
+
+local TextToggle = Create("TextLabel", ToggleFrame1, {
+        Text = Name,
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        Font = Enum.Font.FredokaOne,
+        TextSize = 20,
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0, 200, 0, 40),
+        Position = UDim2.new(0, 10, 0, 0),
+        BorderSizePixel = 0,
+        ClipsDescendants = true,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Center
+    })
+
+    local ToggleButtonArea = Create("TextButton", ToggleFrame1, {
+        Text = "",
+        Size = UDim2.new(0, 70, 0, 30),
+        Position = UDim2.new(1, -80, 0, 5),
+        BackgroundTransparency = 1
+    })
+
+    local ToggleState = false
+
+    ToggleButtonArea.MouseButton1Click:Connect(function()
+        if ToggleState then
+          SetProps(Stroke1, {
+        Color = Color3.fromRGB(70, 70, 70)
+      })
+    SetProps(Stroke2, {
+        Color = Color3.fromRGB(160, 160, 160)
+      })
+    SetProps(ToggleActive, {
+      BackgroundColor3 = Color3.fromRGB(160, 160, 160),
+    })
+          local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 415, 0, 28)})
+          tween:Play()
+          tween.Completed:Wait()
+            ToggleState = false
+        elseif not ToggleState then
+          SetProps(Stroke1, {
+        Color = Color3.fromRGB(0, 185, 255)
+      })
+    SetProps(Stroke2, {
+        Color = Color3.fromRGB(0, 185, 255)
+      })
+    SetProps(ToggleActive, {
+      BackgroundColor3 = Color3.fromRGB(0, 185, 255),
+    })
+          local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -38, 0, 28)})
+          tween:Play()
+          tween.Completed:Wait()
+            ToggleState = true
+        end
+        Callback(ToggleState)
+    end)
+
+if Default then
+      SetProps(Stroke1, {
+        Color = Color3.fromRGB(0, 185, 255)
+      })
+    SetProps(Stroke2, {
+        Color = Color3.fromRGB(0, 185, 255)
+      })
+    SetProps(ToggleActive, {
+      BackgroundColor3 = Color3.fromRGB(0, 185, 255),
+    })
+      local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -38, 0, 28)})
+          tween:Play()
+          tween.Completed:Wait()
+        ToggleState = true
+        Callback(ToggleState)
+    end
+
+    return {
+      ToggleFrame1 = ToggleFrame1,
+      TextToggle = TextToggle
+    }
+end
+
+function DestroyToggle(Toggle)
+  local Toggle = Toggle
+Toggle.ToggleFrame1:Destroy()
+end
+
+function EditToggleText(Toggle, Text)
+  local Toggle = Toggle
+  SetProps(Toggle.TextToggle, {
+    Text = tostring(Text)
+  })
+end
+
 end
 
 return darklib
