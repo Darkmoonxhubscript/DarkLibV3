@@ -1,16 +1,6 @@
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
-local MarketplaceService = game:GetService("MarketplaceService")
-local UserInputService = game:GetService("UserInputService")
-local TweenService = game:GetService("TweenService")
-local HttpService = game:GetService("HttpService")
-local RunService = game:GetService("RunService")
-local CoreGui = game:GetService("CoreGui")
-local Players = game:GetService("Players")
-local Player = Players.LocalPlayer
-local PlayerMouse = Player:GetMouse()
-
 
 local darklib = {
   Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))()
@@ -119,59 +109,6 @@ local function MakeDrag(Instance)
     end)
 end
 
-local function CreateTween(Configs)
-  local Instance = Configs[1] or Configs.Instance
-  local Prop = Configs[2] or Configs.Prop
-  local NewVal = Configs[3] or Configs.NewVal
-  local Time = Configs[4] or Configs.Time or 0.5
-  local TweenWait = Configs[5] or Configs.wait or false
-  local TweenInfo = TweenInfo.new(Time, Enum.EasingStyle.Quint)
-  
-  local Tween = TweenService:Create(Instance, TweenInfo, {[Prop] = NewVal})
-  Tween:Play()
-  if TweenWait then
-    Tween.Completed:Wait()
-  end
-  return Tween
-end
-
-local function MakeDrag(Instance)
-  task.spawn(function()
-    SetProps(Instance, {
-      Active = true,
-      AutoButtonColor = false
-    })
-    
-		local DragStart, StartPos, InputOn
-		
-		local function Update(Input)
-			local delta = Input.Position - DragStart
-			local Position = UDim2.new(StartPos.X.Scale, StartPos.X.Offset + delta.X / UIScale, StartPos.Y.Scale, StartPos.Y.Offset + delta.Y / UIScale)
-			-- Instance.Position = Position
-			CreateTween({Instance, "Position", Position, 0.35})
-		end
-		
-		Instance.MouseButton1Down:Connect(function()
-		  InputOn = true
-		end)
-		
-    Instance.InputBegan:Connect(function(Input)
-      if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-        StartPos = Instance.Position
-        DragStart = Input.Position
-        
-        while UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do RunService.Heartbeat:Wait()
-          if InputOn then
-            Update(Input)
-          end
-        end
-        InputOn = false
-      end
-    end)
-	end)
-	return Instance
-end
-
 function MakeWindow(WindowConfig)
 local Title = WindowConfig[1] or WindowConfig.Title or "DarkLib V3"
 local KeySystem = WindowConfig.KeySystem or false
@@ -278,16 +215,16 @@ task.spawn(function()
 end
 
 
-local MainFrame = Create("ImageButton", ScreenGui, {
+local MainFrame = Create("Frame", ScreenGui, {
     Name = "MainFrame",
     BackgroundColor3 = Color3.fromRGB(28, 28, 28),
     Size = UDim2.new(0.5, 0, 0.6, 0),
     Position = UDim2.new(0.5, 0, 0.5, 0),
     AnchorPoint = Vector2.new(0.5, 0.5),
-    BackgroundTransparency = 0
+    BackgroundTransparency = 0.03
 })
 Corner(MainFrame, UDim.new(0, 10))
-MakeDrag2(MainFrame)
+MakeDrag(MainFrame)
 
 local TopBar = Create("Frame", MainFrame, {
     Name = "TopBar",
