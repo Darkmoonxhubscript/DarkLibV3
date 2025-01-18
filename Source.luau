@@ -1,6 +1,16 @@
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
+local MarketplaceService = game:GetService("MarketplaceService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+local RunService = game:GetService("RunService")
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local PlayerMouse = Player:GetMouse()
+
 
 local darklib = {
   Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))()
@@ -125,7 +135,7 @@ local function CreateTween(Configs)
   return Tween
 end
 
-local function MakeDrag2(Instance)
+local function MakeDrag(Instance)
   task.spawn(function()
     SetProps(Instance, {
       Active = true,
@@ -274,7 +284,6 @@ local MainFrame = Create("ImageButton", ScreenGui, {
     Size = UDim2.new(0.5, 0, 0.6, 0),
     Position = UDim2.new(0.5, 0, 0.5, 0),
     AnchorPoint = Vector2.new(0.5, 0.5),
-    Active = true,
     BackgroundTransparency = 0
 })
 Corner(MainFrame, UDim.new(0, 10))
