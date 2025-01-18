@@ -734,13 +734,13 @@ function AddToggle(Parent, Configs)
     Corner(ToggleFrame2, UDim.new(2, 0))
 
     local ToggleActive = Create("Frame", ToggleFrame1, {
-        Size = UDim2.new(0, 23, 0, 20),
+        Size = UDim2.new(0, 21, 0, 20),
         Position = UDim2.new(0, 415, 0, 28),
         AnchorPoint = Vector2.new(0, 0.9),
         BackgroundColor3 = Color3.fromRGB(160, 160, 160),
         BackgroundTransparency = 0,
         BorderMode = "Middle",
-        BorderSizePixel = 3
+        BorderSizePixel = 1
         
     })
     local Stroke2 = Stroke(ToggleActive, Color3.fromRGB(160, 160, 160), 2.8)
@@ -752,10 +752,11 @@ local TextToggle = Create("TextLabel", ToggleFrame1, {
         Font = Enum.Font.FredokaOne,
         TextSize = 20,
         BackgroundTransparency = 1,
-        Size = UDim2.new(0, 200, 0, 40),
+        Size = UDim2.new(0, 350, 0, 40),
         Position = UDim2.new(0, 10, 0, 0),
         BorderSizePixel = 0,
         ClipsDescendants = true,
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
@@ -780,7 +781,7 @@ local TextToggle = Create("TextLabel", ToggleFrame1, {
     SetProps(ToggleActive, {
       BackgroundColor3 = Color3.fromRGB(160, 160, 160),
     })
-          local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 415, 0, 28)})
+          local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 379, 0, 28)})
           tween:Play()
           tween.Completed:Wait()
             ToggleState = false
@@ -794,7 +795,7 @@ local TextToggle = Create("TextLabel", ToggleFrame1, {
     SetProps(ToggleActive, {
       BackgroundColor3 = Color3.fromRGB(0, 185, 255),
     })
-          local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -38, 0, 28)})
+          local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -35, 0, 28)})
           tween:Play()
           tween.Completed:Wait()
             ToggleState = true
@@ -812,7 +813,7 @@ if Default then
     SetProps(ToggleActive, {
       BackgroundColor3 = Color3.fromRGB(0, 185, 255),
     })
-      local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -38, 0, 28)})
+      local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -35, 0, 28)})
           tween:Play()
           tween.Completed:Wait()
         ToggleState = true
