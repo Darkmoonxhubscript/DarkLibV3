@@ -511,7 +511,7 @@ function AddButton(Parent, Configs)
         TextYAlignment = Enum.TextYAlignment.Center,
         AutoButtonColor = false
     })
-    Corner(Button, UDim.new(0.1, 0)) 
+    Corner(Button, UDim.new(0.3, 0)) 
 
     local TextLabel = Create("TextLabel", Button, {
       Text = Name,
@@ -608,7 +608,7 @@ function AddTextLabel(Parent, Configs)
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(TextFrame, UDim.new(0.1, 0)) 
+    Corner(TextFrame, UDim.new(0.3, 0)) 
 
     local TextLabel = Create("TextLabel", TextFrame, {
         Size = UDim2.new(0, 440, 0, 30),
@@ -653,7 +653,7 @@ function AddParagraph(Parent, Configs)
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(ParagraphFrame, UDim.new(0.1, 0)) 
+    Corner(ParagraphFrame, UDim.new(0.3, 0)) 
 
     local ParagraphLabel1 = Create("TextLabel", ParagraphFrame, {
         Size = UDim2.new(0, 435, 0, 20),
@@ -721,7 +721,7 @@ function AddToggle(Parent, Configs)
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(ToggleFrame1, UDim.new(0.1, 0))
+    Corner(ToggleFrame1, UDim.new(0.3, 0))
 
     
     local ToggleFrame2 = Create("Frame", ToggleFrame1, {
@@ -870,7 +870,7 @@ function AddTextBox(Parent, Configs)
   
   local TextBox = Create("TextBox", TextBoxFrame, {
     Size = UDim2.new(0, 120, 1, -10),
-    Position = UDim2.new(1, -165, 0, 5),
+    Position = UDim2.new(1, -130, 0, 5),
     ClearTextOnFocus = false,
     BackgroundColor3 = Color3.fromRGB(80, 80, 80),
     BackgroundTransparency = 0,
@@ -924,5 +924,12 @@ function EditTextBoxPlaceholder(TextBox, Text)
 end
 
 end
+
+
+
+
+
+
+
 
 return darklib
