@@ -838,6 +838,91 @@ function EditToggleText(Toggle, Text)
   })
 end
 
+function AddTextBox(Parent, Configs)
+  local Name = Configs[1] or Configs.Name or Configs.Text or "TextBox"
+  local Default = Configs[2] or Configs.Default or ""
+  local AutoClear = Configs[3] or Configs.AutoClear or false
+  local PlaceHolder = Configs[4] or Configs.PlaceHolder or "Input"
+  local Callback = Configs[5] or Configs.Callback or function() end
+  
+  local TextBoxFrame = Create("Frame", Parent, {
+        Name = "TextBox",
+        Size = UDim2.new(0, 455, 0, 40),
+        Position = UDim2.new(0, 0, 0, 0),
+        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundTransparency = 0
+    })
+    Corner(TextBoxFrame, UDim.new(0.3, 0))
+     
+     local TextBoxText = Create("TextLabel", TextBoxFrame, {
+        Text = Name,
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        Font = Enum.Font.FredokaOne,
+        TextSize = 20,
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0, 200, 0, 40),
+        Position = UDim2.new(0, 10, 0, 0),
+        BorderSizePixel = 0,
+        ClipsDescendants = true,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Center
+    })
+  
+  local TextBox = Create("TextBox", TextBoxFrame, {
+    Size = UDim2.new(0, 120, 1, -10),
+    Position = UDim2.new(1, -165, 0, 5),
+    ClearTextOnFocus = false,
+    BackgroundColor3 = Color3.fromRGB(80, 80, 80),
+    BackgroundTransparency = 0,
+    Text = Default,
+    TextColor3 = Color3.fromRGB(240, 240, 240),
+    Font = Enum.Font.FredokaOne,
+    PlaceholderText = PlaceHolder,
+    TextScaled = true
+  })
+  Stroke(TextBox, Color3.fromRGB(60, 60, 60), 2)
+  Corner(TextBox)
+  
+  Callback(Default)
+  TextBox.FocusLost:Connect(function()
+    Callback(TextBox.Text)
+    if AutoClear == true then
+    TextBox.Text = ""
+    end
+  end)
+     return {
+       TextBoxFrame = TextBoxFrame,
+       TextBoxText = TextBoxText,
+       TextBox = TextBox
+     }
+  end
+
+function DestroyToggle(TextBox)
+  local TextBox = TextBox
+TextBox.TextBoxFrame:Destroy()
+end
+
+function EditTextBoxText(TextBox, Text)
+  local TextBox = TextBox
+  SetProps(TextBox.TextBoxText, {
+    Text = tostring(Text)
+  })
+end
+
+function EditTextBoxInputText(TextBox, Text)
+  local TextBox = TextBox
+  SetProps(TextBox.TextBox, {
+    Text = tostring(Text)
+  })
+end
+
+function EditTextBoxPlaceholder(TextBox, Text)
+  local TextBox = TextBox
+  SetProps(TextBox.TextBox, {
+    PlaceholderText = tostring(Text)
+  })
+end
+
 end
 
 return darklib
