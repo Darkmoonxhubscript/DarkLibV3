@@ -137,6 +137,11 @@ Default = false >> Defines whether the toggle starts out on or off (Bool)
 Callback = function(Value) --Value = toggle state
 -- toggle function here
 end
+
+-- ///////// Functions ///////// --
+
+DestroyToggle(Toggle)
+EditToggleText(Toggle, "Text")
 ]]
 ```
 ## Add a TextBox
