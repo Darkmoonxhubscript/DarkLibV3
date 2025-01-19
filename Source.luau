@@ -937,8 +937,10 @@ function AddSlider(Parent, Configs)
     end
 
     Default = math.clamp(SnapToIncrease(Default), Min, Max)
+local defaultPosition = (Default - Min) / (Max - Min)
 
-    Min, Max = Min / Increase, Max / Increase
+Min, Max = Min / Increase, Max / Increase
+
 
     local SliderFrame = Create("Frame", Parent, {
         Name = "Slider",
@@ -1007,6 +1009,27 @@ function AddSlider(Parent, Configs)
 
     local defaultPosition = (Default - Min) / (Max - Min)
     UpdateSliderValue(defaultPosition)
+
+local dragging = false
+
+    SliderButton.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            local connection
+            connection = UIS.InputChanged:Connect(function(input)
+                if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                    local relativePosition = (input.Position.X - SliderBarBackground.AbsolutePosition.X) / SliderBarBackground.AbsoluteSize.X
+                    UpdateSliderValue(relativePosition)
+                end
+            end)
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                    connection:Disconnect()
+                end
+            end)
+        end
+    end)
 
     return {
         SliderFrame = SliderFrame,
