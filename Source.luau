@@ -863,6 +863,7 @@ end
 
 function AddTextBox(Parent, Configs)
   local Name = Configs[1] or Configs.Name or Configs.Text or "TextBox"
+  local NumberOnly = Configs.NumberOnly or false
   local Default = Configs[2] or Configs.Default or ""
   local AutoClear = Configs[3] or Configs.AutoClear or false
   local PlaceHolder = Configs[4] or Configs.PlaceHolder or "Input"
@@ -871,7 +872,8 @@ function AddTextBox(Parent, Configs)
   if Default == nil or Default == "nil" then
   Default = ""
 end
-  
+
+
   local TextBoxFrame = Create("Frame", Parent, {
         Name = "TextBox",
         Size = UDim2.new(0, 455, 0, 40),
@@ -913,8 +915,15 @@ end
   
   Callback(Default)
   TextBox.FocusLost:Connect(function()
+    if NumberOnly then
+  if tonumber(TextBox.Text) then
     Callback(TextBox.Text)
-    if AutoClear == true then
+    end
+  else
+    Callback(TextBox.Text)
+  end
+  
+    if AutoClear then
     TextBox.Text = ""
     end
   end)
