@@ -67,6 +67,11 @@ local Section1 = AddSection(Tab1, {Name = "Section"})
 ```luau
 --[[
 Name = "Text" >> Text Of Section (String)
+
+-- ///////// Functions ///////// --
+
+DestroySection(Section)
+EditSectionText(Section, "Text")
 ]]
 ```
 ## Add a TextLabel
