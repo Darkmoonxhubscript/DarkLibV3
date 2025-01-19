@@ -865,6 +865,7 @@ function AddTextBox(Parent, Configs)
         Position = UDim2.new(0, 10, 0, 0),
         BorderSizePixel = 0,
         ClipsDescendants = true,
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
@@ -937,10 +938,9 @@ function AddSlider(Parent, Configs)
     end
 
     Default = math.clamp(SnapToIncrease(Default), Min, Max)
-local defaultPosition = (Default - Min) / (Max - Min)
+   local defaultPosition = (Default - Min) / (Max - Min)
 
-Min, Max = Min / Increase, Max / Increase
-
+   Min, Max = Min / Increase, Max / Increase
 
     local SliderFrame = Create("Frame", Parent, {
         Name = "Slider",
@@ -951,28 +951,27 @@ Min, Max = Min / Increase, Max / Increase
 
     local SliderLabel = Create("TextLabel", SliderFrame, {
         Text = Name,
-        Size = UDim2.new(1, -300, 0, 25),
+        Size = UDim2.new(1, -230, 0, 25),
         Position = UDim2.new(0, 10, 0, 8),
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
         TextSize = 20,
-        TextTruncate = "AtEnd",
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
     })
 
     local SliderValueLabel = Create("TextLabel", SliderFrame, {
         Text = tostring(Default),
-        Size = UDim2.new(1, -425, 0, 25),
-        Position = UDim2.new(0, 215, 0, 8),
+        Size = UDim2.new(1, -410, 0, 25),
+        Position = UDim2.new(0, 240, 0, 8),
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
         TextSize = 20,
         TextScaled = true,
-        TextTruncate = "AtEnd",
-        TextDirection = "RightToLeft",
-        TextXAlignment = Enum.TextXAlignment.Right,
+        TextTruncate = "SplitWord",
+        TextDirection = "RightToLeft"
     })
 
     local SliderBarBackground = Create("Frame", SliderFrame, {
@@ -1020,6 +1019,11 @@ local dragging = false
                 if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                     local relativePosition = (input.Position.X - SliderBarBackground.AbsolutePosition.X) / SliderBarBackground.AbsoluteSize.X
                     UpdateSliderValue(relativePosition)
+                    local tween1 = TweenService:Create(SliderValueLabel, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {Rotation = math.random(-10, 15)})
+                    tween1:Play()
+                    tween1.Completed:Wait()
+                    local tween2 = TweenService:Create(SliderValueLabel, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {Rotation = 0})
+                    tween2:Play()
                 end
             end)
             input.Changed:Connect(function()
