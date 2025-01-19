@@ -1103,9 +1103,6 @@ function EditSliderValue(Slider, Value)
   })
 end
 
-end
-
-
 ------------- EXTRA FUNCTIONS -------------
 
 function AddMinimizeButton(Configs)
@@ -1153,6 +1150,9 @@ end
 end)
   return MinimizeButton
   end
+
+end
+
 
 -- RETURN DARKLIB TABLE (DON'T REMOVE)
 return darklib
