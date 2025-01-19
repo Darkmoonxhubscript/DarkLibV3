@@ -149,6 +149,12 @@ local Paragraph1 = AddParagraph(Tab1, {
 --[[
 Name = "My Title" >> Paragraph Title (String)
 SubText = "My Paragraph" >> Paragraph Text (String)
+
+-- ///////// Functions ///////// --
+
+DestroyParagraph(Paragraph)
+EditParagraphText(Paragraph, "Text")
+EditParagraphDescription(Paragraph, "Text")
 ]]
 ```
 ## Add a Slider
