@@ -143,6 +143,8 @@ Create("UIListLayout", NotifyMenu, {
     VerticalAlignment = Enum.VerticalAlignment.Bottom
 })
 
+------------- NOTIFICATIONS -------------
+
 function NewNotify(Configs)
     local Title = Configs.Title or Configs.Name or Configs.Text or "Notification"
     local Description = Configs.Description or "Description"
@@ -213,6 +215,8 @@ task.spawn(function()
     Frame1:Destroy()
     end)
 end
+
+------------- MAIN FRAME ------------- 
 
 
 local MainFrame = Create("Frame", ScreenGui, {
@@ -339,6 +343,8 @@ local Padding = Create("UIPadding", RightScrollFrame, {
         PaddingBottom = UDim.new(0, 7)
     })
 
+
+------------- TABS -------------
 
 local SelectedTab = "" 
 local FirstTab = nil 
@@ -490,7 +496,9 @@ end
 function DestroyTab(Tab)
   local Tab = Tab
   Tab:Destroy()
-  end
+end
+
+------------- BUTTON -------------
 
 function AddButton(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or "Button"
@@ -562,7 +570,9 @@ function EditButtonText(Button, Text)
   SetProps(Button.TextLabel, {
     Text = tostring(Text)
   })
-  end
+end
+
+------------- SECTION -------------
 
 function AddSection(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Section"
@@ -598,6 +608,8 @@ function EditSectionText(Section, Text)
       Text = tostring(Text)
     })
 end
+
+------------- TEXTLABEL -------------
 
 function AddTextLabel(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "TextLabel"
@@ -642,6 +654,8 @@ function EditTextLabelText(TextLabel, Text)
     Text = tostring(Text)
   })
 end
+
+------------- PARAGRAPH -------------
 
 function AddParagraph(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "My Title"
@@ -710,10 +724,16 @@ function EditParagraphDescription(Paragraph, Text)
   })
 end
 
+------------- TOGGLE -------------
+
 function AddToggle(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Toggle"
     local Default = Configs[2] or Configs.Default or false
     local Callback = Configs[3] or Configs.Callback or function() end
+
+if Default == nil or Default == "nil" then
+  Default = false
+end
 
     local ToggleFrame1 = Create("Frame", Parent, {
         Name = "Toggle",
@@ -839,12 +859,18 @@ function EditToggleText(Toggle, Text)
   })
 end
 
+------------- TEXT BOX -------------
+
 function AddTextBox(Parent, Configs)
   local Name = Configs[1] or Configs.Name or Configs.Text or "TextBox"
   local Default = Configs[2] or Configs.Default or ""
   local AutoClear = Configs[3] or Configs.AutoClear or false
   local PlaceHolder = Configs[4] or Configs.PlaceHolder or "Input"
   local Callback = Configs[5] or Configs.Callback or function() end
+  
+  if Default == nil or Default == "nil" then
+  Default = ""
+end
   
   local TextBoxFrame = Create("Frame", Parent, {
         Name = "TextBox",
@@ -925,6 +951,8 @@ function EditTextBoxPlaceholder(TextBox, Text)
   })
 end
 
+------------- SLIDER -------------
+
 function AddSlider(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or "Slider"
     local Min = Configs[2] or Configs.Min or 0
@@ -932,6 +960,10 @@ function AddSlider(Parent, Configs)
     local Increase = Configs[4] or Configs.Increase or 1
     local Default = Configs[5] or Configs.Default or 20
     local Callback = Configs[6] or Configs.Callback or function() end
+
+if Default == nil or Default == "nil" then
+  Default = 20
+end
 
     local function SnapToIncrease(value)
         return math.floor(value / Increase + 0.5) * Increase
@@ -1074,10 +1106,53 @@ end
 end
 
 
+------------- EXTRA FUNCTIONS -------------
 
+function AddMinimizeButton(Configs)
+  local ImageId = Configs[1] or Configs.Icon or Configs.Logo or "10734897102"
+  
+  if ImageId == nil or ImageId == "nil" then
+  ImageId = "10734897102"
+end
+  
+  if not ImageId:find("rbxassetid://") then
+       ImageId = "rbxassetid://" .. ImageId
+       end
+  
+  local MinimizeButton = Create("ImageButton", ScreenGui, {
+    Image = ImageId,
+    AnchorPoint = Vector2.new(0, 0),
+    Size = UDim2.new(0, 50, 0, 50),
+    Position = UDim2.new(0, 117, 0, 68),
+    BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+    Visible = true,
+    AutoButtonColor = false
+  })Stroke(MinimizeButton)
+Corner(MinimizeButton, UDim.new(0, 9))
+MakeDrag(MinimizeButton)
+  
+  local MinimizeButtonState = true
+  MinimizeButton.MouseButton1Click:Connect(function()
+    if MinimizeButtonState then
+      local tweenClose = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0, 0, 0, 0)})
+  tweenClose:Play()
+  tweenClose.Completed:Wait()
+      SetProps(MainFrame, {
+        Visible = false
+      })
+      MinimizeButtonState = false
+      else
+        SetProps(MainFrame, {
+        Visible = true
+      })
+        MinimizeButtonState = true
+        local tweenOpen = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0.6, 0)})
+  tweenOpen:Play()
+  tweenOpen.Completed:Wait()
+end
+end)
+  return MinimizeButton
+  end
 
-
-
-
-
+-- RETURN DARKLIB TABLE (DON'T REMOVE)
 return darklib
