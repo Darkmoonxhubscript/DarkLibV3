@@ -58,6 +58,10 @@ local Tab1 = NewTab({Name = "Tab", Icon = "IconName"})
 Name = "TabName" >> UI Button TabName (String)
 Icon = "IconName" >> Tab Icon, No Need Put Id Only Name, Eg: Sword, You can get Icons In: 
 https://github.com/Darkmoonxhubscript/DarkLibV3/blob/main/Icons.luau
+
+-- ///////// Functions ///////// --
+
+DestroyTab(Tab)
 ]]
 ```
 ## Add a Section
