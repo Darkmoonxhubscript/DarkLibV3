@@ -57,7 +57,7 @@ local Tab1 = NewTab({Name = "Tab", Icon = "IconName"})
 --[[
 Name = "TabName" >> UI Button TabName (String)
 Icon = "IconName" >> Tab Icon, No Need Put Id Only Name, Eg: Sword, You can get Icons In: 
-https://github.com/Darkmoonxhubscript/DarkLibV2/blob/main/Icons.luau
+https://github.com/Darkmoonxhubscript/DarkLibV3/blob/main/Icons.luau
 ]]
 ```
 ## Add a Section
@@ -99,8 +99,6 @@ local Toggle1 = AddToggle(Tab1, {
 ```
 ```luau
 --[[
-AddToggle >> Normal Toggle
-AddSquareToggle >> Square Toggle
 Name = "Toggle" >> Toggle Text (String)
 Default = false >> Defines whether the toggle starts out on or off (Bool)
 Callback = function(Value) --Value = toggle state
@@ -133,9 +131,7 @@ end
 ```
 ## Add a TextLabel
 ```luau
-local TextLabel1 = AddTextLabel(Tab1, {
-  Name = "My Text"
-})
+local TextLabel1 = AddTextLabel(Tab1, Name = "My Text"})
 ```
 ```luau
 --[[
@@ -221,8 +217,12 @@ AddMinimizeButton({Icon = "10734897102"})
 ```luau
 --[[
 Icon = "Id" >> Button Image Id (String)
+For Use Icon Name use:
+Icon = GetIcon("Moon")
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 You Can Get Ids in:
-https://github.com/Darkmoonxhubscript/DarkLibV2/blob/main/Icons.luau or Use Custom Icon Id
+https://github.com/Darkmoonxhubscript/DarkLibV3/blob/main/Icons.luau or Use Custom Icon Id
 ]]
 ```
 ## Add a Server Invite
