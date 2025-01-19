@@ -174,6 +174,12 @@ Default = 20 >> Default Slider Value (Number)
 Callback = function(Value) -- Value = Slider Value
 --function here
 end
+
+-- ///////// Functions ///////// --
+
+DestroySlider(Slider)
+EditSliderText(Slider, "Text")
+EditSliderValue(Slider, Value)
 ]]
 ```
 ## Add a Dropdown
@@ -199,14 +205,6 @@ end
 -- ///////// Functions ///////// --
 
 RefreshDropdown(Dropdown, NewOptions)
---Dropdown = Dropdown Variable, example: Dropdown1 (no string)
---New Options = Dropdown New Options (table)
-Example Of Use:
-RefreshDropdown(MyDropdown, {"Op", "Op2"})
-Example With Variable:
-local List = {"Op", "Op2", "Op3"}
-
-RefreshDropdown(MyDropdown, List)
 ]]
 ```
 # EXTRA
