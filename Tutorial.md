@@ -98,7 +98,7 @@ SubText = "My Paragraph" >> Paragraph Text (String)
 -- ///////// Functions ///////// --
 
 DestroyParagraph(Paragraph)
-EditParagraphText(Paragraph, "Text")
+EditParagraphTitle(Paragraph, "Text")
 EditParagraphDescription(Paragraph, "Text")
 ]]
 ```
