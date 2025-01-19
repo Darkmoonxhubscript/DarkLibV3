@@ -69,6 +69,39 @@ local Section1 = AddSection(Tab1, {Name = "Section"})
 Name = "Text" >> Text Of Section (String)
 ]]
 ```
+## Add a TextLabel
+```luau
+local TextLabel1 = AddTextLabel(Tab1, Name = "My Text"})
+```
+```luau
+--[[
+Name = "My Text" >> TextLabel Text (String)
+
+-- ///////// Functions ///////// --
+
+DestroyTextLabel(TextLabel)
+EditTextLabelText(TextLabel, "Text")
+]]
+```
+## Add a Paragraph
+```luau
+local Paragraph1 = AddParagraph(Tab1, {
+  Name = "My Title",
+  SubText = "My Paragraph"
+})
+```
+```luau
+--[[
+Name = "My Title" >> Paragraph Title (String)
+SubText = "My Paragraph" >> Paragraph Text (String)
+
+-- ///////// Functions ///////// --
+
+DestroyParagraph(Paragraph)
+EditParagraphText(Paragraph, "Text")
+EditParagraphDescription(Paragraph, "Text")
+]]
+```
 ## Add a Button
 ```luau
 local Button1 = AddButton(Tab1, {
@@ -127,34 +160,13 @@ PlaceHolder = "Input Text Here" >> PlaceHolder Text From TextBox(String)
 Callback = function(Value) --Value = TextBox Text
 --Function Here
 end
-]]
-```
-## Add a TextLabel
-```luau
-local TextLabel1 = AddTextLabel(Tab1, Name = "My Text"})
-```
-```luau
---[[
-Name = "My Text" >> TextLabel Text (String)
-]]
-```
-## Add a Paragraph
-```luau
-local Paragraph1 = AddParagraph(Tab1, {
-  Name = "My Title",
-  SubText = "My Paragraph"
-})
-```
-```luau
---[[
-Name = "My Title" >> Paragraph Title (String)
-SubText = "My Paragraph" >> Paragraph Text (String)
 
 -- ///////// Functions ///////// --
 
-DestroyParagraph(Paragraph)
-EditParagraphText(Paragraph, "Text")
-EditParagraphDescription(Paragraph, "Text")
+DestroyTextBox(TextBox)
+EditTextBoxText(TextBox, "Text")
+EditTextBoxInputText(TextBox, "Text")
+EditTextBoxPlaceholder(TextBox, "Text")
 ]]
 ```
 ## Add a Slider
