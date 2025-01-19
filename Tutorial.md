@@ -14,11 +14,24 @@ EndLibrary() >> Destroy The Library.
 ```
 ## Make a Window
 ```luau
-local Window = MakeWindow({Title = "DarkMoonHub Library"})
+local Window = MakeWindow({
+    Title = "DarkLib V3",
+    KeySystem = false,
+    KeyTitle = "Key System",
+    KeyDescription = "Key System Description Long",
+    Keys = {"Key1", "Key2", "Key3"},
+    KeyLink = "pastebin.com/AbCdEfGhIjK"
+  })
 ```
 ```luau
 --[[
-Title ="DarkMoonHub Library" >> UI Title (String)
+Title = "DarkMoonHub Library" >> UI Title (String)
+
+KeySystem = false >> set true to key system (bool)
+KeyTitle = "Key System" >> Key System UI Title (String)
+KeyDescription = "Key System Description Long" >> Key System UI Description (String)
+Keys = {"Key1", "Key2", "Key3"} >> Usable Keys For Unlock script (table, string)
+KeyLink = "pastebin.com/AbCdEfGhIjK" >> Link To Get Key (string)
 ]]
 ```
 ## Create Notification
