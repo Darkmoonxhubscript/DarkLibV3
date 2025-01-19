@@ -944,7 +944,7 @@ Min, Max = Min / Increase, Max / Increase
 
     local SliderFrame = Create("Frame", Parent, {
         Name = "Slider",
-        Size = UDim2.new(0, 490, 0, 40),
+        Size = UDim2.new(0, 455, 0, 40),
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
     })
     Corner(SliderFrame, UDim.new(0.3, 0))
