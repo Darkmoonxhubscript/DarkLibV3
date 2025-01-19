@@ -898,7 +898,7 @@ function AddTextBox(Parent, Configs)
      }
   end
 
-function DestroyToggle(TextBox)
+function DestroyTextBox(TextBox)
   local TextBox = TextBox
 TextBox.TextBoxFrame:Destroy()
 end
@@ -921,6 +921,126 @@ function EditTextBoxPlaceholder(TextBox, Text)
   local TextBox = TextBox
   SetProps(TextBox.TextBox, {
     PlaceholderText = tostring(Text)
+  })
+end
+
+function AddSlider(Parent, Configs)
+    local Name = Configs[1] or Configs.Name or Configs.Text or "Slider"
+    local Min = Configs[2] or Configs.Min or 0
+    local Max = Configs[3] or Configs.Max or 100
+    local Increase = Configs[4] or Configs.Increase or 1
+    local Default = Configs[5] or Configs.Default or 20
+    local Callback = Configs[6] or Configs.Callback or function() end
+
+    local function SnapToIncrease(value)
+        return math.floor(value / Increase + 0.5) * Increase
+    end
+
+    Default = math.clamp(SnapToIncrease(Default), Min, Max)
+
+    Min, Max = Min / Increase, Max / Increase
+
+    local SliderFrame = Create("Frame", Parent, {
+        Name = "Slider",
+        Size = UDim2.new(0, 490, 0, 40),
+        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+    })
+    Corner(SliderFrame, UDim.new(0.3, 0))
+
+    local SliderLabel = Create("TextLabel", SliderFrame, {
+        Text = Name,
+        Size = UDim2.new(1, -300, 0, 25),
+        Position = UDim2.new(0, 10, 0, 8),
+        Font = Enum.Font.FredokaOne,
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        BackgroundTransparency = 1,
+        TextSize = 20,
+        TextTruncate = "AtEnd",
+        TextXAlignment = Enum.TextXAlignment.Left,
+    })
+
+    local SliderValueLabel = Create("TextLabel", SliderFrame, {
+        Text = tostring(Default),
+        Size = UDim2.new(1, -425, 0, 25),
+        Position = UDim2.new(0, 215, 0, 8),
+        Font = Enum.Font.FredokaOne,
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        BackgroundTransparency = 1,
+        TextSize = 20,
+        TextScaled = true,
+        TextTruncate = "AtEnd",
+        TextDirection = "RightToLeft",
+        TextXAlignment = Enum.TextXAlignment.Right,
+    })
+
+    local SliderBarBackground = Create("Frame", SliderFrame, {
+        Size = UDim2.new(1, -300, 0, 8),
+        Position = UDim2.new(0, 290, 0, 16),
+        BackgroundColor3 = Color3.fromRGB(120, 120, 120),
+    })
+    Corner(SliderBarBackground)
+
+    local SliderBar = Create("Frame", SliderBarBackground, {
+        Size = UDim2.fromScale((Default - Min) / (Max - Min), 1),
+        BackgroundColor3 = Color3.fromRGB(0, 185, 255),
+    })
+    Corner(SliderBar)
+
+    local SliderButton = Create("Frame", SliderBarBackground, {
+        Size = UDim2.new(0, 10, 0, 24),
+        Position = UDim2.fromScale((Default - Min) / (Max - Min), 0.5),
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    })
+    Corner(SliderButton)
+
+    local function UpdateSliderValue(position)
+        local scaledValue = math.clamp(position, 0, 1)
+        local newValue = math.floor((scaledValue * (Max - Min)) + Min)
+        newValue = SnapToIncrease(newValue)
+
+        SliderButton.Position = UDim2.new(scaledValue, 0, 0.5, 0)
+        SliderBar.Size = UDim2.new(scaledValue, 0, 1, 0)
+        SliderValueLabel.Text = tostring(newValue * Increase)
+        Callback(newValue * Increase)
+    end
+
+    local defaultPosition = (Default - Min) / (Max - Min)
+    UpdateSliderValue(defaultPosition)
+
+    return {
+        SliderFrame = SliderFrame,
+        SliderLabel = SliderLabel,
+        SliderValueLabel = SliderValueLabel,
+        Min = Min,
+        Max = Max,
+        Increase = Increase,
+        Func = UpdateSliderValue
+    }
+end
+
+
+function DestroySlider(Slider)
+  local Slider = Slider
+Slider.SliderFrame:Destroy()
+end
+
+function EditSliderText(Slider, Text)
+  local Slider = Slider
+  SetProps(Slider.SliderLabel, {
+    Text = tostring(Text)
+  })
+end
+
+function EditSliderValue(Slider, Value)
+  local Slider = Slider
+  local Min = Slider.Min
+  local Max = Slider.Max
+  local NewValue = (Value - Min) / (Max - Min)
+  
+  Slider.Func(NewValue)
+  SetProps(Slider.SliderValueLabel, {
+    Text = tostring(Value)
   })
 end
 
