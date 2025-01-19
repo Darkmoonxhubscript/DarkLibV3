@@ -56,7 +56,7 @@ local Tab1 = NewTab({Name = "Tab", Icon = "IconName"})
 ```luau
 --[[
 Name = "TabName" >> UI Button TabName (String)
-Icon = "IconName" >> Tab Icon, No Need Put Id, You can get Icons In:.
+Icon = "IconName" >> Tab Icon, No Need Put Id Only Name, Eg: Sword, You can get Icons In: 
 https://github.com/Darkmoonxhubscript/DarkLibV2/blob/main/Icons.luau
 ]]
 ```
