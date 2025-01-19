@@ -80,7 +80,7 @@ Name = "My Text" >> TextLabel Text (String)
 -- ///////// Functions ///////// --
 
 DestroyTextLabel(TextLabel)
-EditTextLabelText(TextLabel, "Text")
+EditTextLabelText(TextLabel, "Text") 
 ]]
 ```
 ## Add a Paragraph
