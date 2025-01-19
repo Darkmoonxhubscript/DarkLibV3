@@ -1162,6 +1162,9 @@ end)
 
 end
 
+function EndLibrary()
+  ScreenGui:Destroy()
+end
 
 -- RETURN DARKLIB TABLE (DON'T REMOVE)
 return darklib
