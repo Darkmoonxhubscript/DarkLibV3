@@ -110,15 +110,19 @@ local Button1 = AddButton(Tab1, {
   print("Clicked")
   end
 })
-
 ```
 ```luau
 --[[
 Name = "Text" >> Button Text (String)
 Callback = function(Value) -button press function
 -- function here
-end --end function
+end
 ]]
+
+-- ///////// Functions ///////// --
+
+DestroyButton(Button)
+EditButtonText(Button, "Text")
 ```
 ## Add a Toggle
 ```luau
