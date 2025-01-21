@@ -1290,8 +1290,10 @@ end
     if table.find(OpcoesClicadas, NewOption) then
         for i, option in ipairs(OpcoesClicadas) do
             if option == NewOption then
+              if #OpcoesClicadas > 1 then
                 table.remove(OpcoesClicadas, i)
                 break
+                end
             end
         end
         
