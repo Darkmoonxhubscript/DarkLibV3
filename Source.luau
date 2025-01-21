@@ -520,7 +520,7 @@ function AddButton(Parent, Configs)
         TextYAlignment = Enum.TextYAlignment.Center,
         AutoButtonColor = false
     })
-    Corner(Button, UDim.new(0.3, 0)) 
+    Corner(Button, UDim.new(0.2, 0)) 
 
     local TextLabel = Create("TextLabel", Button, {
       Text = Name,
@@ -621,7 +621,7 @@ function AddTextLabel(Parent, Configs)
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(TextFrame, UDim.new(0.3, 0)) 
+    Corner(TextFrame, UDim.new(0.2, 0)) 
 
     local TextLabel = Create("TextLabel", TextFrame, {
         Size = UDim2.new(0, 440, 0, 30),
@@ -742,7 +742,7 @@ end
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(ToggleFrame1, UDim.new(0.3, 0))
+    Corner(ToggleFrame1, UDim.new(0.2, 0))
 
     
     local ToggleFrame2 = Create("Frame", ToggleFrame1, {
@@ -881,7 +881,7 @@ end
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(TextBoxFrame, UDim.new(0.3, 0))
+    Corner(TextBoxFrame, UDim.new(0.2, 0))
      
      local TextBoxText = Create("TextLabel", TextBoxFrame, {
         Text = Name,
@@ -988,7 +988,7 @@ end
         Size = UDim2.new(0, 455, 0, 40),
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
     })
-    Corner(SliderFrame, UDim.new(0.3, 0))
+    Corner(SliderFrame, UDim.new(0.2, 0))
 
     local SliderLabel = Create("TextLabel", SliderFrame, {
         Text = Name,
@@ -1133,7 +1133,7 @@ end
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(DropdownFrame, UDim.new(0, 13))
+    Corner(DropdownFrame, UDim.new(0.2, 0))
     
     local DropButton = Create("TextButton", DropdownFrame, {
         Size = UDim2.new(0, 30, 0, 30),
