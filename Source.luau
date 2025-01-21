@@ -1115,12 +1115,15 @@ end
 ------------- DROPDOWN -------------
 
 function AddDropDown(Parent, Configs)
-    local Name = Configs[1] or Configs.Name or Configs.Text or "Dropdown"
+    local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Dropdown"
     local Options = Configs[2] or Configs.Options or {"1", "2"}
-    local Default = Configs[3] or Configs.Default or "1"
-    local Callback = Configs[4] or Configs.Callback or function() end
+    local MultiSelect = Configs[3] or Configs.MultiSelect or false
+    local Default = Configs[4] or Configs.Default or "1"
+    local Callback = Configs[5] or Configs.Callback or function() end
    
    local OpcoesAtuais = {}
+   
+   local OpcoesClicadas = {}
    
    if Default == nil or Default == "nil" then
   Default = {"1", "2"}
@@ -1265,6 +1268,7 @@ end
     end
     
     NewOption.MouseButton1Click:Connect(function()
+      if not MultiSelect then
         for _, v in pairs(ListDrop:GetChildren()) do
             if v.Name == "Option" then
                 local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
@@ -1281,6 +1285,37 @@ end
         NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
         NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
         DropDownText2.Text = TextLabel.Text
+        
+      elseif MultiSelect then
+    if table.find(OpcoesClicadas, NewOption) then
+        for i, option in ipairs(OpcoesClicadas) do
+            if option == NewOption then
+                table.remove(OpcoesClicadas, i)
+                break
+            end
+        end
+        
+        local tween1 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
+        tween1:Play()
+        NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
+        NewOption.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+    else
+        table.insert(OpcoesClicadas, NewOption)
+        local tween2 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
+        tween2:Play()
+        NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
+        NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+    end
+
+    local selectedText = ""
+    for _, option in ipairs(OpcoesClicadas) do
+        selectedText = selectedText .. option.Text .. ", "
+    end
+    DropDownText2.Text = string.sub(selectedText, 1, -3)
+
+    Callback(DropDownText2.Text)
+end
+
     end)
 
     local isUnique = true
@@ -1395,20 +1430,6 @@ MakeDrag(MinimizeButton)
 end
 end)
   return MinimizeButton
-end
-
-function SetLibraryTransparency(amount)
-    for _, obj in ipairs(ScreenGui:GetDescendants()) do
-        if obj:IsA("Frame") then
-            obj.BackgroundTransparency = amount
-
-        elseif obj:IsA("TextLabel") then
-            obj.TextTransparency = amount
-
-        elseif obj:IsA("ImageLabel") then
-            obj.ImageTransparency = amount
-        end
-    end
 end
 
 function EndLibrary()
