@@ -1400,6 +1400,20 @@ end)
 
 end -- Window Close
 
+local function ChangeTransparency(amount)
+    for _, obj in ipairs(Screengui:GetDescendants()) do
+        if obj:IsA("Frame") then
+            obj.BackgroundTransparency = amount
+
+        elseif obj:IsA("TextLabel") then
+            obj.TextTransparency = amount
+
+        elseif obj:IsA("ImageLabel") then
+            obj.ImageTransparency = amount
+        end
+    end
+end
+
 function EndLibrary()
   ScreenGui:Destroy()
 end
