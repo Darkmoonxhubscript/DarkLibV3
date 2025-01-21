@@ -1395,10 +1395,7 @@ MakeDrag(MinimizeButton)
 end
 end)
   return MinimizeButton
-  end
-
-
-end -- Window Close
+end
 
 function SetLibraryTransparency(amount)
     for _, obj in ipairs(ScreenGui:GetDescendants()) do
@@ -1417,6 +1414,10 @@ end
 function EndLibrary()
   ScreenGui:Destroy()
 end
+
+
+
+end -- Window Close
 
 -- RETURN DARKLIB TABLE (DON'T REMOVE)
 return darklib
