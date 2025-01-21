@@ -1114,6 +1114,7 @@ end
 
 ------------- DROPDOWN -------------
 
+local FirstTime = true
 function AddDropDown(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Dropdown"
     local Options = Configs[2] or Configs.Options or {"1", "2"}
@@ -1287,17 +1288,23 @@ end
         DropDownText2.Text = TextLabel.Text
         
       elseif MultiSelect then
+        if FirstTime then
+          FirstTime = false
+          table.insert(OpcoesClicadas, NewOption)
+end
     if table.find(OpcoesClicadas, NewOption) then
         for i, option in ipairs(OpcoesClicadas) do
             if option == NewOption then
               if #OpcoesClicadas >= 2 then
                 table.remove(OpcoesClicadas, i)
                 break
+                else
+                  return
                 end
             end
         end
-        
-        if #OpcoesClicadas >= 2 then
+       
+       if #OpcoesClicadas >= 2 then
         local tween1 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
         tween1:Play()
         NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
@@ -1311,6 +1318,13 @@ end
         NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
     end
 
+if #OpcoesClicadas < 1 then
+  DropDownText2.Text = "None"
+
+    Callback(DropDownText2.Text)
+  end
+
+if #OpcoesClicadas > 1 then
     local selectedText = ""
     for _, option in ipairs(OpcoesClicadas) do
         selectedText = selectedText .. option:FindFirstChild("OptionTextLabel").Text .. ", "
@@ -1318,6 +1332,7 @@ end
     DropDownText2.Text = string.sub(selectedText, 1, -3)
 
     Callback(DropDownText2.Text)
+    end
 end
 
     end)
