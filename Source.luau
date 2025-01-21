@@ -1400,8 +1400,8 @@ end)
 
 end -- Window Close
 
-function ChangeTransparency(amount)
-    for _, obj in ipairs(Screengui:GetDescendants()) do
+function SetLibraryTransparency(amount)
+    for _, obj in ipairs(ScreenGui:GetDescendants()) do
         if obj:IsA("Frame") then
             obj.BackgroundTransparency = amount
 
