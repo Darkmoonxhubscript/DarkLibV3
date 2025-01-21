@@ -1400,7 +1400,7 @@ end)
 
 end -- Window Close
 
-local function ChangeTransparency(amount)
+function ChangeTransparency(amount)
     for _, obj in ipairs(Screengui:GetDescendants()) do
         if obj:IsA("Frame") then
             obj.BackgroundTransparency = amount
