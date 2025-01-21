@@ -234,6 +234,7 @@ local TopBar = Create("Frame", MainFrame, {
     Name = "TopBar",
     BackgroundColor3 = Color3.fromRGB(35, 35, 35),
     Size = UDim2.new(1, 0, 0, 36),
+    BackgroundTransparency = 0.5,
     Position = UDim2.new(0, 0, 0, 0)
 })
 Corner(TopBar, UDim.new(0.2, 0))
@@ -331,6 +332,7 @@ local RightScrollFrame = Create("Frame", MainFrame, {
     Name = "Containers",
     BackgroundColor3 = Color3.fromRGB(28, 28, 28),
     BorderSizePixel = 0,
+    BackgroundTransparency = 0.5,
     Size = UDim2.new(0, 470, 0.9, 0),
     Position = UDim2.new(0.3, -17, 0.1, 0)
 })
@@ -1137,7 +1139,7 @@ end
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0
     })
-    Corner(DropdownFrame, UDim.new(0.2, 0))
+    Corner(DropdownFrame, UDim.new(0, 10))
     
     local DropButton = Create("TextButton", DropdownFrame, {
         Size = UDim2.new(0, 30, 0, 30),
@@ -1311,14 +1313,15 @@ end
     end
     
     local selectedText = ""
-    if #OpcoesAtuais < 1 then
+    if #OpcoesClicadas < 1 then
     selectedText = "None"
-    end
+    DropDownText2.Text = selectedText
+    else
     for _, option in ipairs(OpcoesClicadas) do
         selectedText = selectedText .. option:FindFirstChild("OptionTextLabel").Text .. ", "
     end
     DropDownText2.Text = string.sub(selectedText, 1, -3)
-
+end
     Callback(DropDownText2.Text)
 end
 
@@ -1408,6 +1411,7 @@ end
     AnchorPoint = Vector2.new(0, 0),
     Size = UDim2.new(0, 50, 0, 50),
     Position = UDim2.new(0, 117, 0, 68),
+    BackgroundTransparency = 0.1,
     BackgroundColor3 = Color3.fromRGB(50, 50, 50),
     Visible = true,
     AutoButtonColor = false
