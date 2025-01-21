@@ -1112,53 +1112,7 @@ function EditSliderValue(Slider, Value)
   })
 end
 
-------------- EXTRA FUNCTIONS -------------
-
-function AddMinimizeButton(Configs)
-  local ImageId = Configs[1] or Configs.Icon or Configs.Logo or "10734897102"
-  
-  if ImageId == nil or ImageId == "nil" then
-  ImageId = "10734897102"
-end
-  
-  if not ImageId:find("rbxassetid://") then
-       ImageId = "rbxassetid://" .. ImageId
-       end
-  
-  local MinimizeButton = Create("ImageButton", ScreenGui, {
-    Image = ImageId,
-    AnchorPoint = Vector2.new(0, 0),
-    Size = UDim2.new(0, 50, 0, 50),
-    Position = UDim2.new(0, 117, 0, 68),
-    BackgroundColor3 = Color3.fromRGB(50, 50, 50),
-    Visible = true,
-    AutoButtonColor = false
-  })Stroke(MinimizeButton)
-Corner(MinimizeButton, UDim.new(0, 9))
-MakeDrag(MinimizeButton)
-  
-  local MinimizeButtonState = true
-  MinimizeButton.MouseButton1Click:Connect(function()
-    if MinimizeButtonState then
-      local tweenClose = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0, 0, 0, 0)})
-  tweenClose:Play()
-  tweenClose.Completed:Wait()
-      SetProps(MainFrame, {
-        Visible = false
-      })
-      MinimizeButtonState = false
-      else
-        SetProps(MainFrame, {
-        Visible = true
-      })
-        MinimizeButtonState = true
-        local tweenOpen = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0.6, 0)})
-  tweenOpen:Play()
-  tweenOpen.Completed:Wait()
-end
-end)
-  return MinimizeButton
-  end
+------------- DROPDOWN -------------
 
 function AddDropDown(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or "Dropdown"
@@ -1186,7 +1140,7 @@ function AddDropDown(Parent, Configs)
     })
     
     local DropDownText1 = Create("TextLabel", DropdownFrame, {
-        Size = UDim2.new(0, 200, 0, 40),
+        Size = UDim2.new(0, 220, 0, 40),
         Position = UDim2.new(0, 10, 0, 0),
         Text = Name,
         Font = Enum.Font.FredokaOne,
@@ -1194,21 +1148,21 @@ function AddDropDown(Parent, Configs)
         TextSize = 20,
         BackgroundTransparency = 1,
         TextWrapped = false,
-        TextTruncate = "AtEnd",
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
     })
   
   local DropDownText2Frame = Create("Frame", DropdownFrame, {
-        Size = UDim2.new(0, 165, 0, 30),
-        Position = UDim2.new(0, 246, 0, 5),
+        Size = UDim2.new(0, 150, 0, 30),
+        Position = UDim2.new(0, 260, 0, 5),
         BackgroundColor3 = Color3.fromRGB(80, 80, 80),
         BackgroundTransparency = 0
     })Corner(DropDownText2Frame)
   
     local DropDownText2 = Create("TextLabel", DropdownFrame, {
-        Size = UDim2.new(0, 165, 0, 30),
-        Position = UDim2.new(0, 246, 0, 5),
+        Size = UDim2.new(0, 150, 0, 30),
+        Position = UDim2.new(0, 260, 0, 5),
         Text = Default,
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(200, 200, 200),
@@ -1284,7 +1238,8 @@ function AddDropDown(Parent, Configs)
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
         TextXAlignment = "Left",
-        TextWrapped = false
+        TextWrapped = false,
+        TextTruncate = "SplitWord"
     })
     
     local BagulhoAzul = Create("Frame", NewOption, {
@@ -1292,7 +1247,7 @@ function AddDropDown(Parent, Configs)
         Position = UDim2.new(0, 3, 0, 2),
         BackgroundColor3 = Color3.fromRGB(0, 165, 255),
         Size = UDim2.new(0, 5, 0, 16),
-        BackgroundTransparency = 0.5
+        BackgroundTransparency = 0.7
     })
     Corner(BagulhoAzul)
     
@@ -1308,7 +1263,7 @@ function AddDropDown(Parent, Configs)
     NewOption.MouseButton1Click:Connect(function()
         for _, v in pairs(ListDrop:GetChildren()) do
             if v.Name == "Option" then
-                local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.5})
+                local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
                 tween1:Play()
                 v.TextColor3 = Color3.fromRGB(240, 240, 240)
                 v.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
@@ -1388,6 +1343,56 @@ end
 
    return DropdownFrame
 end
+
+
+------------- EXTRA FUNCTIONS -------------
+
+function AddMinimizeButton(Configs)
+  local ImageId = Configs[1] or Configs.Icon or Configs.Logo or "10734897102"
+  
+  if ImageId == nil or ImageId == "nil" then
+  ImageId = "10734897102"
+end
+  
+  if not ImageId:find("rbxassetid://") then
+       ImageId = "rbxassetid://" .. ImageId
+       end
+  
+  local MinimizeButton = Create("ImageButton", ScreenGui, {
+    Image = ImageId,
+    AnchorPoint = Vector2.new(0, 0),
+    Size = UDim2.new(0, 50, 0, 50),
+    Position = UDim2.new(0, 117, 0, 68),
+    BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+    Visible = true,
+    AutoButtonColor = false
+  })Stroke(MinimizeButton)
+Corner(MinimizeButton, UDim.new(0, 9))
+MakeDrag(MinimizeButton)
+  
+  local MinimizeButtonState = true
+  MinimizeButton.MouseButton1Click:Connect(function()
+    if MinimizeButtonState then
+      local tweenClose = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0, 0, 0, 0)})
+  tweenClose:Play()
+  tweenClose.Completed:Wait()
+      SetProps(MainFrame, {
+        Visible = false
+      })
+      MinimizeButtonState = false
+      else
+        SetProps(MainFrame, {
+        Visible = true
+      })
+        MinimizeButtonState = true
+        local tweenOpen = TweenService:Create(MainFrame, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.5, 0, 0.6, 0)})
+  tweenOpen:Play()
+  tweenOpen.Completed:Wait()
+end
+end)
+  return MinimizeButton
+  end
+
 
 end -- Window Close
 
