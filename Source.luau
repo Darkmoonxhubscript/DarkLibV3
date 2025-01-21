@@ -1290,26 +1290,25 @@ end
     if table.find(OpcoesClicadas, NewOption) then
         for i, option in ipairs(OpcoesClicadas) do
             if option == NewOption then
-              if #OpcoesClicadas > 1 then
+              if #OpcoesClicadas >= 2 then
                 table.remove(OpcoesClicadas, i)
                 break
                 end
             end
         end
         
-        
+        if #OpcoesClicadas >= 2 then
         local tween1 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
         tween1:Play()
         NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
         NewOption.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+        end
     else
-      if #OpcoesClicadas > 1 then
         table.insert(OpcoesClicadas, NewOption)
         local tween2 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween2:Play()
         NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
         NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
-        end
     end
 
     local selectedText = ""
