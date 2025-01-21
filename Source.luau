@@ -1309,7 +1309,7 @@ end
 
     local selectedText = ""
     for _, option in ipairs(OpcoesClicadas) do
-        selectedText = selectedText .. option.Text .. ", "
+        selectedText = selectedText .. option:FindFirstChild("OptionTextLabel").Text .. ", "
     end
     DropDownText2.Text = string.sub(selectedText, 1, -3)
 
