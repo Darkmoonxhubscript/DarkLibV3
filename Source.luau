@@ -1060,7 +1060,7 @@ local dragging = false
                 if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                     local relativePosition = (input.Position.X - SliderBarBackground.AbsolutePosition.X) / SliderBarBackground.AbsoluteSize.X
                     UpdateSliderValue(relativePosition)
-                    local tween1 = TweenService:Create(SliderValueLabel, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {Rotation = math.random(-10, 15)})
+                    local tween1 = TweenService:Create(SliderValueLabel, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {Rotation = math.random(-15, 15)})
                     tween1:Play()
                     tween1.Completed:Wait()
                     local tween2 = TweenService:Create(SliderValueLabel, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {Rotation = 0})
@@ -1121,6 +1121,10 @@ function AddDropDown(Parent, Configs)
     local Callback = Configs[4] or Configs.Callback or function() end
    
    local OpcoesAtuais = {}
+   
+   if Default == nil or Default == "nil" then
+  Default = {"1", "2"}
+end
    
     local DropdownFrame = Create("Frame", Parent, {
         Name = "Dropdown",
