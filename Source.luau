@@ -1200,15 +1200,15 @@ function AddDropDown(Parent, Configs)
     })
   
   local DropDownText2Frame = Create("Frame", DropdownFrame, {
-        Size = UDim2.new(0, 200, 0, 30),
+        Size = UDim2.new(0, 165, 0, 30),
         Position = UDim2.new(0, 246, 0, 5),
         BackgroundColor3 = Color3.fromRGB(80, 80, 80),
         BackgroundTransparency = 0
     })Corner(DropDownText2Frame)
   
     local DropDownText2 = Create("TextLabel", DropdownFrame, {
-        Size = UDim2.new(0, 200, 0, 30),
-        Position = UDim2.new(0, 247, 0, 5),
+        Size = UDim2.new(0, 165, 0, 30),
+        Position = UDim2.new(0, 246, 0, 5),
         Text = Default,
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(200, 200, 200),
@@ -1276,7 +1276,7 @@ function AddDropDown(Parent, Configs)
     
     local TextLabel = Create("TextLabel", NewOption, {
         Name = "OptionTextLabel",
-        Size = UDim2.new(0, 450, 0, 20),
+        Size = UDim2.new(0, 415, 0, 20),
         Position = UDim2.new(0, 12, 0, 0),
         Text = Name,
         TextSize = 15,
@@ -1289,7 +1289,7 @@ function AddDropDown(Parent, Configs)
     
     local BagulhoAzul = Create("Frame", NewOption, {
         Name = "BagulhoAzul",
-        Position = UDim2.new(0, 0, 0, 0),
+        Position = UDim2.new(0, 5, 0, 0),
         BackgroundColor3 = Color3.fromRGB(0, 165, 255),
         Size = UDim2.new(0, 10, 0, 20),
         BackgroundTransparency = 1
@@ -1345,7 +1345,7 @@ end
     
     local DropdownOn = false
    DropButton.MouseButton1Click:Connect(function()
-     local frameSize = UDim2.new(0, 490, 0, 100)
+     local frameSize = UDim2.new(0, 455, 0, 100)
     for i,v in pairs(ListDrop:GetChildren()) do
       if v.Name == "Option" and i <= 7 then
         FrameSizeNew = frameSize + UDim2.new(0, 0, 0, 25)
@@ -1360,7 +1360,7 @@ end
       tween1:Play()tween2:Play()
     else
       DropdownOn = false
-      local tween1 = TweenService:Create(DropdownFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 490, 0, 40)})
+      local tween1 = TweenService:Create(DropdownFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 455, 0, 40)})
       local tween2 = TweenService:Create(Setinha, TweenInfo.new(0.2), {Rotation = 0})
       tween1:Play()tween2:Play()tween1.Completed:Wait()
       Bagulho1.Visible = DropdownOn
