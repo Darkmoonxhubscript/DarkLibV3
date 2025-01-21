@@ -1289,10 +1289,10 @@ function AddDropDown(Parent, Configs)
     
     local BagulhoAzul = Create("Frame", NewOption, {
         Name = "BagulhoAzul",
-        Position = UDim2.new(0, 5, 0, 0),
+        Position = UDim2.new(0, 3, 0, 2),
         BackgroundColor3 = Color3.fromRGB(0, 165, 255),
-        Size = UDim2.new(0, 10, 0, 20),
-        BackgroundTransparency = 1
+        Size = UDim2.new(0, 5, 0, 16),
+        BackgroundTransparency = 0.5
     })
     Corner(BagulhoAzul)
     
@@ -1308,7 +1308,7 @@ function AddDropDown(Parent, Configs)
     NewOption.MouseButton1Click:Connect(function()
         for _, v in pairs(ListDrop:GetChildren()) do
             if v.Name == "Option" then
-                local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 1})
+                local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.5})
                 tween1:Play()
                 v.TextColor3 = Color3.fromRGB(240, 240, 240)
                 v.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
