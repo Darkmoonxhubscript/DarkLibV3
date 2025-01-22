@@ -1269,8 +1269,8 @@ end
         Callback(Default)
         TextLabel.Text = Default
         if MultiSelect then
-          table.insert(OpcoesClicadas, Default)
-          end
+        table.insert(OpcoesClicadas, NewOption)
+        end
     end
     
     NewOption.MouseButton1Click:Connect(function()
