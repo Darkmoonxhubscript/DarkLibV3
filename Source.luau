@@ -1262,6 +1262,10 @@ end
     Corner(BagulhoAzul)
     
     if TextLabel.Text == Default then
+      if MultiSelect then
+        table.insert(OpcoesClicadas, NewOption)
+        print(OpcoesClicadas)
+        end
         local tween5 = TweenService:Create(BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween5:Play()
         NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
@@ -1290,6 +1294,7 @@ end
         DropDownText2.Text = TextLabel.Text
         
       elseif MultiSelect then
+        print(OpcoesClicadas)
     if table.find(OpcoesClicadas, NewOption) then
         if #OpcoesClicadas > 1 then
             for i, option in ipairs(OpcoesClicadas) do
