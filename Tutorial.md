@@ -223,6 +223,7 @@ EditSliderValue(Slider, Value)
 local Dropdown1 = AddDropDown(Tab1, {
   Name = "Dropdown",
   Options = {"1", "2", "3", "4", "5", "6", "7"},
+  MultiSelect = false,
   Default = "1",
   Callback = function(Value)
     print(Value)
@@ -233,6 +234,7 @@ local Dropdown1 = AddDropDown(Tab1, {
 --[[
 Name = "Dropdown" >> Dropdown Text (String)
 Options = {"1", "2", "3", "4", "5", "6", "7"} >> Options That Can Be Selected, you can add more. (String Table)
+MultiSelect >> Set to true to multiple select options
 Default = "1" >> Initial Selected Option (String)
 Callback = function(Value) -- Value = Selected Option Name
 -- Function Here
