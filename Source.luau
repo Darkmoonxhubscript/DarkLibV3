@@ -1530,12 +1530,12 @@ function AddDiscordInvite(Parent, Configs)
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         BackgroundTransparency = 0,
     })
-    Corner(DiscordInviteFrame, UDim.new(0, 13))
+    Corner(DiscordInviteFrame, UDim.new(0, 10))
 
     local ServerName = Create("TextLabel", DiscordInviteFrame, {
         Name = "ServerName",
-        Size = UDim2.new(0, 200, 0, 40),
-        Position = UDim2.new(0, 10, 0, -7),
+        Size = UDim2.new(0, 380, 0, 20),
+        Position = UDim2.new(0, 10, 0, 1),
         Text = Name,
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(243, 243, 243),
@@ -1548,7 +1548,7 @@ function AddDiscordInvite(Parent, Configs)
   
   local Description = Create("TextLabel", DiscordInviteFrame, {
         Name = "Description",
-        Size = UDim2.new(0, 400, 0, 40),
+        Size = UDim2.new(0, 370, 0, 40),
         Position = UDim2.new(0, 80, 0, 20),
         Text = Description,
         Font = Enum.Font.FredokaOne,
@@ -1562,8 +1562,8 @@ function AddDiscordInvite(Parent, Configs)
   
   local ServerInviteLink = Create("TextLabel", DiscordInviteFrame, {
         Name = "ServerInviteLink",
-        Size = UDim2.new(0, 200, 0, 40),
-        Position = UDim2.new(0, 80, 0, 50),
+        Size = UDim2.new(0, 370, 0, 20),
+        Position = UDim2.new(0, 80, 0, 60),
         Text = Invite,
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(40, 150, 255),
@@ -1577,10 +1577,10 @@ function AddDiscordInvite(Parent, Configs)
   local ServerIcon = Create("ImageLabel", DiscordInviteFrame, {
      Name = "ServerIcon",
      Image = Logo,
-     Size = UDim2.new(0, 60, 0, 60),
-     Position = UDim2.new(1, -475, 0, 20),
+     Size = UDim2.new(0, 55, 0, 55),
+     Position = UDim2.new(1, -440, 0, 23),
      BackgroundTransparency = 1
-   })Corner(ServerIcon, UDim.new(0, 4))Stroke(ServerIcon)
+   })Corner(ServerIcon, UDim.new(0, 4))Stroke(ServerIcon, Color3.fromRGB(57, 57, 57), 2)
   
   local JoinButton = Create("TextButton", DiscordInviteFrame, {
     Name = "JoinButton",
