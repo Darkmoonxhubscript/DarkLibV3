@@ -160,16 +160,17 @@ function NewNotify(Configs)
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         AutomaticSize = Enum.AutomaticSize.Y
     })
-    Stroke(Frame2, Color3.fromRGB(200, 200, 200), 1)
+    Stroke(Frame2, Color3.fromRGB(64, 64, 64), 3)
     Corner(Frame2, UDim.new(0, 5))
 
-    Create("TextLabel", Frame2, {
-        Size = UDim2.new(1, -30, 0, 25),
+    local Title = Create("TextLabel", Frame2, {
+        Size = UDim2.new(1, -38, 0, 25),
         Font = Enum.Font.FredokaOne,
         BackgroundTransparency = 1,
         Text = Title,
         TextSize = 20,
         Position = UDim2.new(0, 10, 0, 5),
+        TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
         TextColor3 = Color3.fromRGB(255, 255, 255)
     })
@@ -179,6 +180,7 @@ function NewNotify(Configs)
         Font = Enum.Font.FredokaOne,
         TextSize = 20,
         BackgroundTransparency = 1,
+        TextTruncate = "SplitWord",
         TextColor3 = Color3.fromRGB(200, 200, 200),
         Position = UDim2.new(1, -5, 0, 5),
         AnchorPoint = Vector2.new(1, 0),
@@ -189,27 +191,29 @@ function NewNotify(Configs)
         Frame1:Destroy()
     end)
 
-    Create("TextLabel", Frame2, {
-        Size = UDim2.new(1, -30, 0, 0),
+    local Description = Create("TextLabel", Frame2, {
+        Size = UDim2.new(1, -20, 0, 35),
         Position = UDim2.new(0, 10, 0, 35),
         TextSize = 15,
+        TextTruncate = "SplitWord",
         TextColor3 = Color3.fromRGB(200, 200, 200),
         TextXAlignment = Enum.TextXAlignment.Left,
         Text = Description,
         Font = Enum.Font.FredokaOne,
         BackgroundTransparency = 1,
         AutomaticSize = Enum.AutomaticSize.Y,
+        TextXAlignment = "Left",
+        TextYAlignment = "Top",
         TextWrapped = true
     })
 
     local Separator = Create("Frame", Frame2, {
-        Size = UDim2.new(1, -4, 0, 2),
+        Size = UDim2.new(1, -20, 0, 2),
         BackgroundColor3 = Color3.fromRGB(55, 55, 55),
-        Position = UDim2.new(0, 2, 1, -4)
+        Position = UDim2.new(0, 10, 1, -45),
+        BorderSizePixel = 0
     })
-    Stroke(Separator, Color3.fromRGB(255, 255, 255), 0.1)
     
-    Corner(Frame2, UDim.new(0, 0))
 task.spawn(function()
     task.wait(Time)
     Frame1:Destroy()
@@ -1541,6 +1545,7 @@ function AddDiscordInvite(Parent, Configs)
         TextColor3 = Color3.fromRGB(243, 243, 243),
         TextSize = 20,
         BackgroundTransparency = 1,
+        TextTruncate = "SplitWord",
         TextWrapped = false,
         TextXAlignment = Enum.TextXAlignment.Left,
         TextYAlignment = Enum.TextYAlignment.Center
@@ -1552,6 +1557,7 @@ function AddDiscordInvite(Parent, Configs)
         Position = UDim2.new(0, 80, 0, 20),
         Text = Description,
         Font = Enum.Font.FredokaOne,
+        TextTruncate = "SplitWord",
         TextColor3 = Color3.fromRGB(180, 180, 180),
         TextSize = 20,
         BackgroundTransparency = 1,
@@ -1565,6 +1571,7 @@ function AddDiscordInvite(Parent, Configs)
         Size = UDim2.new(0, 370, 0, 20),
         Position = UDim2.new(0, 80, 0, 60),
         Text = Invite,
+        TextTruncate = "SplitWord",
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(40, 150, 255),
         TextSize = 20,
