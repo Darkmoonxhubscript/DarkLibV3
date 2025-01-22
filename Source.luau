@@ -1019,7 +1019,7 @@ Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
     local SliderValueLabel = Create("TextLabel", SliderValueLabelFrameBackground, {
         Text = tostring(Default),
         Size = UDim2.new(1, -90, 0, 25),
-        Position = UDim2.new(0, 44, 0, 0),
+        Position = UDim2.new(0, 46, 0, 0),
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
@@ -1030,8 +1030,8 @@ Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
     })
 
     local SliderBarBackground = Create("Frame", SliderFrame, {
-        Size = UDim2.new(1, -300, 0, 8),
-        Position = UDim2.new(0, 290, 0, 16),
+        Size = UDim2.new(1, -305, 0, 8),
+        Position = UDim2.new(0, 295, 0, 16),
         BackgroundColor3 = Color3.fromRGB(120, 120, 120),
     })
     Corner(SliderBarBackground)
@@ -1196,11 +1196,11 @@ end
         TextYAlignment = Enum.TextYAlignment.Center
     })
     
-    local Bagulho1 = Create("Frame", DropdownFrame, {
+    --[[local Bagulho1 = Create("Frame", DropdownFrame, {
     Size = UDim2.new(1, 0, 0, 0),
     Position = UDim2.new(0, 0, 0, 37),
     Visible = false
-  })Stroke(Bagulho1, Color3.fromRGB(120, 120, 120), 1)
+  })Stroke(Bagulho1, Color3.fromRGB(120, 120, 120), 1)]]
   
   local ListDrop = Create("ScrollingFrame", DropdownFrame, {
     Name = "listdrop",
@@ -1368,12 +1368,12 @@ end
      local frameSize = UDim2.new(0, 455, 0, 100)
     for i,v in pairs(ListDrop:GetChildren()) do
       if v.Name == "Option" and i <= 7 then
-        FrameSizeNew = frameSize + UDim2.new(0, 0, 0, 25)
+        FrameSizeNew = frameSize + UDim2.new(0, 0, 0, 35)
       end
     end
     if DropdownOn == false then
       DropdownOn = true
-      Bagulho1.Visible = DropdownOn
+      --Bagulho1.Visible = DropdownOn
       ListDrop.Visible = DropdownOn
       local tween1 = TweenService:Create(DropdownFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Size = FrameSizeNew})
       local tween2 = TweenService:Create(Setinha, TweenInfo.new(0.2), {Rotation = 180})
@@ -1383,7 +1383,7 @@ end
       local tween1 = TweenService:Create(DropdownFrame, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 455, 0, 40)})
       local tween2 = TweenService:Create(Setinha, TweenInfo.new(0.2), {Rotation = 0})
       tween1:Play()tween2:Play()tween1.Completed:Wait()
-      Bagulho1.Visible = DropdownOn
+      --Bagulho1.Visible = DropdownOn
       ListDrop.Visible = DropdownOn
     end
   end)
