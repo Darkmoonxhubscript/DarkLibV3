@@ -1291,7 +1291,7 @@ end
         
       elseif MultiSelect then
     if table.find(OpcoesClicadas, NewOption) then
-        
+        if #OpcoesClicadas > 1 then
             for i, option in ipairs(OpcoesClicadas) do
                 if option == NewOption then
                     table.remove(OpcoesClicadas, i)
@@ -1303,7 +1303,7 @@ end
             tween1:Play()
             NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
             NewOption.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-        
+        end
     else
         table.insert(OpcoesClicadas, NewOption)
         local tween2 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
@@ -1314,14 +1314,14 @@ end
     
     local selectedText = ""
     if #OpcoesClicadas < 1 then
-    selectedText = "None"
-    DropDownText2.Text = selectedText
+        selectedText = "None"
+        DropDownText2.Text = selectedText
     else
-    for _, option in ipairs(OpcoesClicadas) do
-        selectedText = selectedText .. option:FindFirstChild("OptionTextLabel").Text .. ", "
+        for _, option in ipairs(OpcoesClicadas) do
+            selectedText = selectedText .. option:FindFirstChild("OptionTextLabel").Text .. ", "
+        end
+        DropDownText2.Text = string.sub(selectedText, 1, -3)
     end
-    DropDownText2.Text = string.sub(selectedText, 1, -3)
-end
     Callback(DropDownText2.Text)
 end
 
