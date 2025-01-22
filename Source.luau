@@ -1007,8 +1007,16 @@ end
         TextTruncate = "SplitWord",
         TextXAlignment = Enum.TextXAlignment.Left,
     })
+  
+  local SliderValueLabelFrameBackground = Create("Frame", SliderFrame, {
+    Size = UDim2.new(1, -410, 0, 25),
+    Position = UDim2.new(0, 240, 0, 8),
+    BorderSizePixel = 0,
+    BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+  })Corner(SliderValueLabelFrameBackground, UDim.new(0, 10))
+Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 1.8)
 
-    local SliderValueLabel = Create("TextLabel", SliderFrame, {
+    local SliderValueLabel = Create("TextLabel", SliderValueLabelFrameBackground, {
         Text = tostring(Default),
         Size = UDim2.new(1, -410, 0, 25),
         Position = UDim2.new(0, 240, 0, 8),
