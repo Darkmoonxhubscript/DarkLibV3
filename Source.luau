@@ -1268,9 +1268,6 @@ end
         NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
         Callback(Default)
         TextLabel.Text = Default
-        if MultiSelect then
-        table.insert(OpcoesClicadas, NewOption)
-        end
     end
     
     NewOption.MouseButton1Click:Connect(function()
