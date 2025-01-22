@@ -1013,13 +1013,13 @@ end
     Position = UDim2.new(0, 240, 0, 8),
     BorderSizePixel = 0,
     BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-  })Corner(SliderValueLabelFrameBackground, UDim.new(0, 10))
-Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 1.8)
+  })Corner(SliderValueLabelFrameBackground, UDim.new(0, 7))
+Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
 
     local SliderValueLabel = Create("TextLabel", SliderValueLabelFrameBackground, {
         Text = tostring(Default),
-        Size = UDim2.new(1, -410, 0, 25),
-        Position = UDim2.new(0, 240, 0, 8),
+        Size = UDim2.new(1, -90, 0, 25),
+        Position = UDim2.new(0, 44, 0, 0),
         Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
