@@ -650,9 +650,9 @@ function NewTab(Configs)
         SelectedTab = TabName 
     end)
     
-    function Tab:DestroyTab()
-      local Tab = TabFrame
-      Tab:Destroy()
+    function TabFrame:DestroyTab()
+      self:Destroy()
+      darklib.Tabs[TabName] = nil
       end
 
     return TabFrame
