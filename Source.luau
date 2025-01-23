@@ -555,7 +555,7 @@ function NewTab(Configs)
         Text = TabName,
         BackgroundTransparency = 1,
         TextColor3 = Color3.fromRGB(200, 200, 200),
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextSize = 14,
         TextDirection = "LeftToRight",
         TextTruncate = "SplitWord",
@@ -736,7 +736,7 @@ function AddSection(Parent, Configs)
         Size = UDim2.new(0, 455, 0, 20),
         Position = UDim2.new(0, 0, 0, 0),
         Text = Name,
-        Font = Enum.Font.Gotham,
+        Font = Enum.Font.GothamBold,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         TextSize = 22,
         BackgroundTransparency = 1,
@@ -781,7 +781,7 @@ function AddTextLabel(Parent, Configs)
         Size = UDim2.new(0, 440, 0, 30),
         Position = UDim2.new(0, 10, 0, 0),
         Text = Name,
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         TextSize = 20,
         BackgroundTransparency = 1,
@@ -828,7 +828,7 @@ function AddParagraph(Parent, Configs)
         Size = UDim2.new(0, 435, 0, 20),
         Position = UDim2.new(0, 10, 0, 5),
         Text = Name,
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         TextSize = 20,
         BackgroundTransparency = 1,
@@ -924,7 +924,7 @@ end
 local TextToggle = Create("TextLabel", ToggleFrame1, {
         Text = Name,
         TextColor3 = Color3.fromRGB(240, 240, 240),
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextSize = 20,
         BackgroundTransparency = 1,
         Size = UDim2.new(0, 350, 0, 40),
@@ -1039,7 +1039,7 @@ end
      local TextBoxText = Create("TextLabel", TextBoxFrame, {
         Text = Name,
         TextColor3 = Color3.fromRGB(240, 240, 240),
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextSize = 20,
         BackgroundTransparency = 1,
         Size = UDim2.new(0, 200, 0, 40),
@@ -1059,7 +1059,7 @@ end
     BackgroundTransparency = 0,
     Text = Default,
     TextColor3 = Color3.fromRGB(240, 240, 240),
-    Font = Enum.Font.GothamMedium,
+    Font = Enum.Font.Gotham,
     PlaceholderText = PlaceHolder,
     TextScaled = true
   })
@@ -1148,7 +1148,7 @@ end
         Text = Name,
         Size = UDim2.new(1, -230, 0, 25),
         Position = UDim2.new(0, 10, 0, 8),
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
         TextSize = 20,
@@ -1168,7 +1168,7 @@ Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
         Text = tostring(Default),
         Size = UDim2.new(1, -90, 0, 25),
         Position = UDim2.new(0, 46, 0, 0),
-        Font = Enum.Font.GothamBold,
+        Font = Enum.Font.Gotham,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
         TextSize = 20,
@@ -1313,7 +1313,7 @@ end
         Size = UDim2.new(0, 220, 0, 40),
         Position = UDim2.new(0, 10, 0, 0),
         Text = Name,
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         TextSize = 20,
         BackgroundTransparency = 1,
@@ -1478,7 +1478,7 @@ end
     end
     
     local selectedText = ""
-    if #OpcoesClicadas < 1 then
+    if #OpcoesClicadas < 1 and MultiSelect then
         selectedText = "None"
         DropDownText2.Text = selectedText
     else
@@ -1728,7 +1728,7 @@ function AddDiscordInvite(Parent, Configs)
         Position = UDim2.new(0, 80, 0, 60),
         Text = Invite,
         TextTruncate = "SplitWord",
-        Font = Enum.Font.GothamBold,
+        Font = Enum.Font.FredokaOne,
         TextColor3 = Color3.fromRGB(40, 150, 255),
         TextSize = 20,
         BackgroundTransparency = 1,
@@ -1751,7 +1751,7 @@ function AddDiscordInvite(Parent, Configs)
     AnchorPoint = Vector2.new(0.5, 1),
     Position = UDim2.new(0.5, 0, 1, -7),
     Text = "Join Server",
-    Font = Enum.Font.GothamBold,
+    Font = Enum.Font.Gotham,
     TextSize = 12,
     TextScaled = true,
     TextColor3 = Color3.fromRGB(255, 255, 255),
