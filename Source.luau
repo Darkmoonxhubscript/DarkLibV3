@@ -1,12 +1,35 @@
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
+local MarketplaceService = game:GetService("MarketplaceService")
 
 local darklib = {
-  Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))()
+  Themes = {
+    Dark = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(40, 40, 40)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(47.5, 47.5, 47.5)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 40, 40))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+      ["Color Stroke"] = Color3.fromRGB(40, 40, 40),
+      ["Color Theme"] = Color3.fromRGB(88, 101, 242),
+      ["Color Text"] = Color3.fromRGB(243, 243, 243),
+      ["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
+    },
+    Info = {
+      Version = "1.2.5",
+      Theme = "Dark",
+      PlaceName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+    }
+  },
+  Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))(),
+  Tabs = {}
 }
 
 local Tabs = {}
+
+local GetTheme = darklib.Themes[darklib.Info.Theme]
 
 local function SetProps(Instance, Props)
     if Props then
@@ -282,13 +305,7 @@ function MakeDialog(Configs)
     Position = UDim2.new(0.5, 0, 0.5, 0),
     BackgroundColor3 = Color3.fromRGB(45, 45, 45)
   })Corner(DialogBackground, UDim.new(0, 20))
-Create("UIGradient", DialogBackground, {
-  Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(70, 70, 70)),
-    ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 255, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
-}
-})
+Create("UIGradient", DialogBackground, {GetTheme["Color Hub 1"]})
 
 local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.3, 0, 0.5, 0)})
   TweenOpen:Play()
@@ -575,7 +592,7 @@ function NewTab(Configs)
         SortOrder = Enum.SortOrder.LayoutOrder
     })
 
-    Tabs[TabName] = TabFrame
+    darklib.Tabs[TabName] = TabFrame
 
     if SelectedTab == TabName then
       SetProps(TabNameLabel, {
@@ -627,20 +644,20 @@ function NewTab(Configs)
         TabButton.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
         TabIcon.ImageColor3 = Color3.fromRGB(240, 240, 240)
 
-        for _, frame in pairs(Tabs) do
+        for _, frame in pairs(darklib.Tabs) do
             frame.Visible = false
         end
         
         TabFrame.Visible = true
         SelectedTab = TabName 
     end)
+    
+    function Tab:DestroyTab()
+      local Tab = TabFrame
+      Tab:Destroy()
+      end
 
     return TabFrame
-end
-
-function DestroyTab(Tab)
-  local Tab = Tab
-  Tab:Destroy()
 end
 
 ------------- BUTTON -------------
@@ -670,7 +687,7 @@ function AddButton(Parent, Configs)
     local TextLabel = Create("TextLabel", Button, {
       Text = Name,
       TextColor3 = Color3.fromRGB(240, 240, 240),
-      Font = Enum.Font.GothamMedium,
+      Font = Enum.Font.GothamBold,
       TextSize = 18,
       Size = UDim2.new(0, 408, 0, 40),
       TextWrapped = false,
@@ -727,7 +744,7 @@ function AddSection(Parent, Configs)
         Size = UDim2.new(0, 455, 0, 20),
         Position = UDim2.new(0, 0, 0, 0),
         Text = Name,
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.Gotham,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         TextSize = 22,
         BackgroundTransparency = 1,
@@ -1159,7 +1176,7 @@ Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
         Text = tostring(Default),
         Size = UDim2.new(1, -90, 0, 25),
         Position = UDim2.new(0, 46, 0, 0),
-        Font = Enum.Font.GothamMedium,
+        Font = Enum.Font.GothamBold,
         TextColor3 = Color3.fromRGB(240, 240, 240),
         BackgroundTransparency = 1,
         TextSize = 20,
