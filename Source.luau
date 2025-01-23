@@ -308,7 +308,10 @@ function MakeDialog(Configs)
     Position = UDim2.new(0.5, 0, 0.5, 0),
     BackgroundColor3 = Color3.fromRGB(45, 45, 45)
   })Corner(DialogBackground, UDim.new(0, 20))
-Create("UIGradient", DialogBackground, {GetTheme["Color Hub 1"]})
+Create("UIGradient", DialogBackground, {
+  Color = GetTheme["Color Hub 1"],
+  Rotation = 250
+})
 
 local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.3, 0, 0.5, 0)})
   TweenOpen:Play()
@@ -1031,7 +1034,6 @@ function AddTextBox(Parent, Configs)
   Default = ""
 end
 
-
   local TextBoxFrame = Create("Frame", Parent, {
         Name = "TextBox",
         Size = UDim2.new(0, 455, 0, 40),
@@ -1047,8 +1049,8 @@ end
         Font = Enum.Font.GothamBold,
         TextSize = 20,
         BackgroundTransparency = 1,
-        Size = UDim2.new(0, 200, 0, 40),
-        Position = UDim2.new(0, 10, 0, 0),
+        Size = UDim2.new(0, 250, 0, 25),
+        Position = UDim2.new(0, 10, 0, 8),
         BorderSizePixel = 0,
         ClipsDescendants = true,
         TextTruncate = "SplitWord",
@@ -1059,7 +1061,7 @@ end
   local TextBox = Create("TextBox", TextBoxFrame, {
     Size = UDim2.new(0, 120, 1, -10),
     Position = UDim2.new(1, -130, 0, 5),
-    ClearTextOnFocus = false,
+    ClearTextOnFocus = AutoClear,
     BackgroundColor3 = Color3.fromRGB(80, 80, 80),
     BackgroundTransparency = 0,
     Text = Default,
@@ -1073,18 +1075,14 @@ end
   
   local Image = Create("ImageLabel", TextBoxFrame, {
         Image = "rbxassetid://15637081879",
-        Size = UDim2.new(0, 30, 0, 30),
-        Position = UDim2.new(1, -35, 0, 5),
+        Size = UDim2.new(0, 25, 0, 25),
+        Position = UDim2.new(1, -165, 0, 8),
         BackgroundTransparency = 1
     })
   
   Callback(Default)
   TextBox.FocusLost:Connect(function()
     Callback(TextBox.Text)
-  
-    if AutoClear then
-    TextBox.Text = ""
-    end
   end)
      return {
        TextBoxFrame = TextBoxFrame,
