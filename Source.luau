@@ -12,10 +12,12 @@ local darklib = {
         ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 40, 40))
       }),
       ["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+      ["Color Hub 3"] = Color3.fromRGB(0, 170, 255),
       ["Color Stroke"] = Color3.fromRGB(40, 40, 40),
       ["Color Theme"] = Color3.fromRGB(88, 101, 242),
       ["Color Text"] = Color3.fromRGB(243, 243, 243),
-      ["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
+      ["Color Dark Text"] = Color3.fromRGB(180, 180, 180),
+      ["Color Effect"] = Color3.fromRGB(0, 170, 215)
     },
   },
     Info = {
@@ -26,13 +28,6 @@ local darklib = {
   Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))(),
   Tabs = {}
 }
-
-local GetTheme = darklib.Themes[darklib.Info.Theme]
-
-function ChangeTheme(New)
-  darklib.Info.Theme = tostring(New)
-  GetTheme = darklib.Themes[darklib.Info.Theme]
-  end
 
 local function SetProps(Instance, Props)
     if Props then
@@ -137,11 +132,18 @@ end
 
 function MakeWindow(WindowConfig)
 local Title = WindowConfig[1] or WindowConfig.Title or "DarkLib V3"
-local KeySystem = WindowConfig.KeySystem or false
-local KeyTitle = WindowConfig.KeyTitle or "Key System"
-local KeyDescription = WindowConfig.KeyDescription or "Description Of Key System"
-local Keys = WindowConfig.Keys or {"Key1", "Key2"}
-local KeyLink = WindowConfig.KeyLink or "No Link Provided"
+local SubTitle = WindowConfig[2] or WindowConfig.SubTitle or "By DarkMoonHub"
+local Theme = WindowConfig[3] or WindowConfig.Theme or "Dark"
+local KeySystem = WindowConfig.KeySystem.Active or false
+local KeyTitle = WindowConfig.KeySystem.KeyTitle or "Key System"
+local KeyDescription = WindowConfig.KeySystem.KeyDescription or "Description Of Key System"
+local Keys = WindowConfig.KeySystem.Keys or {"Key1", "Key2"}
+local KeyLink = WindowConfig.KeySystem.KeyLink or "No Link Provided"
+  
+  local GetTheme = darklib.Themes[darklib.Info.Theme]
+  
+  darklib.Info.Theme = tostring(Theme)
+  GetTheme = darklib.Themes[darklib.Info.Theme]
   
 local ScreenGui = Create("ScreenGui", CoreGui, {
     Name = "DarkLibraryV3",
@@ -272,12 +274,28 @@ Corner(TopBar, UDim.new(0.2, 0))
 local HubTitle = Create("TextLabel", TopBar, {
     Name = "Title",
     Text = Title,
-    TextColor3 = Color3.new(1, 1, 1),
-    Font = Enum.Font.GothamBold,
+    TextColor3 = GetTheme["Color Text"],
+    Font = Enum.Font.GothamMedium,
     TextSize = 22,
     TextXAlignment = Enum.TextXAlignment.Left,
-    Size = UDim2.new(0.8, 0, 1, 0),
+    AutomaticSize = Enum.AutomaticSize.X,
+    Size = UDim2.new(0, 0, 1, 0),
     Position = UDim2.new(0, 10, 0, 0),
+    TextWrapped = false,
+    BackgroundTransparency = 1
+})
+
+local HubSubTitle = Create("TextLabel", HubTitle, {
+    Name = "SubTitle",
+    Text = SubTitle,
+    TextColor3 = GetTheme["Color Dark Text"],
+    Font = Enum.Font.Gotham,
+    TextSize = 16,
+    TextXAlignment = Enum.TextXAlignment.Left,
+    AutomaticSize = Enum.AutomaticSize.X,
+    Size = UDim2.new(0, 0, 1, 0),
+    AnchorPoint = Vector2.new(0, 1),
+    Position = UDim2.new(1, 5, 0.9, 0),
     TextWrapped = false,
     BackgroundTransparency = 1
 })
@@ -339,7 +357,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     Font = Enum.Font.GothamMedium,
     BackgroundTransparency = 1,
     TextWrapped = true,
-    TextStrokeColor3 = Color3.fromRGB(63, 63, 63),
+    TextStrokeColor3 = Color3.fromRGB(65, 65, 65),
     TextStrokeTransparency = 0,
     TextColor3 = Color3.fromRGB(98, 98, 98),
     TextXAlignment = Enum.TextXAlignment.Left,
@@ -555,7 +573,7 @@ function NewTab(Configs)
     
     local BagulhoAzul = Create("Frame", TabButton, {
         Position = UDim2.new(0, 3, 0, 5),
-        BackgroundColor3 = Color3.fromRGB(0, 170, 255),
+        BackgroundColor3 = GetTheme["Color Hub 3"],
         Size = UDim2.new(0, 6, 0, 20),
         BackgroundTransparency = 0.8
     })
@@ -690,7 +708,7 @@ function AddButton(Parent, Configs)
       Text = Name,
       TextColor3 = Color3.fromRGB(240, 240, 240),
       Font = Enum.Font.GothamBold,
-      TextSize = 18,
+      TextSize = 20,
       Size = UDim2.new(0, 408, 0, 40),
       TextWrapped = false,
       BackgroundTransparency = 1,
@@ -708,8 +726,8 @@ function AddButton(Parent, Configs)
 
     Button.MouseButton1Click:Connect(function()
       Callback()
-  local tween1 = TweenService:Create(TextLabel, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {TextColor3 = Color3.fromRGB(0, 170, 240)})
-  local tween2 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = Color3.fromRGB(0, 170, 240)})
+  local tween1 = TweenService:Create(TextLabel, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {TextColor3 = GetTheme["Color Effect"]})
+  local tween2 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = GetTheme["Color Effect"]})
   tween1:Play()
   tween2:Play()
   tween1.Completed:Wait()
@@ -972,13 +990,13 @@ local TextToggle = Create("TextLabel", ToggleFrame1, {
             ToggleState = false
         elseif not ToggleState then
           SetProps(Stroke1, {
-        Color = Color3.fromRGB(0, 185, 255)
+        Color = GetTheme["Color Hub 3"]
       })
     SetProps(Stroke2, {
-        Color = Color3.fromRGB(0, 185, 255)
+        Color = GetTheme["Color Hub 3"]
       })
     SetProps(ToggleActive, {
-      BackgroundColor3 = Color3.fromRGB(0, 185, 255),
+      BackgroundColor3 = GetTheme["Color Hub 3"]
     })
           local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -33, 1, -11)})
           tween:Play()
@@ -990,13 +1008,13 @@ local TextToggle = Create("TextLabel", ToggleFrame1, {
 
 if Default then
       SetProps(Stroke1, {
-        Color = Color3.fromRGB(0, 185, 255)
+        Color = GetTheme["Color Hub 3"]
       })
     SetProps(Stroke2, {
-        Color = Color3.fromRGB(0, 185, 255)
+        Color = GetTheme["Color Hub 3"]
       })
     SetProps(ToggleActive, {
-      BackgroundColor3 = Color3.fromRGB(0, 185, 255),
+      BackgroundColor3 = GetTheme["Color Hub 3"]
     })
       local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(1, -33, 1, -11)})
           tween:Play()
@@ -1083,7 +1101,14 @@ end
     })
   
   Callback(Default)
+  TextBox.Focused:Connect(function()
+  local tween2 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = GetTheme["Color Effect"]})
+  tween2:Play()
+  end)
+  
   TextBox.FocusLost:Connect(function()
+    local tween4 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = Color3.fromRGB(255, 255, 255)})
+  tween4:Play()
     Callback(TextBox.Text)
   end)
      return {
@@ -1191,7 +1216,7 @@ Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
 
     local SliderBar = Create("Frame", SliderBarBackground, {
         Size = UDim2.fromScale((Default - Min) / (Max - Min), 1),
-        BackgroundColor3 = Color3.fromRGB(0, 185, 255),
+        BackgroundColor3 = GetTheme["Color Hub 3"]
     })
     Corner(SliderBar)
 
@@ -1420,7 +1445,7 @@ end
     local BagulhoAzul = Create("Frame", NewOption, {
         Name = "BagulhoAzul",
         Position = UDim2.new(0, 3, 0, 2),
-        BackgroundColor3 = Color3.fromRGB(0, 165, 255),
+        BackgroundColor3 = GetTheme["Color Hub 3"],
         Size = UDim2.new(0, 5, 0, 16),
         BackgroundTransparency = 0.7
     })
