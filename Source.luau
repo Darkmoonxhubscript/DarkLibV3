@@ -258,7 +258,11 @@ local HubTitle = Create("TextLabel", TopBar, {
 
 ------------- DIALOG -------------
 
+local DialogOn = false
 function MakeDialog(Configs)
+  if DialogOn then
+    return
+    else
   local Title = Configs[1] or Configs.Title or Configs.Name or Configs.Text or " Title"
   local Description = Configs[2] or Configs.Description or "Description"
   local DialogConfigs = Configs.DialogConfigs
@@ -278,21 +282,29 @@ function MakeDialog(Configs)
     Position = UDim2.new(0.5, 0, 0.5, 0),
     BackgroundColor3 = Color3.fromRGB(45, 45, 45)
   })Corner(DialogBackground, UDim.new(0, 20))
+Create("UIGradient", DialogBackground, {
+  Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(70, 70, 70)),
+    ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
+}
+})
 
 local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.3, 0, 0.5, 0)})
   TweenOpen:Play()
   TweenOpen.Completed:Wait()
+  DialogOn = true
 
   local Title = Create("TextLabel", DialogBackground, {
     Text = Title,
-    Size = UDim2.new(0, 384, 0, 30),
-    Position = UDim2.new(0, 0, 0, 0),
+    Size = UDim2.new(0, 370, 0, 25),
+    Position = UDim2.new(0, 10, 0, 5),
     TextSize = 35,
     Font = Enum.Font.GothamBold,
     BackgroundTransparency = 1,
     TextWrapped = false,
     TextColor3 = Color3.fromRGB(255, 255, 255),
-    TextXAlignment = Enum.TextXAlignment.Center,
+    TextXAlignment = Enum.TextXAlignment.Left,
     TextYAlignment = Enum.TextYAlignment.Center
   })
    
@@ -300,25 +312,25 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     Text = Description,
     Size = UDim2.new(0, 380, 0, 200),
     Position = UDim2.new(0, 5, 0, 30),
-    TextSize = 40,
+    TextSize = 28,
     Font = Enum.Font.GothamMedium,
     BackgroundTransparency = 1,
     TextWrapped = true,
-    TextColor3 = Color3.fromRGB(120, 120, 120),
-    TextXAlignment = Enum.TextXAlignment.Center,
+    TextColor3 = Color3.fromRGB(98, 98, 98),
+    TextXAlignment = Enum.TextXAlignment.Left,
     TextYAlignment = Enum.TextYAlignment.Top
   })
    
    local YesButton = Create("TextButton", DialogBackground, {
     Text = ButtonText1,
     Size = UDim2.new(0, 150, 0, 50),
-    Position = UDim2.new(0, 227, 0, 240),
+    Position = UDim2.new(0, 215, 0, 240),
     TextSize = 25,
     Font = Enum.Font.GothamBold,
     BackgroundColor3 = ButtonColor1,
     BackgroundTransparency = 0,
     TextScaled = true,
-    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextColor3 = Color3.fromRGB(220, 220, 220),
     TextXAlignment = Enum.TextXAlignment.Center,
     TextYAlignment = Enum.TextYAlignment.Center
   })
@@ -327,13 +339,13 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
    local NoButton = Create("TextButton", DialogBackground, {
     Text = ButtonText2,
     Size = UDim2.new(0, 150, 0, 50),
-    Position = UDim2.new(0, 5, 0, 240),
+    Position = UDim2.new(0, 25, 0, 240),
     TextSize = 25,
     Font = Enum.Font.GothamBold,
     BackgroundColor3 = ButtonColor2,
     BackgroundTransparency = 0,
     TextScaled = true,
-    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextColor3 = Color3.fromRGB(220, 220, 220),
     TextXAlignment = Enum.TextXAlignment.Center,
     TextYAlignment = Enum.TextYAlignment.Center
   })
@@ -348,6 +360,7 @@ NoButton.MouseButton1Click:Connect(function()
 end)
    
    function CloseDialog()
+     DialogOn = false
      Title:Destroy()
      Description:Destroy()
      YesButton:Destroy()
@@ -357,6 +370,7 @@ end)
   Tween1:Play()
   Tween1.Completed:Wait()
   DialogBackground:Destroy()
+   end
    end
 end
 
