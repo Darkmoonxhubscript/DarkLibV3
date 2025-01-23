@@ -310,12 +310,12 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
   })
    
    local YesButton = Create("TextButton", DialogBackground, {
-    Text = "Yes",
+    Text = ButtonText1,
     Size = UDim2.new(0, 150, 0, 50),
     Position = UDim2.new(0, 227, 0, 240),
     TextSize = 25,
     Font = Enum.Font.GothamBold,
-    BackgroundColor3 = Color3.fromRGB(0, 200, 0),
+    BackgroundColor3 = ButtonColor1,
     BackgroundTransparency = 0,
     TextScaled = true,
     TextColor3 = Color3.fromRGB(255, 255, 255),
@@ -325,12 +325,12 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
    Corner(YesButton)
    
    local NoButton = Create("TextButton", DialogBackground, {
-    Text = "No",
+    Text = ButtonText2,
     Size = UDim2.new(0, 150, 0, 50),
     Position = UDim2.new(0, 5, 0, 240),
     TextSize = 25,
     Font = Enum.Font.GothamBold,
-    BackgroundColor3 = Color3.fromRGB(210, 0, 0),
+    BackgroundColor3 = ButtonColor2,
     BackgroundTransparency = 0,
     TextScaled = true,
     TextColor3 = Color3.fromRGB(255, 255, 255),
