@@ -29,6 +29,11 @@ local darklib = {
 
 local GetTheme = darklib.Themes[darklib.Info.Theme]
 
+function ChangeTheme(New)
+  darklib.Info.Theme = tostring(New)
+  GetTheme = darklib.Themes[darklib.Info.Theme]
+  end
+
 local function SetProps(Instance, Props)
     if Props then
         for prop, value in pairs(Props) do
