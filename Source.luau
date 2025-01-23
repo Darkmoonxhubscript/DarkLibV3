@@ -1023,7 +1023,6 @@ end
 
 function AddTextBox(Parent, Configs)
   local Name = Configs[1] or Configs.Name or Configs.Text or "TextBox"
-  local NumberOnly = Configs.NumberOnly or false
   local Default = Configs[2] or Configs.Default or ""
   local AutoClear = Configs[3] or Configs.AutoClear or false
   local PlaceHolder = Configs[4] or Configs.PlaceHolder or "Input"
@@ -1073,15 +1072,16 @@ end
   Stroke(TextBox, Color3.fromRGB(60, 60, 60), 2)
   Corner(TextBox)
   
+  local Image = Create("ImageLabel", TextBoxFrame, {
+        Image = "rbxassetid://15637081879",
+        Size = UDim2.new(0, 30, 0, 30),
+        Position = UDim2.new(1, -35, 0, 5),
+        BackgroundTransparency = 1
+    })
+  
   Callback(Default)
   TextBox.FocusLost:Connect(function()
-    if NumberOnly then
-  if tonumber(TextBox.Text) then
     Callback(TextBox.Text)
-    end
-  else
-    Callback(TextBox.Text)
-  end
   
     if AutoClear then
     TextBox.Text = ""
