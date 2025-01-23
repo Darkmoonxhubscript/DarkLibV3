@@ -306,11 +306,11 @@ function MakeDialog(Configs)
     AnchorPoint = Vector2.new(0.5, 0.5),
     Size = UDim2.new(0, 0, 0, 0),
     Position = UDim2.new(0.5, 0, 0.5, 0),
-    BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255)
   })Corner(DialogBackground, UDim.new(0, 20))
 Create("UIGradient", DialogBackground, {
   Color = GetTheme["Color Hub 1"],
-  Rotation = 250
+  Rotation = 260
 })
 
 local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.3, 0, 0.5, 0)})
@@ -322,7 +322,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     Text = Title,
     Size = UDim2.new(0, 370, 0, 25),
     Position = UDim2.new(0, 10, 0, 5),
-    TextSize = 35,
+    TextSize = 32,
     Font = Enum.Font.GothamBold,
     BackgroundTransparency = 1,
     TextWrapped = false,
@@ -339,6 +339,8 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     Font = Enum.Font.GothamMedium,
     BackgroundTransparency = 1,
     TextWrapped = true,
+    TextStrokeColor3 = Color3.fromRGB(63, 63, 63),
+    TextStroleTransparency = 0,
     TextColor3 = Color3.fromRGB(98, 98, 98),
     TextXAlignment = Enum.TextXAlignment.Left,
     TextYAlignment = Enum.TextYAlignment.Top
@@ -357,7 +359,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     TextXAlignment = Enum.TextXAlignment.Center,
     TextYAlignment = Enum.TextYAlignment.Center
   })
-   Corner(YesButton)
+   Corner(YesButton, UDim.new(0, 10))
    
    local NoButton = Create("TextButton", DialogBackground, {
     Text = ButtonText2,
@@ -372,7 +374,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     TextXAlignment = Enum.TextXAlignment.Center,
     TextYAlignment = Enum.TextYAlignment.Center
   })
-Corner(NoButton)
+Corner(NoButton, UDim.new(0, 10))
    
    YesButton.MouseButton1Click:Connect(function()
      Callback1()
