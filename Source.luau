@@ -377,7 +377,7 @@ CloseButton.MouseButton1Click:Connect(function()
     Title = "Close",
     Description = "You Really Want Close This Script??",
     DialogConfigs = {
-      Button1Configs = {
+      Button1 = {
         Text = "Confirm",
         Color = Color3.fromRGB(0, 255, 0),
         Callback = function()
@@ -387,7 +387,7 @@ CloseButton.MouseButton1Click:Connect(function()
   ScreenGui:Destroy()
           end
       },
-    Button2Configs = {
+    Button2 = {
       Text = "Cancel",
       Color = Color3.fromRGB(255, 0, 0),
       Callback = function()
