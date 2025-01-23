@@ -27,8 +27,6 @@ local darklib = {
   Tabs = {}
 }
 
-local Tabs = {}
-
 local GetTheme = darklib.Themes[darklib.Info.Theme]
 
 local function SetProps(Instance, Props)
@@ -410,7 +408,7 @@ CloseButton.MouseButton1Click:Connect(function()
     DialogConfigs = {
       Button1 = {
         Text = "Confirm",
-        Color = Color3.fromRGB(0, 255, 0),
+        Color = Color3.fromRGB(80, 80, 80),
         Callback = function()
           local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
   tween:Play()
@@ -420,7 +418,7 @@ CloseButton.MouseButton1Click:Connect(function()
       },
     Button2 = {
       Text = "Cancel",
-      Color = Color3.fromRGB(255, 0, 0),
+      Color = Color3.fromRGB(80, 80, 80),
       Callback = function()
           CloseDialog()
           end
