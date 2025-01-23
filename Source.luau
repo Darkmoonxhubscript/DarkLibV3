@@ -268,7 +268,7 @@ local HubTitle = Create("TextLabel", TopBar, {
     Name = "Title",
     Text = Title,
     TextColor3 = Color3.new(1, 1, 1),
-    Font = Enum.Font.GothamMedium,
+    Font = Enum.Font.GothamBold,
     TextSize = 22,
     TextXAlignment = Enum.TextXAlignment.Left,
     Size = UDim2.new(0.8, 0, 1, 0),
@@ -649,12 +649,6 @@ function NewTab(Configs)
         TabFrame.Visible = true
         SelectedTab = TabName 
     end)
-    
-    function TabFrame:DestroyTab()
-      self:Destroy()
-      darklib.Tabs[TabName] = nil
-      end
-
     return TabFrame
 end
 
