@@ -17,12 +17,12 @@ local darklib = {
       ["Color Text"] = Color3.fromRGB(243, 243, 243),
       ["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
     },
+  },
     Info = {
       Version = "1.2.5",
       Theme = "Dark",
       PlaceName = MarketplaceService:GetProductInfo(game.PlaceId).Name
-    }
-  },
+    },
   Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))(),
   Tabs = {}
 }
