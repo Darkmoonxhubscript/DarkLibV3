@@ -256,6 +256,112 @@ local HubTitle = Create("TextLabel", TopBar, {
     BackgroundTransparency = 1
 })
 
+------------- DIALOG -------------
+
+function MakeDialog(Configs)
+  local Title = Configs[1] or Configs.Title or Configs.Name or Configs.Text or " Title"
+  local Description = Configs[2] or Configs.Description or "Description"
+  local DialogConfigs = Configs.DialogConfigs
+  local Button1Configs = DialogConfigs.Button1
+  local Button2Configs = DialogConfigs.Button2
+  local ButtonText1 = Button1Configs.Text or "Confirm"
+  local ButtonText2 = Button2Configs.Text or "Cancel"
+  local ButtonColor1 = Button1Configs.Color or Color3.fromRGB(0, 255, 0)
+  local ButtonColor2 = Button2Configs.Color or Color3.fromRGB(255, 0, 0)
+  local Callback1 = Button1Configs.Callback or function() print("Done") end
+  local Callback2 = Button2Configs.Callback or function() CloseDialog() end
+  
+  local DialogBackground = Create("Frame", ScreenGui, {
+    Name = "Dialog",
+    AnchorPoint = Vector2.new(0.5, 0.5),
+    Size = UDim2.new(0, 0, 0, 0),
+    Position = UDim2.new(0.5, 0, 0.5, 0),
+    BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+  })Corner(DialogBackground, UDim.new(0, 20))
+
+local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Size = UDim2.new(0.3, 0, 0.5, 0)})
+  TweenOpen:Play()
+  TweenOpen.Completed:Wait()
+
+  local Title = Create("TextLabel", DialogBackground, {
+    Text = Title,
+    Size = UDim2.new(0, 384, 0, 30),
+    Position = UDim2.new(0, 0, 0, 0),
+    TextSize = 35,
+    Font = Enum.Font.FredokaOne,
+    BackgroundTransparency = 1,
+    TextWrapped = false,
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextXAlignment = Enum.TextXAlignment.Center,
+    TextYAlignment = Enum.TextYAlignment.Center
+  })
+   
+   local Description = Create("TextLabel", DialogBackground, {
+    Text = Description,
+    Size = UDim2.new(0, 380, 0, 200),
+    Position = UDim2.new(0, 5, 0, 30),
+    TextSize = 40,
+    Font = Enum.Font.FredokaOne,
+    BackgroundTransparency = 1,
+    TextWrapped = true,
+    TextColor3 = Color3.fromRGB(120, 120, 120),
+    TextXAlignment = Enum.TextXAlignment.Center,
+    TextYAlignment = Enum.TextYAlignment.Top
+  })
+   
+   local YesButton = Create("TextButton", DialogBackground, {
+    Text = "Yes",
+    Size = UDim2.new(0, 150, 0, 50),
+    Position = UDim2.new(0, 227, 0, 240),
+    TextSize = 25,
+    Font = Enum.Font.FredokaOne,
+    BackgroundColor3 = Color3.fromRGB(0, 200, 0),
+    BackgroundTransparency = 0,
+    TextScaled = true,
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextXAlignment = Enum.TextXAlignment.Center,
+    TextYAlignment = Enum.TextYAlignment.Center
+  })
+   Corner(YesButton)
+   
+   local NoButton = Create("TextButton", DialogBackground, {
+    Text = "No",
+    Size = UDim2.new(0, 150, 0, 50),
+    Position = UDim2.new(0, 5, 0, 240),
+    TextSize = 25,
+    Font = Enum.Font.FredokaOne,
+    BackgroundColor3 = Color3.fromRGB(210, 0, 0),
+    BackgroundTransparency = 0,
+    TextScaled = true,
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextXAlignment = Enum.TextXAlignment.Center,
+    TextYAlignment = Enum.TextYAlignment.Center
+  })
+Corner(NoButton)
+   
+   YesButton.MouseButton1Click:Connect(function()
+     Callback1()
+end)
+
+NoButton.MouseButton1Click:Connect(function()
+     Callback2()
+end)
+   
+   function CloseDialog()
+     Title:Destroy()
+     Description:Destroy()
+     YesButton:Destroy()
+     NoButton:Destroy()
+     task.wait(0.1)
+  local Tween1 = TweenService:Create(DialogBackground, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 1})
+  Tween1:Play()
+  Tween1.Completed:Wait()
+  DialogBackground:Destroy()
+   end
+end
+
+
+
 local CloseButton = Create("TextButton", TopBar, {
     Name = "Close",
     Text = "X",
@@ -267,10 +373,29 @@ local CloseButton = Create("TextButton", TopBar, {
     Position = UDim2.new(1, -30, 0, 5)
 })
 CloseButton.MouseButton1Click:Connect(function()
-  local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
+  local CloseDialog = MakeDialog({
+    Title = "Close",
+    Description = "You Really Want Close This Script??",
+    DialogConfigs = {
+      Button1Configs = {
+        Text = "Confirm",
+        Color = Color3.fromRGB(0, 255, 0),
+        Callback = function()
+          local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
   tween:Play()
   tween.Completed:Wait()
   ScreenGui:Destroy()
+          end
+      },
+    Button2Configs = {
+      Text = "Cancel",
+      Color = Color3.fromRGB(255, 0, 0),
+      Callback = function()
+          CloseDialog()
+          end
+    }
+    }
+  })
 end)
 
 local Minimized = false
