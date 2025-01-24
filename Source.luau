@@ -316,7 +316,7 @@ if KeySystem then
   })Corner(KeySystemFrame, UDim.new(0, 10))MakeDrag(KeySystemFrame)Stroke(KeySystemFrame, GetTheme["Color Stroke"], 2)
   
   local Title = Create("TextLabel", KeySystemFrame, {
-    Text = Title,
+    Text = KeyTitle,
     Size = UDim2.new(0, 370, 0, 25),
     Position = UDim2.new(0, 10, 0, 5),
     TextSize = 20,
@@ -330,7 +330,7 @@ if KeySystem then
   })
    
    local Description = Create("TextLabel", KeySystemFrame, {
-    Text = Description,
+    Text = KeyDescription,
     Size = UDim2.new(0, 380, 0, 200),
     Position = UDim2.new(0, 5, 0, 30),
     TextSize = 15,
