@@ -13,6 +13,8 @@ local darklib = {
       }),
       ["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
       ["Color Hub 3"] = Color3.fromRGB(0, 170, 255),
+      ["Color Hub 4"] = Color3.fromRGB(45, 45, 45),
+      ["Color Hub 5"] = Color3.fromRGB(80, 80, 80),
       ["Color Stroke"] = Color3.fromRGB(40, 40, 40),
       ["Color Theme"] = Color3.fromRGB(88, 101, 242),
       ["Color Text"] = Color3.fromRGB(243, 243, 243),
@@ -253,7 +255,7 @@ end
 
 local MainFrame = Create("Frame", ScreenGui, {
     Name = "MainFrame",
-    BackgroundColor3 = Color3.fromRGB(28, 28, 28),
+    BackgroundColor3 = GetTheme["Color Hub 2"],
     Size = UDim2.new(0.5, 0, 0.6, 0),
     Position = UDim2.new(0.5, 0, 0.5, 0),
     AnchorPoint = Vector2.new(0.5, 0.5),
@@ -264,7 +266,7 @@ MakeDrag(MainFrame)
 
 local TopBar = Create("Frame", MainFrame, {
     Name = "TopBar",
-    BackgroundColor3 = Color3.fromRGB(35, 35, 35),
+    BackgroundColor3 = GetTheme["Color Stroke"],
     Size = UDim2.new(1, 0, 0, 36),
     BackgroundTransparency = 0.5,
     Position = UDim2.new(0, 0, 0, 0)
@@ -558,7 +560,7 @@ function NewTab(Configs)
         TextColor3 = Color3.fromRGB(240, 240, 240),
         Font = Enum.Font.GothamMedium,
         TextSize = 14,
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Stroke"],
         Size = UDim2.new(1, -10, 0, 30),
         TextWrapped = false,
         ClipsDescendants = true,
@@ -626,8 +628,8 @@ function NewTab(Configs)
         TabFrame.Visible = true
         local tween = TweenService:Create(BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween:Play()
-        TabButton.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
-        TabIcon.ImageColor3 = Color3.fromRGB(240, 240, 240)
+        TabButton.BackgroundColor3 = GetTheme["Color Hub 5"]
+        TabIcon.ImageColor3 = GetTheme["Color Text"]
     end
 
     TabButton.MouseButton1Click:Connect(function()
@@ -640,15 +642,15 @@ function NewTab(Configs)
                     tween:Play()
                 end
                 
-                button.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-                TabIcon.ImageColor3 = Color3.fromRGB(200, 200, 200)
+                button.BackgroundColor3 = GetTheme["Color Hub 4"]
+                TabIcon.ImageColor3 = GetTheme["Color Dark Text"]
             end
         end
         
         for _, Text in pairs(LeftScrollFrame:GetDescendants()) do
             if Text:IsA("TextLabel") then
               SetProps(Text, {
-        TextColor3 = Color3.fromRGB(200, 200, 200)
+        TextColor3 = GetTheme["Color Dark Text"],
       })
             end
         end
@@ -656,7 +658,7 @@ function NewTab(Configs)
           for _, Img in pairs(LeftScrollFrame:GetDescendants()) do
             if Img:IsA("ImageLabel") then
               SetProps(Img, {
-        ImageColor3 = Color3.fromRGB(200, 200, 200)
+        ImageColor3 = GetTheme["Color Dark Text"],
       })
             end
             end
@@ -664,10 +666,10 @@ function NewTab(Configs)
         local tween = TweenService:Create(BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween:Play()
         SetProps(TabNameLabel, {
-        TextColor3 = Color3.fromRGB(240, 240, 240)
+        TextColor3 = GetTheme["Color Text"]
       })
-        TabButton.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
-        TabIcon.ImageColor3 = Color3.fromRGB(240, 240, 240)
+        TabButton.BackgroundColor3 = GetTheme["Color Hub 5"]
+        TabIcon.ImageColor3 = GetTheme["Color Text"]
 
         for _, frame in pairs(darklib.Tabs) do
             frame.Visible = false
