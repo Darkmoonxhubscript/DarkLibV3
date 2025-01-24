@@ -309,13 +309,39 @@ if KeySystem then
   local KeySystemFrame = Create("Frame", ScreenGui, {
     Name = "KeyFrame",
     BackgroundColor3 = GetTheme["Color Hub 2"],
-    Size = UDim2.new(0, 200, 0, 100),
+    Size = UDim2.new(0, 400, 0, 230),
     Position = UDim2.new(0.5, 0, 0.5, 0),
     AnchorPoint = Vector2.new(0.5, 0.5),
     BackgroundTransparency = 0
   })Corner(KeySystemFrame, UDim.new(0, 10))MakeDrag(KeySystemFrame)Stroke(KeySystemFrame, GetTheme["Color Stroke"], 2)
   
-  
+  local Title = Create("TextLabel", KeySystemFrame, {
+    Text = Title,
+    Size = UDim2.new(0, 370, 0, 25),
+    Position = UDim2.new(0, 10, 0, 5),
+    TextSize = 20,
+    Font = Enum.Font.GothamBold,
+    BackgroundTransparency = 1,
+    TextWrapped = false,
+    TextTruncate = "SplitWord",
+    TextColor3 = GetTheme["Color Text"],
+    TextXAlignment = Enum.TextXAlignment.Left,
+    TextYAlignment = Enum.TextYAlignment.Center
+  })
+   
+   local Description = Create("TextLabel", KeySystemFrame, {
+    Text = Description,
+    Size = UDim2.new(0, 380, 0, 200),
+    Position = UDim2.new(0, 5, 0, 30),
+    TextSize = 15,
+    Font = Enum.Font.GothamMedium,
+    BackgroundTransparency = 1,
+    TextWrapped = true,
+    TextTruncate = "SplitWord",
+    TextColor3 = GetTheme["Color Dark Text"],
+    TextXAlignment = Enum.TextXAlignment.Left,
+    TextYAlignment = Enum.TextYAlignment.Top
+  })
   
   repeat task.wait() until KeyVerify
   local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(1.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
