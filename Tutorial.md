@@ -1,5 +1,5 @@
 # DarkLib V3 Tutorial
-
+Introducing the DarkLib UI Library, a Roblox Exploit UI Library created just for fun! Feel free to modify it as you wish, and using our library has already helped us a lot! You can check out an example code **[Here](https://github.com/Darkmoonxhubscript/DarkLibV3/blob/main/Example.luau)**
 # Getting Started
 To begin, you need to declare a loadstring to access the library.
 ```luau
