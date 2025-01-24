@@ -1368,7 +1368,7 @@ end
         Position = UDim2.new(0, 260, 0, 5),
         Text = Default,
         Font = Enum.Font.GothamMedium,
-        TextColor3 = GetTheme["Color Hub 4"],
+        TextColor3 = GetTheme["Color Text"],
         TextSize = 15,
         BackgroundTransparency = 1,
         TextScaled = true,
@@ -1473,7 +1473,7 @@ end
             if v.Name == "Option" then
                 local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
                 tween1:Play()
-                v.TextColor3 = GetTheme["Color Text"]
+                v.TextColor3 = GetTheme["Color Dark Text"]
                 v.BackgroundColor3 = GetTheme["Color Hub 6"]
             end
         end
@@ -1499,7 +1499,7 @@ end
             
             local tween1 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
             tween1:Play()
-            NewOption.TextColor3 = GetTheme["Color Text"]
+            NewOption.TextColor3 = GetTheme["Color Dark Text"]
             NewOption.BackgroundColor3 = GetTheme["Color Hub 6"]
         end
     else
