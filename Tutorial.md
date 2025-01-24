@@ -1,16 +1,9 @@
-# DarkLib V3
+# DarkLib V3 Tutorial
 
-## LoadString (REQUIRED)
+# Getting Started
+To begin, you need to declare a loadstring to access the library.
 ```luau
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Source.luau"))()
-```
-```luau
---[[
-Loads The Library
-
--- ///////// Functions ///////// --
-EndLibrary() >> Destroy The Library.
-]]
 ```
 ## Make a Window
 ```luau
