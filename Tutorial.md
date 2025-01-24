@@ -178,7 +178,15 @@ local Dropdown1 = AddDropDown(Tab1, {
 **Argument 4: Dropdown Default Option (type: string)**
 
 **Argument 5: Dropdown Function (type: function)**
-
+## Add a ImageLabel
+```luau
+local Image1 = AddImageLabel(Tab1, {
+    Icon = "",
+    Style = "Square"
+  })
+```
+**Argument 1: Image Icon (type: string)**
+**Argument 2: Image Style; Styles: "Big", "Banner", "Square" (type: string)**
 # EXTRA
 Extra Functions, Just for increment ;)
 ## Add a Minimize Button
