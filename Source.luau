@@ -345,7 +345,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     Font = Enum.Font.GothamBold,
     BackgroundTransparency = 1,
     TextWrapped = false,
-    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextColor3 = GetTheme["Color Text"],
     TextXAlignment = Enum.TextXAlignment.Left,
     TextYAlignment = Enum.TextYAlignment.Center
   })
@@ -358,9 +358,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     Font = Enum.Font.GothamMedium,
     BackgroundTransparency = 1,
     TextWrapped = true,
-    TextStrokeColor3 = Color3.fromRGB(65, 65, 65),
-    TextStrokeTransparency = 0,
-    TextColor3 = Color3.fromRGB(98, 98, 98),
+    TextColor3 = GetTheme["Color Dark Text"],
     TextXAlignment = Enum.TextXAlignment.Left,
     TextYAlignment = Enum.TextYAlignment.Top
   })
@@ -374,7 +372,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     BackgroundColor3 = ButtonColor1,
     BackgroundTransparency = 0,
     TextScaled = true,
-    TextColor3 = Color3.fromRGB(220, 220, 220),
+    TextColor3 = GetTheme["Color Text"],
     TextXAlignment = Enum.TextXAlignment.Center,
     TextYAlignment = Enum.TextYAlignment.Center
   })
@@ -389,7 +387,7 @@ local TweenOpen = TweenService:Create(DialogBackground, TweenInfo.new(0.15, Enum
     BackgroundColor3 = ButtonColor2,
     BackgroundTransparency = 0,
     TextScaled = true,
-    TextColor3 = Color3.fromRGB(220, 220, 220),
+    TextColor3 = GetTheme["Color Text"],
     TextXAlignment = Enum.TextXAlignment.Center,
     TextYAlignment = Enum.TextYAlignment.Center
   })
@@ -424,7 +422,7 @@ local CloseButton = Create("TextButton", TopBar, {
     Name = "Close",
     Text = "X",
     TextColor3 = Color3.fromRGB(255, 255, 255),
-    Font = Enum.Font.FredokaOne,
+    Font = Enum.Font.GothamBold,
     TextSize = 20,
     BackgroundTransparency = 1,
     Size = UDim2.new(0, 30, 0, 30),
@@ -437,7 +435,7 @@ CloseButton.MouseButton1Click:Connect(function()
     DialogConfigs = {
       Button1 = {
         Text = "Confirm",
-        Color = Color3.fromRGB(80, 80, 80),
+        Color = GetTheme["Color Hub 2"],
         Callback = function()
           local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
   tween:Play()
@@ -447,7 +445,7 @@ CloseButton.MouseButton1Click:Connect(function()
       },
     Button2 = {
       Text = "Cancel",
-      Color = Color3.fromRGB(80, 80, 80),
+      Color = GetTheme["Color Hub 2"],
       Callback = function()
           CloseDialog()
           end
@@ -461,7 +459,7 @@ local MinimizeButton = Create("TextButton", TopBar, {
     Name = "Minimize",
     Text = "-",
     TextColor3 = Color3.fromRGB(255, 255, 255),
-    Font = Enum.Font.FredokaOne,
+    Font = Enum.Font.GothamBold,
     TextSize = 30,
     BackgroundTransparency = 1,
     Size = UDim2.new(0, 30, 0, 30),
@@ -693,7 +691,7 @@ function AddButton(Parent, Configs)
         TextColor3 = Color3.fromRGB(240, 240, 240),
         Font = Enum.Font.GothamMedium,
         TextSize = 20,
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Theme"],
         Size = UDim2.new(0, 455, 0, 40),
         TextWrapped = false,
         Position = UDim2.new(0, 10, 0, 0),
@@ -707,7 +705,7 @@ function AddButton(Parent, Configs)
 
     local TextLabel = Create("TextLabel", Button, {
       Text = Name,
-      TextColor3 = Color3.fromRGB(240, 240, 240),
+      TextColor3 = GetTheme["Color Text"],
       Font = Enum.Font.GothamBold,
       TextSize = 20,
       Size = UDim2.new(0, 408, 0, 40),
@@ -766,7 +764,7 @@ function AddSection(Parent, Configs)
         Position = UDim2.new(0, 0, 0, 0),
         Text = Name,
         Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         TextSize = 22,
         BackgroundTransparency = 1,
         TextWrapped = false,
@@ -801,7 +799,7 @@ function AddTextLabel(Parent, Configs)
         Name = "TextLabel",
         Size = UDim2.new(0, 455, 0, 30),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Theme"],
         BackgroundTransparency = 0
     })
     Corner(TextFrame, UDim.new(0.2, 0)) 
@@ -811,7 +809,7 @@ function AddTextLabel(Parent, Configs)
         Position = UDim2.new(0, 10, 0, 0),
         Text = Name,
         Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         TextSize = 20,
         BackgroundTransparency = 1,
         TextWrapped = false,
@@ -848,7 +846,7 @@ function AddParagraph(Parent, Configs)
         Name = "Paragraph",
         Size = UDim2.new(0, 455, 0, 80),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Theme"],
         BackgroundTransparency = 0
     })
     Corner(ParagraphFrame, UDim.new(0.1, 0)) 
@@ -858,7 +856,7 @@ function AddParagraph(Parent, Configs)
         Position = UDim2.new(0, 10, 0, 5),
         Text = Name,
         Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         TextSize = 20,
         BackgroundTransparency = 1,
         TextWrapped = false,
@@ -872,7 +870,7 @@ function AddParagraph(Parent, Configs)
         Position = UDim2.new(0, 10, 0, 25),
         Text = Description,
         Font = Enum.Font.GothamMedium,
-        TextColor3 = Color3.fromRGB(150, 150, 150),
+        TextColor3 = GetTheme["Color Dark Text"],
         TextSize = 17,
         BackgroundTransparency = 1,
         TextWrapped = true,
@@ -922,7 +920,7 @@ end
         Name = "Toggle",
         Size = UDim2.new(0, 455, 0, 40),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Theme"],
         BackgroundTransparency = 0
     })
     Corner(ToggleFrame1, UDim.new(0.2, 0))
@@ -952,7 +950,7 @@ end
 
 local TextToggle = Create("TextLabel", ToggleFrame1, {
         Text = Name,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         Font = Enum.Font.GothamBold,
         TextSize = 20,
         BackgroundTransparency = 1,
