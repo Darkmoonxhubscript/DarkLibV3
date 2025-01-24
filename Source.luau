@@ -542,7 +542,7 @@ local MinimizeButton = Create("TextButton", TopBar, {
     TextSize = 30,
     BackgroundTransparency = 1,
     Size = UDim2.new(0, 30, 0, 30),
-    Position = UDim2.new(1, -60, 0, 2)
+    Position = UDim2.new(1, -60, 0, 5)
 })
 MinimizeButton.MouseButton1Click:Connect(function()
   if Minimized then
@@ -1008,23 +1008,23 @@ end
     local ToggleFrame2 = Create("Frame", ToggleFrame1, {
         Size = UDim2.new(0, 60, 0, 28),
         Position = UDim2.new(1, -70, 0, 6),
-        BackgroundColor3 = Color3.fromRGB(70, 70, 70),
+        BackgroundColor3 = GetTheme["Color Hub 6"],
         BackgroundTransparency = 1
     })
-    local Stroke1 = Stroke(ToggleFrame2, Color3.fromRGB(100, 100, 100), 3)
+    local Stroke1 = Stroke(ToggleFrame2, GetTheme["Color Hub 6"], 3)
     Corner(ToggleFrame2, UDim.new(2, 0))
 
     local ToggleActive = Create("Frame", ToggleFrame1, {
         Size = UDim2.new(0, 18, 0, 18),
         Position = UDim2.new(0.1, 345, 1, -11),
         AnchorPoint = Vector2.new(0, 1),
-        BackgroundColor3 = Color3.fromRGB(160, 160, 160),
+        BackgroundColor3 = GetTheme["Color Hub 5"],
         BackgroundTransparency = 0,
         BorderMode = "Middle",
         BorderSizePixel = 1
         
     })
-    local Stroke2 = Stroke(ToggleActive, Color3.fromRGB(160, 160, 160), 2.8)
+    local Stroke2 = Stroke(ToggleActive, GetTheme["Color Hub 5"], 2.8)
     Corner(ToggleActive, UDim.new(5, 0))
 
 local TextToggle = Create("TextLabel", ToggleFrame1, {
@@ -1054,7 +1054,7 @@ local TextToggle = Create("TextLabel", ToggleFrame1, {
     ToggleButtonArea.MouseButton1Click:Connect(function()
         if ToggleState then
           SetProps(Stroke1, {
-        Color = GetTheme["Color Stroke"]
+        Color = GetTheme["Color Hub 6"]
       })
     SetProps(Stroke2, {
         Color = GetTheme["Color Hub 5"]
