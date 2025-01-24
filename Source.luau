@@ -23,15 +23,52 @@ local darklib = {
       ["Color Dark Text"] = Color3.fromRGB(180, 180, 180),
       ["Color Effect"] = Color3.fromRGB(0, 170, 215)
     },
-  },
-    Info = {
-      Version = "1.2.5",
-      Theme = "Dark",
-      PlaceName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+    Darker = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(20, 20, 20)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(27.5, 27.5, 27.5)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(20, 20, 20))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(15, 15, 15),
+      ["Color Hub 3"] = Color3.fromRGB(0, 100, 200),
+      ["Color Hub 4"] = Color3.fromRGB(35, 35, 35),
+      ["Color Hub 5"] = Color3.fromRGB(60, 60, 60),
+      ["Color Hub 6"] = Color3.fromRGB(50, 50, 50),
+      ["Color Hub 7"] = Color3.fromRGB(100, 100, 100),
+      ["Color Stroke"] = Color3.fromRGB(30, 30, 30),
+      ["Color Theme"] = Color3.fromRGB(68, 81, 0),
+      ["Color Text"] = Color3.fromRGB(220, 220, 220),
+      ["Color Dark Text"] = Color3.fromRGB(150, 150, 150),
+      ["Color Effect"] = Color3.fromRGB(0, 100, 180)
     },
+    Purple = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(60, 0, 100)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(80, 0, 120)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(60, 0, 100))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(50, 0, 80),
+      ["Color Hub 3"] = Color3.fromRGB(180, 0, 255),
+      ["Color Hub 4"] = Color3.fromRGB(75, 0, 130),
+      ["Color Hub 5"] = Color3.fromRGB(110, 0, 180),
+      ["Color Hub 6"] = Color3.fromRGB(90, 0, 160),
+      ["Color Hub 7"] = Color3.fromRGB(150, 50, 200),
+      ["Color Stroke"] = Color3.fromRGB(70, 0, 120),
+      ["Color Theme"] = Color3.fromRGB(128, 0, 255),
+      ["Color Text"] = Color3.fromRGB(255, 200, 255),
+      ["Color Dark Text"] = Color3.fromRGB(200, 150, 200),
+      ["Color Effect"] = Color3.fromRGB(200, 0, 255)
+    }
+  },
+  Info = {
+    Version = "1.7.9",
+    Theme = "Dark",
+    PlaceName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+  },
   Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))(),
   Tabs = {}
 }
+
 
 local function SetProps(Instance, Props)
     if Props then
