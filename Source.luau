@@ -69,6 +69,18 @@ local darklib = {
   Tabs = {}
 }
 
+function GetLibVersion()
+  return darklib.Info.Version
+  end
+
+function GetLibTheme()
+  return darklib.Info.Theme
+end
+
+function GetPlaceName()
+  return darklib.Info.PlaceName
+  end
+
 local function SetProps(Instance, Props)
     if Props then
         for prop, value in pairs(Props) do
@@ -290,6 +302,28 @@ task.spawn(function()
 end
 
 ------------- MAIN FRAME ------------- 
+
+local KeyVerify = false
+if KeySystem then
+  
+  local KeySystemFrame = Create("Frame", ScreenGui, {
+    Name = "KeyFrame",
+    BackgroundColor3 = GetTheme["Color Hub 2"],
+    Size = UDim2.new(0, 200, 0, 100),
+    Position = UDim2.new(0.5, 0, 0.5, 0),
+    AnchorPoint = Vector2.new(0.5, 0.5),
+    BackgroundTransparency = 0
+  })Corner(KeySystemFrame, UDim.new(0, 10))MakeDrag(KeySystemFrame)Stroke(KeySystemFrame, GetTheme["Color Stroke"], 2)
+  
+  
+  
+  repeat task.wait() until KeyVerify
+  local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(1.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
+  tween:Play()
+  tween.Completed:Wait()
+  KeySystemFrame:Destroy()
+  end
+
 
 local AcrylicTrans = Acrylic and 0.1 or 0 -- Acrylic is Tranesxual Lollllllllll
 
