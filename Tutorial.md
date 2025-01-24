@@ -22,14 +22,23 @@ local Window = MakeWindow({
   })
 ```
 **Argument 1: UI Title (type: string)**
+
 **Argument 2: UI SubTitle (type: string)**
+
 **Argument 3: UI Theme (type: string)**
+
 **Argument 4: UI Acrylic (type: bool)**
+
 **Argument 5: UI KeySystem Configs (type: table)**
+
 **SubArgument 1: Key System Active (type: bool)**
+
 **SubArgument 2: Key System Title (type: string)**
+
 **SubArgument 3: Key System Description (type: string)**
+
 **SubArgument 4: Key System Keys (type: table)**
+
 **SubArgument 5: Key System Link To Key (type: string)**
 
 ## Create Notification
