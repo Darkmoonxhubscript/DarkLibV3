@@ -62,7 +62,7 @@ local darklib = {
   },
   Info = {
     Version = "1.2.7",
-    Theme = "Dark",
+    Theme = "Darker",
     PlaceName = MarketplaceService:GetProductInfo(game.PlaceId).Name
   },
   Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))(),
@@ -459,11 +459,9 @@ end)
    end
 end
 
-
-
 local CloseButton = Create("TextButton", TopBar, {
     Name = "Close",
-    Text = "X",
+    Text = "×",
     TextColor3 = Color3.fromRGB(255, 255, 255),
     Font = Enum.Font.GothamBold,
     TextSize = 20,
@@ -480,7 +478,12 @@ CloseButton.MouseButton1Click:Connect(function()
         Text = "Confirm",
         Color = GetTheme["Color Hub 2"],
         Callback = function()
-          local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
+          for _, Comp in pairs(MainFrame:GetChildren()) do
+        if Comp.Name ~= "UICorner" then
+          Comp.Visible = false
+          end
+      end
+  local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
   tween:Play()
   tween.Completed:Wait()
   ScreenGui:Destroy()
