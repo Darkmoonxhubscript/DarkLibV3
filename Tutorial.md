@@ -222,3 +222,5 @@ AddFloatToggle({
 **Argument 1: FloatToggle Text (type: string)**
 
 **Argument 2: FloatToggle Function (type: func)**
+# Functions
+
