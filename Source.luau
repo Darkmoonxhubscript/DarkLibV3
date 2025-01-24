@@ -213,6 +213,7 @@ function MakeWindow(WindowConfig)
 local Title = WindowConfig[1] or WindowConfig.Title or "DarkLib V3"
 local SubTitle = WindowConfig[2] or WindowConfig.SubTitle or "By DarkMoonHub"
 local Theme = WindowConfig[3] or WindowConfig.Theme or "Dark"
+local Acrylic = WindowConfig[4] or WindowConfig.Acrylic or true
 local KeySystem = WindowConfig.KeySystem.Active or false
 local KeyTitle = WindowConfig.KeySystem.KeyTitle or "Key System"
 local KeyDescription = WindowConfig.KeySystem.KeyDescription or "Description Of Key System"
@@ -264,10 +265,10 @@ function NewNotify(Configs)
 
     local Frame2 = Create("Frame", Frame1, {
         Size = UDim2.new(1, -50, 0, 75),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Hub 6"],
         AutomaticSize = Enum.AutomaticSize.Y
     })
-    Stroke(Frame2, Color3.fromRGB(64, 64, 64), 3)
+    Stroke(Frame2, GetTheme["Color Hub 5"], 3)
     Corner(Frame2, UDim.new(0, 5))
 
     local Title = Create("TextLabel", Frame2, {
@@ -316,7 +317,7 @@ function NewNotify(Configs)
 
     local Separator = Create("Frame", Frame2, {
         Size = UDim2.new(1, -20, 0, 2),
-        BackgroundColor3 = Color3.fromRGB(55, 55, 55),
+        BackgroundColor3 = GetTheme["Color Hub 5"],
         Position = UDim2.new(0, 10, 1, -45),
         BorderSizePixel = 0
     })
@@ -329,6 +330,7 @@ end
 
 ------------- MAIN FRAME ------------- 
 
+local AcrylicTrans = Acrylic and 0.1 or 0 -- Acrylic is TransSexual Lollllllllll
 
 local MainFrame = Create("Frame", ScreenGui, {
     Name = "MainFrame",
@@ -336,8 +338,9 @@ local MainFrame = Create("Frame", ScreenGui, {
     Size = UDim2.new(0.5, 0, 0.6, 0),
     Position = UDim2.new(0.5, 0, 0.5, 0),
     AnchorPoint = Vector2.new(0.5, 0.5),
-    BackgroundTransparency = 0.03
+    BackgroundTransparency = AcrylicTrans
 })
+
 Corner(MainFrame, UDim.new(0, 10))
 MakeDrag(MainFrame)
 
