@@ -291,7 +291,7 @@ end
 
 ------------- MAIN FRAME ------------- 
 
-local AcrylicTrans = Acrylic and 0.1 or 0 -- Acrylic is TransSexual Lollllllllll
+local AcrylicTrans = Acrylic and 0.1 or 0 -- Acrylic is Tranesxual Lollllllllll
 
 local MainFrame = Create("Frame", ScreenGui, {
     Name = "MainFrame",
@@ -486,7 +486,7 @@ CloseButton.MouseButton1Click:Connect(function()
   local tween = TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
   tween:Play()
   tween.Completed:Wait()
-  ScreenGui:Destroy()
+  CloseLibrary()
           end
       },
     Button2 = {
@@ -1855,19 +1855,43 @@ function AddDiscordInvite(Parent, Configs)
       return DiscordInviteFrame
 end
 
-function ObjectInvisible(Object)
-  SetProps(Object, {
-    Visible = false
-  })
-  end
+function AddImageLabel(Parent, Configs)
+    local Icon = Configs[1] or Configs.Logo or Configs.Icon or "10734897102"
+    local Style = Configs[2] or Configs.Style or "Square"
 
-function ObjectVisible(Object)
-  SetProps(Object, {
-    Visible = true
-  })
-  end
+    local Styles = {
+        Big = UDim2.new(0, 455, 0, 110),
+        Banner = UDim2.new(0, 455, 0, 50),
+        Square = UDim2.new(0, 227, 0, 227)
+    }
 
-function EndLibrary()
+    if not Icon:find("rbxassetid://") then
+        Icon = "rbxassetid://" .. Icon
+    end
+
+    local Mode = Styles[Style] or Styles.Square
+
+    local ImageLabel = Create("ImageLabel", Parent, {
+        Name = "ImageLabel",
+        Image = Icon,
+        Size = Mode,
+        Position = UDim2.new(1, -440, 0, 23),
+        BackgroundTransparency = 1
+    })
+
+    Corner(ImageLabel, UDim.new(0, 4))
+    Stroke(ImageLabel, GetTheme["Color Hub 5"], 2)
+
+    return ImageLabel
+end
+
+function SetVisible(Object, Value)
+  SetProps(Object, {
+    Visible = Value
+  })
+end
+
+function CloseLibrary()
   ScreenGui:Destroy()
 end
 
