@@ -9,24 +9,29 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/Da
 ```luau
 local Window = MakeWindow({
     Title = "DarkLib V3",
-    KeySystem = false,
+    SubTitle = "By DarkMoonHub",
+    Theme = "Purple",
+    Acrylic = true,
+    KeySystem = {
+    Active = false,
     KeyTitle = "Key System",
-    KeyDescription = "Key System Description Long",
+    KeyDescription = "Key System Description",
     Keys = {"Key1", "Key2", "Key3"},
-    KeyLink = "pastebin.com/AbCdEfGhIjK"
+    KeyLink = "pastebin.com/"
+    }
   })
 ```
-```luau
---[[
-Title = "DarkMoonHub Library" >> UI Title (String)
+**Argument 1: UI Title (type: string)**
+**Argument 2: UI SubTitle (type: string)**
+**Argument 3: UI Theme (type: string)**
+**Argument 4: UI Acrylic (type: bool)**
+**Argument 5: UI KeySystem Configs (type: table)**
+**SubArgument 1: Key System Active (type: bool)**
+**SubArgument 2: Key System Title (type: string)**
+**SubArgument 3: Key System Description (type: string)**
+**SubArgument 4: Key System Keys (type: table)**
+**SubArgument 5: Key System Link To Key (type: string)**
 
-KeySystem = false >> set true to key system (bool)
-KeyTitle = "Key System" >> Key System UI Title (String)
-KeyDescription = "Key System Description Long" >> Key System UI Description (String)
-Keys = {"Key1", "Key2", "Key3"} >> Usable Keys For Unlock script (table, string)
-KeyLink = "pastebin.com/AbCdEfGhIjK" >> Link To Get Key (string)
-]]
-```
 ## Create Notification
 ```luau
 local Notify = NewNotify({
