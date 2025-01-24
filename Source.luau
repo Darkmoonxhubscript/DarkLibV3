@@ -85,7 +85,7 @@ local darklib = {
       ["Color Dark Text"] = Color3.fromRGB(144, 238, 144),
       ["Color Effect"] = Color3.fromRGB(60, 179, 113)
     },
-    White = {
+    BRANCO = {
       ["Color Hub 1"] = ColorSequence.new({
         ColorSequenceKeypoint.new(0.00, Color3.fromRGB(245, 245, 245)),
         ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 255, 255)),
@@ -1054,13 +1054,13 @@ local TextToggle = Create("TextLabel", ToggleFrame1, {
     ToggleButtonArea.MouseButton1Click:Connect(function()
         if ToggleState then
           SetProps(Stroke1, {
-        Color = Color3.fromRGB(70, 70, 70)
+        Color = GetTheme["Color Stroke"]
       })
     SetProps(Stroke2, {
-        Color = Color3.fromRGB(160, 160, 160)
+        Color = GetTheme["Color Hub 5"]
       })
     SetProps(ToggleActive, {
-      BackgroundColor3 = Color3.fromRGB(160, 160, 160),
+      BackgroundColor3 = GetTheme["Color Hub 5"]
     })
           local tween = TweenService:Create(ToggleActive, TweenInfo.new(0.15, Enum.EasingStyle.Linear), {Position = UDim2.new(0.1, 345, 1, -11)})
           tween:Play()
@@ -1288,7 +1288,7 @@ Stroke(SliderValueLabelFrameBackground, GetTheme["Color Hub 5"], 2)
     local SliderBarBackground = Create("Frame", SliderFrame, {
         Size = UDim2.new(1, -305, 0, 8),
         Position = UDim2.new(0, 295, 0, 16),
-        BackgroundColor3 = Color3.fromRGB(120, 120, 120),
+        BackgroundColor3 = GetTheme["Color Hub 5"]
     })
     Corner(SliderBarBackground)
 
@@ -1851,7 +1851,7 @@ function AddDiscordInvite(Parent, Configs)
      Size = UDim2.new(0, 55, 0, 55),
      Position = UDim2.new(1, -440, 0, 23),
      BackgroundTransparency = 1
-   })Corner(ServerIcon, UDim.new(0, 4))Stroke(ServerIcon, Color3.fromRGB(57, 57, 57), 2)
+   })Corner(ServerIcon, UDim.new(0, 4))Stroke(ServerIcon, GetTheme["Color Hub 5"], 2)
   
   local JoinButton = Create("TextButton", DiscordInviteFrame, {
     Name = "JoinButton",
