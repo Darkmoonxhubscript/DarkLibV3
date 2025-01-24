@@ -223,4 +223,28 @@ AddFloatToggle({
 
 **Argument 2: FloatToggle Function (type: func)**
 # Functions
+All Library Functions!
 
+## Elements
+1. DestroyButton(Button)
+2. EditButtonText(Button, Text)
+3. DestroySection(Section)
+4. EditSectionText(Section, Text)
+5. DestroyTextLabel(TextLabel)
+6. EditTextLabelText(TextLabel, Text)
+7. DestroyParagraph(TextLabel)
+8. EditParagraphTitle(Paragraph, Text)
+9. EditParagraphDescription(Paragraph, Text)
+10. DestroyToggle(Toggle)
+11. EditToggleText(Toggle, Text)
+12. DestroyTextBox(TextBox)
+13. EditTextBoxText(TextBox, Text)
+14. EditTextBoxInputText(TextBox, Text
+15. EditTextBoxPlaceholder(TextBox, Text)
+16. DestroySlider(Slider)
+17. EditSliderText(Slider, Text)
+18. EditSliderValue(Slider, Value)
+19. RefreshDropdown(Dropdown, NewOptions)
+## Library
+1. aaa
+2. 
