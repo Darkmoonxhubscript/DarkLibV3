@@ -1461,7 +1461,7 @@ end
         end
         local tween5 = TweenService:Create(BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween5:Play()
-        NewOption.TextColor3 = GetTheme["Color Text"]
+        TextLabel.TextColor3 = GetTheme["Color Text"]
         NewOption.BackgroundColor3 = GetTheme["Color Hub 7"]
         Callback(Default)
         TextLabel.Text = Default
@@ -1473,7 +1473,7 @@ end
             if v.Name == "Option" then
                 local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
                 tween1:Play()
-                v.TextColor3 = GetTheme["Color Dark Text"]
+                v.OptionTextLabel.TextColor3 = GetTheme["Color Dark Text"]
                 v.BackgroundColor3 = GetTheme["Color Hub 6"]
             end
         end
@@ -1482,7 +1482,7 @@ end
         tween2:Play()
 
         Callback(TextLabel.Text)
-        NewOption.TextColor3 = GetTheme["Color Text"]
+        TextLabel.TextColor3 = GetTheme["Color Text"]
         NewOption.BackgroundColor3 = GetTheme["Color Hub 7"]
         DropDownText2.Text = TextLabel.Text
         
@@ -1499,14 +1499,14 @@ end
             
             local tween1 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
             tween1:Play()
-            NewOption.TextColor3 = GetTheme["Color Dark Text"]
+            TextLabel.TextColor3 = GetTheme["Color Dark Text"]
             NewOption.BackgroundColor3 = GetTheme["Color Hub 6"]
         end
     else
         table.insert(OpcoesClicadas, NewOption)
         local tween2 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween2:Play()
-        NewOption.TextColor3 = GetTheme["Color Text"]
+        TextLabel.TextColor3 = GetTheme["Color Text"]
         NewOption.BackgroundColor3 = GetTheme["Color Hub 7"]
     end
     
