@@ -276,7 +276,7 @@ local HubTitle = Create("TextLabel", TopBar, {
     Text = Title,
     TextColor3 = GetTheme["Color Text"],
     Font = Enum.Font.GothamBold,
-    TextSize = 15,
+    TextSize = 20,
     TextXAlignment = Enum.TextXAlignment.Left,
     --Size = UDim2.new(0, 0, 1, 0),
     Position = UDim2.new(0, 15, 0.5),
@@ -296,40 +296,10 @@ local HubSubTitle = Create("TextLabel", HubTitle, {
       BackgroundTransparency = 1,
       TextXAlignment = "Left",
       TextYAlignment = "Center",
-      TextSize = 8,
+      TextSize = 11,
       Font = Enum.Font.Gotham,
       Name = "SubTitle"
 })
-
---[[
-local Title = InsertTheme(Create("TextLabel", TopBar, {
-    Position = UDim2.new(0, 15, 0.5),
-    AnchorPoint = Vector2.new(0, 0.5),
-    AutomaticSize = "XY",
-    Text = WTitle,
-    TextXAlignment = "Left",
-    TextSize = 12,
-    TextColor3 = Theme["Color Text"],
-    BackgroundTransparency = 1,
-    Font = Enum.Font.GothamMedium,
-    Name = "Title"
-  }, {
-    InsertTheme(Create("TextLabel", {
-      Size = UDim2.fromScale(0, 1),
-      AutomaticSize = "X",
-      AnchorPoint = Vector2.new(0, 1),
-      Position = UDim2.new(1, 5, 0.9),
-      Text = WMiniText,
-      TextColor3 = Theme["Color Dark Text"],
-      BackgroundTransparency = 1,
-      TextXAlignment = "Left",
-      TextYAlignment = "Bottom",
-      TextSize = 8,
-      Font = Enum.Font.Gotham,
-      Name = "SubTitle"
-    }), "DarkText")
-  }), "Text")
-  ]]
 
 ------------- DIALOG -------------
 
