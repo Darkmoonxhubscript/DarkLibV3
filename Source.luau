@@ -278,9 +278,10 @@ local HubTitle = Create("TextLabel", TopBar, {
     Font = Enum.Font.GothamBold,
     TextSize = 20,
     TextXAlignment = Enum.TextXAlignment.Left,
-    AutomaticSize = Enum.AutomaticSize.X,
+    AutomaticSize = "XY",
     Size = UDim2.new(0, 0, 1, 0),
-    Position = UDim2.new(0, 10, 0, 0),
+    Position = UDim2.new(0, 15, 0.5),
+    AnchorPoint = Vector2.new(0, 0.5),
     TextWrapped = false,
     BackgroundTransparency = 1
 })
@@ -291,14 +292,45 @@ local HubSubTitle = Create("TextLabel", HubTitle, {
     TextColor3 = GetTheme["Color Dark Text"],
     Font = Enum.Font.GothamMedium,
     TextSize = 15,
-    TextXAlignment = Enum.TextXAlignment.Left,
+    TextXAlignment = "Left",
+      TextYAlignment = "Bottom",
     AutomaticSize = Enum.AutomaticSize.X,
-    Size = UDim2.new(0, 0, 1, 0),
+    Size = UDim2.new(0, 0, 0, 25),
     AnchorPoint = Vector2.new(0, 1),
-    Position = UDim2.new(1, -1, 0.9, 1),
+    Position = UDim2.new(1, 5, 0.9),
     TextWrapped = false,
     BackgroundTransparency = 1
 })
+
+--[[
+local Title = InsertTheme(Create("TextLabel", TopBar, {
+    Position = UDim2.new(0, 15, 0.5),
+    AnchorPoint = Vector2.new(0, 0.5),
+    AutomaticSize = "XY",
+    Text = WTitle,
+    TextXAlignment = "Left",
+    TextSize = 12,
+    TextColor3 = Theme["Color Text"],
+    BackgroundTransparency = 1,
+    Font = Enum.Font.GothamMedium,
+    Name = "Title"
+  }, {
+    InsertTheme(Create("TextLabel", {
+      Size = UDim2.fromScale(0, 1),
+      AutomaticSize = "X",
+      AnchorPoint = Vector2.new(0, 1),
+      Position = UDim2.new(1, 5, 0.9),
+      Text = WMiniText,
+      TextColor3 = Theme["Color Dark Text"],
+      BackgroundTransparency = 1,
+      TextXAlignment = "Left",
+      TextYAlignment = "Bottom",
+      TextSize = 8,
+      Font = Enum.Font.Gotham,
+      Name = "SubTitle"
+    }), "DarkText")
+  }), "Text")
+  ]]
 
 ------------- DIALOG -------------
 
