@@ -246,5 +246,8 @@ All Library Functions!
 18. EditSliderValue(Slider, Value)
 19. RefreshDropdown(Dropdown, NewOptions)
 ## Library
-1. aaa
-2. 
+1. GetLibVersion()
+2. GetLibTheme()
+3. GetPlaceName()
+**----------------------------------------------------------------------**
+Thats All ;)
