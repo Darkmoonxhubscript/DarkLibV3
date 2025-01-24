@@ -188,7 +188,6 @@ AddMinimizeButton({Icon = "10734897102"})
 **Argument 1: MinimizeButton Icon; Id, you can use 'GetIcon("IconName")' Too! (type: string)**
 ## Add a Server Invite
 ```luau
-```luau
 local ServerInvite = AddDiscordInvite(Tab1, {
   Name = "You Server Community",
   Description = "Join our discord community to receive information about the next update",
