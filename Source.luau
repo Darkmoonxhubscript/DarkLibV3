@@ -1685,7 +1685,7 @@ end
     Size = UDim2.new(0, 50, 0, 50),
     Position = UDim2.new(0, 117, 0, 68),
     BackgroundTransparency = 0.1,
-    BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+    BackgroundColor3 = GetTheme["Color Hub 5"],
     Visible = true,
     AutoButtonColor = false
   })Stroke(MinimizeButton)
@@ -1723,7 +1723,7 @@ function AddFloatToggle(Configs)
     Size = UDim2.new(0, 100, 0, 60),
     Position = UDim2.new(0.8, 0, 0.8, 0),
     AnchorPoint = Vector2.new(0.5, 0.5),
-    BackgroundColor3 = Color3.fromRGB(35, 35, 35),
+    BackgroundColor3 = GetTheme["Color Hub 5"],
     Draggable = true,
     Active = true,
     Visible = true,
@@ -1761,8 +1761,8 @@ function AddFloatToggle(Configs)
     BackgroundTransparency = 1
   })Corner(Frame2, UDim.new(5, 0))
   
-  Stroke(Frame, Color3.fromRGB(120, 120, 120), 1)
-  Stroke(Frame2, Color3.fromRGB(120, 120, 120), 1)
+  Stroke(Frame, GetTheme["Color Hub 6"], 1)
+  Stroke(Frame2, GetTheme["Color Hub 5"], 1)
   
   local OnOff = false
   Callback(OnOff)
