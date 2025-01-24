@@ -15,8 +15,10 @@ local darklib = {
       ["Color Hub 3"] = Color3.fromRGB(0, 170, 255),
       ["Color Hub 4"] = Color3.fromRGB(45, 45, 45),
       ["Color Hub 5"] = Color3.fromRGB(80, 80, 80),
+      ["Color Hub 6"] = Color3.fromRGB(70, 70, 70),
+      ["Color Hub 7"] = Color3.fromRGB(120, 120, 120),
       ["Color Stroke"] = Color3.fromRGB(40, 40, 40),
-      ["Color Theme"] = Color3.fromRGB(88, 101, 242),
+      ["Color Theme"] = Color3.fromRGB(88, 101, 0),
       ["Color Text"] = Color3.fromRGB(243, 243, 243),
       ["Color Dark Text"] = Color3.fromRGB(180, 180, 180),
       ["Color Effect"] = Color3.fromRGB(0, 170, 215)
@@ -693,7 +695,7 @@ function AddButton(Parent, Configs)
         TextColor3 = Color3.fromRGB(240, 240, 240),
         Font = Enum.Font.GothamMedium,
         TextSize = 20,
-        BackgroundColor3 = GetTheme["Color Theme"],
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         Size = UDim2.new(0, 455, 0, 40),
         TextWrapped = false,
         Position = UDim2.new(0, 10, 0, 0),
@@ -801,7 +803,7 @@ function AddTextLabel(Parent, Configs)
         Name = "TextLabel",
         Size = UDim2.new(0, 455, 0, 30),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = GetTheme["Color Theme"],
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         BackgroundTransparency = 0
     })
     Corner(TextFrame, UDim.new(0.2, 0)) 
@@ -848,7 +850,7 @@ function AddParagraph(Parent, Configs)
         Name = "Paragraph",
         Size = UDim2.new(0, 455, 0, 80),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = GetTheme["Color Theme"],
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         BackgroundTransparency = 0
     })
     Corner(ParagraphFrame, UDim.new(0.1, 0)) 
@@ -922,7 +924,7 @@ end
         Name = "Toggle",
         Size = UDim2.new(0, 455, 0, 40),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = GetTheme["Color Theme"],
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         BackgroundTransparency = 0
     })
     Corner(ToggleFrame1, UDim.new(0.2, 0))
@@ -1171,7 +1173,7 @@ end
     local SliderFrame = Create("Frame", Parent, {
         Name = "Slider",
         Size = UDim2.new(0, 455, 0, 40),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Hub 4"]
     })
     Corner(SliderFrame, UDim.new(0.2, 0))
 
@@ -1180,7 +1182,7 @@ end
         Size = UDim2.new(1, -230, 0, 25),
         Position = UDim2.new(0, 10, 0, 8),
         Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         BackgroundTransparency = 1,
         TextSize = 20,
         TextTruncate = "SplitWord",
@@ -1200,7 +1202,7 @@ Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
         Size = UDim2.new(1, -90, 0, 25),
         Position = UDim2.new(0, 46, 0, 0),
         Font = Enum.Font.Gotham,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         BackgroundTransparency = 1,
         TextSize = 20,
         TextScaled = true,
@@ -1327,7 +1329,7 @@ end
         Name = "Dropdown",
         Size = UDim2.new(0, 455, 0, 40),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         BackgroundTransparency = 0
     })
     Corner(DropdownFrame, UDim.new(0, 10))
@@ -1335,7 +1337,7 @@ end
     local DropButton = Create("TextButton", DropdownFrame, {
         Size = UDim2.new(0, 30, 0, 30),
         Position = UDim2.new(1, -40, 0, 5),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         BackgroundTransparency = 1,
         Text = ""
     })
@@ -1345,7 +1347,7 @@ end
         Position = UDim2.new(0, 10, 0, 0),
         Text = Name,
         Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         TextSize = 20,
         BackgroundTransparency = 1,
         TextWrapped = false,
@@ -1357,7 +1359,7 @@ end
   local DropDownText2Frame = Create("Frame", DropdownFrame, {
         Size = UDim2.new(0, 150, 0, 30),
         Position = UDim2.new(0, 260, 0, 5),
-        BackgroundColor3 = Color3.fromRGB(80, 80, 80),
+        BackgroundColor3 = GetTheme["Color Hub 5"],
         BackgroundTransparency = 0
     })Corner(DropDownText2Frame)
   
@@ -1366,7 +1368,7 @@ end
         Position = UDim2.new(0, 260, 0, 5),
         Text = Default,
         Font = Enum.Font.GothamMedium,
-        TextColor3 = Color3.fromRGB(200, 200, 200),
+        TextColor3 = GetTheme["Color Hub 4"],
         TextSize = 15,
         BackgroundTransparency = 1,
         TextScaled = true,
@@ -1421,11 +1423,11 @@ end
         Text = "",
         TextSize = 15,
         Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Text"],
         BackgroundTransparency = 0.5,
         TextXAlignment = "Left",
         AutoButtonColor = false,
-        BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+        BackgroundColor3 = GetTheme["Color Hub 6"],
     })
     Corner(NewOption)
     
@@ -1436,7 +1438,7 @@ end
         Text = Name,
         TextSize = 15,
         Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(240, 240, 240),
+        TextColor3 = GetTheme["Color Dark Text"],
         BackgroundTransparency = 1,
         TextXAlignment = "Left",
         TextWrapped = false,
@@ -1459,8 +1461,8 @@ end
         end
         local tween5 = TweenService:Create(BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween5:Play()
-        NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
-        NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+        NewOption.TextColor3 = GetTheme["Color Text"]
+        NewOption.BackgroundColor3 = GetTheme["Color Hub 7"]
         Callback(Default)
         TextLabel.Text = Default
     end
@@ -1471,8 +1473,8 @@ end
             if v.Name == "Option" then
                 local tween1 = TweenService:Create(v.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
                 tween1:Play()
-                v.TextColor3 = Color3.fromRGB(240, 240, 240)
-                v.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+                v.TextColor3 = GetTheme["Color Text"]
+                v.BackgroundColor3 = GetTheme["Color Hub 6"]
             end
         end
 
@@ -1480,8 +1482,8 @@ end
         tween2:Play()
 
         Callback(TextLabel.Text)
-        NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
-        NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+        NewOption.TextColor3 = GetTheme["Color Text"]
+        NewOption.BackgroundColor3 = GetTheme["Color Hub 7"]
         DropDownText2.Text = TextLabel.Text
         
       elseif MultiSelect then
@@ -1497,15 +1499,15 @@ end
             
             local tween1 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0.7})
             tween1:Play()
-            NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
-            NewOption.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+            NewOption.TextColor3 = GetTheme["Color Text"]
+            NewOption.BackgroundColor3 = GetTheme["Color Hub 6"]
         end
     else
         table.insert(OpcoesClicadas, NewOption)
         local tween2 = TweenService:Create(NewOption.BagulhoAzul, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {BackgroundTransparency = 0})
         tween2:Play()
-        NewOption.TextColor3 = Color3.fromRGB(240, 240, 240)
-        NewOption.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+        NewOption.TextColor3 = GetTheme["Color Text"]
+        NewOption.BackgroundColor3 = GetTheme["Color Hub 7"]
     end
     
     local selectedText = ""
@@ -1718,7 +1720,7 @@ function AddDiscordInvite(Parent, Configs)
         Name = "DiscordInvite",
         Size = UDim2.new(0, 455, 0, 120),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         BackgroundTransparency = 0,
     })
     Corner(DiscordInviteFrame, UDim.new(0, 10))
