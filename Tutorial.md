@@ -10,7 +10,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/Da
 local Window = MakeWindow({
     Title = "DarkLib V3",
     SubTitle = "By DarkMoonHub",
-    Theme = "Purple",
+    Theme = "Dark",
     Acrylic = true,
     KeySystem = {
     Active = false,
@@ -49,13 +49,11 @@ Description = "Notification Description.",
 Time = 10
 })
 ```
-```luau
---[[
-Title = "Notification Title" >> Notification Title That Will Show (String)
-Description = "Notification Description." >> Notification Description That Will Show (String)
-Time = 10 >> Notification Duration (Number)
-]]
-```
+**Argument 1: Notification Title (type: string)**
+
+**Argument 2: Notification Description (type: string)**
+
+**Argument 3: Notification Duratiom (type: number)**
 ## Create Tab
 ```luau
 local Tab1 = NewTab({Name = "Tab", Icon = "IconName"})
