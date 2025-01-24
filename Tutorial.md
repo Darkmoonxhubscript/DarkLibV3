@@ -61,7 +61,9 @@ local Tab1 = NewTab({Name = "Tab", Icon = "Home"})
 **Argument 1: Tab Name (type: string)**
 
 **Argument 2: Tab Icon Name (type: string)**
+
 **----------------------------------------------------------------------**
+
 **__'Tab1' is Name of Obj Tab that will be created!__**
 ## Add a Section
 ```luau
@@ -81,6 +83,7 @@ local Paragraph1 = AddParagraph(Tab1, {
 })
 ```
 **Argument 1: Paragraph Title (type: string)**
+
 **Argument 2: Paragraph Content(Description) (type: string)**
 ## Add a Button
 ```luau
@@ -92,6 +95,7 @@ local Button1 = AddButton(Tab1, {
 })
 ```
 **Argument 1: Button Text (type: string)**
+
 **Argument 2: Button Function On Clicked (type: func)**
 ## Add a Toggle
 ```luau
@@ -104,7 +108,9 @@ local Toggle1 = AddToggle(Tab1, {
 })
 ```
 **Argument 1: Toggle Text (type: string)**
+
 **Argument 2: Toggle State (type: bool)**
+
 **Argument 3: Toggle Function (type: func)**
 ## Add a TextBox
 ```luau
@@ -119,9 +125,13 @@ local TextBox1 = AddTextBox(Tab1, {
 })
 ```
 **Argument 1: TextBox Text(Title) (type: string)**
+
 **Argument 2: TextBox Default Text (type: string)**
+
 **Argument 3: TextBox AutoClear (type: bool)**
+
 **Argument 4: TextBox PlaceHolder Text (type: string)**
+
 **Argument 5: TextBox Function (type: func)**
 ## Add a Slider
 ```luau
@@ -136,7 +146,17 @@ local Slider1 = AddSlider(Tab1, {
     end
 })
 ```
-**Argument 1: UI Title (type: string)**
+**Argument 1: Slider Text (type: string)**
+
+**Argument 2: Slider Min Value (type: number)**
+
+**Argument 3: Slider Max Value (type: number)**
+
+**Argument 4: Slider Increase Value (type: number)**
+
+**Argument 5: Slider Default Value (type: string)**
+
+**Argument 6: Slider Function (type: func)**
 ## Add a Dropdown
 ```luau
 local Dropdown1 = AddDropDown(Tab1, {
