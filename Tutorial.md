@@ -169,37 +169,24 @@ local Dropdown1 = AddDropDown(Tab1, {
     end
 })
 ```
-```luau
---[[
-Name = "Dropdown" >> Dropdown Text (String)
-Options = {"1", "2", "3", "4", "5", "6", "7"} >> Options That Can Be Selected, you can add more. (String Table)
-MultiSelect >> Set to true to multiple select options
-Default = "1" >> Initial Selected Option (String)
-Callback = function(Value) -- Value = Selected Option Name
--- Function Here
-end
+**Argument 1: Dropdown Text (type: string)**
 
--- ///////// Functions ///////// --
+**Argument 2: Dropdown Options (type: table)**
 
-RefreshDropdown(Dropdown, NewOptions)
-]]
-```
+**Argument 3: Dropdown MultiSelect Actived (type: bool)**
+
+**Argument 4: Dropdown Default Option (type: string)**
+
+**Argument 5: Dropdown Function (type: function)**
+
 # EXTRA
+Extra Functions, Just for increment ;)
 ## Add a Minimize Button
 ```luau
 AddMinimizeButton({Icon = "10734897102"})
 ```
+**Argument 1: MinimizeButton Icon; Id, you can use 'GetIcon("IconName")' Too! (type: string)**
 ```luau
---[[
-Icon = "Id" >> Button Image Id (String)
-For Use Icon Name use:
-Icon = GetIcon("Moon")
--_-_-_-_-_-_-_-_-_-_-_-_-_-_-
--_-_-_-_-_-_-_-_-_-_-_-_-_-_-
-You Can Get Ids in:
-https://github.com/Darkmoonxhubscript/DarkLibV3/blob/main/Icons.luau or Use Custom Icon Id
-]]
-```
 ## Add a Server Invite
 ```luau
 local ServerInvite = AddDiscordInvite(Tab1, {
@@ -209,15 +196,13 @@ local ServerInvite = AddDiscordInvite(Tab1, {
   Invite = "https://discord.gg/ServerCode",
 })
 ```
-```luau
---[[
-Name = "Name" >> Server Name (String)
-Description = "Description" >> Inform the person why they should join (String)
-Logo = "Id" >> Replace "Id" with your server icon ID (String)
-Invite = "https://discord.gg/ServerCode" >> Replace "ServerCode" with your server code. (String)
-]]
-```
+**Argument 1: Server Name (type: string)**
 
+**Argument 2: Server Description (type: string)**
+
+**Argument 3: Server Icon (type: string)**
+
+**Argument 4: Server Invite (type: string)**
 ## Add A Float Toggle
 ```luau
 AddFloatToggle({
@@ -227,12 +212,6 @@ AddFloatToggle({
       end
   })
 ```
-```luau
---[[
-Name = "Toggle Name" >> Float Toggle Text (String)
-Callback = function(Value) = Value Toggle State
-      --Function Here
-      end
-]]
-```
+**Argument 1: FloatToggle Text (type: string)**
 
+**Argument 2: FloatToggle Function (type: func)**
