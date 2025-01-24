@@ -249,6 +249,9 @@ All Library Functions!
 1. GetLibVersion()
 2. GetLibTheme()
 3. GetPlaceName()
+4. SetVisible(Object, Value)
+5. CloseLibrary()
+6. CloseDialog()
 
 **----------------------------------------------------------------------**
 
