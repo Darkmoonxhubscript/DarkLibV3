@@ -464,10 +464,10 @@ local CloseButton = Create("TextButton", TopBar, {
     Text = "×",
     TextColor3 = Color3.fromRGB(255, 255, 255),
     Font = Enum.Font.GothamBold,
-    TextSize = 20,
+    TextSize = 35,
     BackgroundTransparency = 1,
     Size = UDim2.new(0, 30, 0, 30),
-    Position = UDim2.new(1, -30, 0, 5)
+    Position = UDim2.new(1, -35, 0, 5)
 })
 CloseButton.MouseButton1Click:Connect(function()
   local CloseDialog = MakeDialog({
@@ -509,7 +509,7 @@ local MinimizeButton = Create("TextButton", TopBar, {
     TextSize = 30,
     BackgroundTransparency = 1,
     Size = UDim2.new(0, 30, 0, 30),
-    Position = UDim2.new(1, -60, 0, 5)
+    Position = UDim2.new(1, -65, 0, 5)
 })
 MinimizeButton.MouseButton1Click:Connect(function()
   if Minimized then
@@ -658,7 +658,7 @@ function NewTab(Configs)
     })
 
     Create("UIListLayout", TabFrame, {
-        Padding = UDim.new(0, 7),
+        Padding = UDim.new(0, 8),
         HorizontalAlignment = Enum.HorizontalAlignment.Center,
         SortOrder = Enum.SortOrder.LayoutOrder
     })
@@ -1385,8 +1385,8 @@ end
     })
     
     local DropDownText1 = Create("TextLabel", DropdownFrame, {
-        Size = UDim2.new(0, 220, 0, 40),
-        Position = UDim2.new(0, 10, 0, 0),
+        Size = UDim2.new(1, -210, 0, 25),
+        Position = UDim2.new(0, 10, 0, 8),
         Text = Name,
         Font = Enum.Font.GothamBold,
         TextColor3 = GetTheme["Color Text"],
@@ -1427,7 +1427,7 @@ end
   
   local ListDrop = Create("ScrollingFrame", DropdownFrame, {
     Name = "listdrop",
-    Size = UDim2.new(1, -4, 1, -35),
+    Size = UDim2.new(1, -4, 1, -41),
     Position = UDim2.new(0, 2, 1, 0),
     AnchorPoint = Vector2.new(0, 1),
     Visible = false,
@@ -1860,8 +1860,8 @@ function AddImageLabel(Parent, Configs)
     local Style = Configs[2] or Configs.Style or "Square"
 
     local Styles = {
-        Big = UDim2.new(0, 455, 0, 110),
-        Banner = UDim2.new(0, 455, 0, 50),
+        Big = UDim2.new(0, 450, 0, 110),
+        Banner = UDim2.new(0, 450, 0, 50),
         Square = UDim2.new(0, 227, 0, 227)
     }
 
