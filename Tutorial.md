@@ -25,7 +25,7 @@ local Window = MakeWindow({
 
 **Argument 2: UI SubTitle (type: string)**
 
-**Argument 3: UI Theme (type: string)** **Avaliable Themes:** **__Dark, Darker & Purple__**
+**Argument 3: UI Theme (type: string);** **Avaliable Themes:** **__Dark, Darker & Purple__**
 
 **Argument 4: UI Acrylic (type: bool)**
 
