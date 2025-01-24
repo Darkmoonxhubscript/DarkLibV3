@@ -331,8 +331,8 @@ if KeySystem then
    
    local Description = Create("TextLabel", KeySystemFrame, {
     Text = KeyDescription,
-    Size = UDim2.new(0, 380, 0, 200),
-    Position = UDim2.new(0, 5, 0, 30),
+    Size = UDim2.new(0, 380, 0, 70),
+    Position = UDim2.new(0, 10, 0, 30),
     TextSize = 15,
     Font = Enum.Font.GothamMedium,
     BackgroundTransparency = 1,
