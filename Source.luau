@@ -58,17 +58,55 @@ local darklib = {
       ["Color Text"] = Color3.fromRGB(255, 200, 255),
       ["Color Dark Text"] = Color3.fromRGB(200, 150, 200),
       ["Color Effect"] = Color3.fromRGB(200, 0, 255)
+    },
+    Pink = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 105, 180)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 140, 200)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 105, 180))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(250, 90, 160),
+      ["Color Hub 3"] = Color3.fromRGB(255, 182, 193),
+      ["Color Hub 4"] = Color3.fromRGB(240, 128, 192),
+      ["Color Text"] = Color3.fromRGB(255, 255, 255),
+      ["Color Dark Text"] = Color3.fromRGB(200, 100, 150),
+      ["Color Effect"] = Color3.fromRGB(255, 50, 120)
+    },
+    Green = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(34, 139, 34)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(50, 205, 50)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(34, 139, 34))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(46, 139, 87),
+      ["Color Hub 3"] = Color3.fromRGB(0, 255, 127),
+      ["Color Hub 4"] = Color3.fromRGB(0, 128, 0),
+      ["Color Text"] = Color3.fromRGB(255, 255, 255),
+      ["Color Dark Text"] = Color3.fromRGB(144, 238, 144),
+      ["Color Effect"] = Color3.fromRGB(60, 179, 113)
+    },
+    White = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(245, 245, 245)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 255, 255)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(245, 245, 245))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(240, 240, 240),
+      ["Color Hub 3"] = Color3.fromRGB(220, 220, 220),
+      ["Color Hub 4"] = Color3.fromRGB(200, 200, 200),
+      ["Color Text"] = Color3.fromRGB(0, 0, 0),
+      ["Color Dark Text"] = Color3.fromRGB(80, 80, 80),
+      ["Color Effect"] = Color3.fromRGB(180, 180, 180)
     }
   },
   Info = {
-    Version = "1.7.9",
+    Version = "1.2.7",
     Theme = "Dark",
     PlaceName = MarketplaceService:GetProductInfo(game.PlaceId).Name
   },
   Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Icons.luau"))(),
   Tabs = {}
 }
-
 
 local function SetProps(Instance, Props)
     if Props then
@@ -1098,7 +1136,7 @@ end
         Name = "TextBox",
         Size = UDim2.new(0, 455, 0, 40),
         Position = UDim2.new(0, 0, 0, 0),
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
+        BackgroundColor3 = GetTheme["Color Hub 4"],
         BackgroundTransparency = 0
     })
     Corner(TextBoxFrame, UDim.new(0.2, 0))
@@ -1122,7 +1160,7 @@ end
     Size = UDim2.new(0, 120, 1, -10),
     Position = UDim2.new(1, -130, 0, 5),
     ClearTextOnFocus = AutoClear,
-    BackgroundColor3 = Color3.fromRGB(80, 80, 80),
+    BackgroundColor3 = GetTheme["Color Hub 5"],
     BackgroundTransparency = 0,
     Text = Default,
     TextColor3 = Color3.fromRGB(240, 240, 240),
@@ -1130,7 +1168,7 @@ end
     PlaceholderText = PlaceHolder,
     TextScaled = true
   })
-  Stroke(TextBox, Color3.fromRGB(60, 60, 60), 2)
+  Stroke(TextBox, GetTheme["Color Stroke"], 2)
   Corner(TextBox)
   
   local Image = Create("ImageLabel", TextBoxFrame, {
@@ -1230,9 +1268,9 @@ end
     Size = UDim2.new(1, -410, 0, 25),
     Position = UDim2.new(0, 240, 0, 8),
     BorderSizePixel = 0,
-    BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    BackgroundColor3 = GetTheme["Color Stroke"]
   })Corner(SliderValueLabelFrameBackground, UDim.new(0, 7))
-Stroke(SliderValueLabelFrameBackground, Color3.fromRGB(85, 85, 85), 2)
+Stroke(SliderValueLabelFrameBackground, GetTheme["Color Hub 5"], 2)
 
     local SliderValueLabel = Create("TextLabel", SliderValueLabelFrameBackground, {
         Text = tostring(Default),
