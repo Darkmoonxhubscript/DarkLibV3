@@ -53,50 +53,26 @@ Time = 10
 
 **Argument 2: Notification Description (type: string)**
 
-**Argument 3: Notification Duratiom (type: number)**
+**Argument 3: Notification Duration (type: number)**
 ## Create Tab
 ```luau
-local Tab1 = NewTab({Name = "Tab", Icon = "IconName"})
+local Tab1 = NewTab({Name = "Tab", Icon = "Home"})
 ```
-```luau
---[[
-Name = "TabName" >> UI Button TabName (String)
-Icon = "IconName" >> Tab Icon, No Need Put Id Only Name, Eg: Sword, You can get Icons In: 
-https://github.com/Darkmoonxhubscript/DarkLibV3/blob/main/Icons.luau
+**Argument 1: Tab Name (type: string)**
 
--- ///////// Functions ///////// --
-
-DestroyTab(Tab)
-]]
-```
+**Argument 2: Tab Icon Name (type: string)**
+**----------------------------------------------------------------------**
+**__'Tab1' is Name of Obj Tab that will be created!__**
 ## Add a Section
 ```luau
 local Section1 = AddSection(Tab1, {Name = "Section"})
 ```
-```luau
---[[
-Name = "Text" >> Text Of Section (String)
-
--- ///////// Functions ///////// --
-
-DestroySection(Section)
-EditSectionText(Section, "Text")
-]]
-```
+**Argument 1: Section Text (type: string)**
 ## Add a TextLabel
 ```luau
 local TextLabel1 = AddTextLabel(Tab1, Name = "My Text"})
 ```
-```luau
---[[
-Name = "My Text" >> TextLabel Text (String)
-
--- ///////// Functions ///////// --
-
-DestroyTextLabel(TextLabel)
-EditTextLabelText(TextLabel, "Text") 
-]]
-```
+**Argument 1: TextLabel Text (type: string)**
 ## Add a Paragraph
 ```luau
 local Paragraph1 = AddParagraph(Tab1, {
@@ -104,18 +80,8 @@ local Paragraph1 = AddParagraph(Tab1, {
   SubText = "My Paragraph"
 })
 ```
-```luau
---[[
-Name = "My Title" >> Paragraph Title (String)
-SubText = "My Paragraph" >> Paragraph Text (String)
-
--- ///////// Functions ///////// --
-
-DestroyParagraph(Paragraph)
-EditParagraphTitle(Paragraph, "Text")
-EditParagraphDescription(Paragraph, "Text")
-]]
-```
+**Argument 1: Paragraph Title (type: string)**
+**Argument 2: Paragraph Content(Description) (type: string)**
 ## Add a Button
 ```luau
 local Button1 = AddButton(Tab1, {
@@ -125,19 +91,8 @@ local Button1 = AddButton(Tab1, {
   end
 })
 ```
-```luau
---[[
-Name = "Text" >> Button Text (String)
-Callback = function(Value) -button press function
--- function here
-end
-]]
-
--- ///////// Functions ///////// --
-
-DestroyButton(Button)
-EditButtonText(Button, "Text")
-```
+**Argument 1: Button Text (type: string)**
+**Argument 2: Button Function On Clicked (type: func)**
 ## Add a Toggle
 ```luau
 local Toggle1 = AddToggle(Tab1, {
@@ -148,20 +103,9 @@ local Toggle1 = AddToggle(Tab1, {
   end
 })
 ```
-```luau
---[[
-Name = "Toggle" >> Toggle Text (String)
-Default = false >> Defines whether the toggle starts out on or off (Bool)
-Callback = function(Value) --Value = toggle state
--- toggle function here
-end
-
--- ///////// Functions ///////// --
-
-DestroyToggle(Toggle)
-EditToggleText(Toggle, "Text")
-]]
-```
+**Argument 1: Toggle Text (type: string)**
+**Argument 2: Toggle State (type: bool)**
+**Argument 3: Toggle Function (type: func)**
 ## Add a TextBox
 ```luau
 local TextBox1 = AddTextBox(Tab1, {
@@ -174,24 +118,11 @@ local TextBox1 = AddTextBox(Tab1, {
     end
 })
 ```
-```luau
---[[
-Name = "TextBox" >> TextBox Name (String)
-Default = "Default Text" >> TextBox Default Text (String)
-AutoClear = false >> Auto Clear Text When Input (Bool)
-PlaceHolder = "Input Text Here" >> PlaceHolder Text From TextBox(String)
-Callback = function(Value) --Value = TextBox Text
---Function Here
-end
-
--- ///////// Functions ///////// --
-
-DestroyTextBox(TextBox)
-EditTextBoxText(TextBox, "Text")
-EditTextBoxInputText(TextBox, "Text")
-EditTextBoxPlaceholder(TextBox, "Text")
-]]
-```
+**Argument 1: TextBox Text(Title) (type: string)**
+**Argument 2: TextBox Default Text (type: string)**
+**Argument 3: TextBox AutoClear (type: bool)**
+**Argument 4: TextBox PlaceHolder Text (type: string)**
+**Argument 5: TextBox Function (type: func)**
 ## Add a Slider
 ```luau
 local Slider1 = AddSlider(Tab1, {
@@ -205,24 +136,7 @@ local Slider1 = AddSlider(Tab1, {
     end
 })
 ```
-```luau
---[[
-Name = "Slider" >> Slider Text (String(
-Min = 0 >> Min Slider Value (Number)
-Max = 100 >> Max Slider Value (Number)
-Increase = 10 >> Value To Increase (Number)
-Default = 20 >> Default Slider Value (Number)
-Callback = function(Value) -- Value = Slider Value
---function here
-end
-
--- ///////// Functions ///////// --
-
-DestroySlider(Slider)
-EditSliderText(Slider, "Text")
-EditSliderValue(Slider, Value)
-]]
-```
+**Argument 1: UI Title (type: string)**
 ## Add a Dropdown
 ```luau
 local Dropdown1 = AddDropDown(Tab1, {
