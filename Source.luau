@@ -58,45 +58,6 @@ local darklib = {
       ["Color Text"] = Color3.fromRGB(255, 200, 255),
       ["Color Dark Text"] = Color3.fromRGB(200, 150, 200),
       ["Color Effect"] = Color3.fromRGB(200, 0, 255)
-    },
-    Pink = {
-      ["Color Hub 1"] = ColorSequence.new({
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 105, 180)),
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 140, 200)),
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 105, 180))
-      }),
-      ["Color Hub 2"] = Color3.fromRGB(250, 90, 160),
-      ["Color Hub 3"] = Color3.fromRGB(255, 182, 193),
-      ["Color Hub 4"] = Color3.fromRGB(240, 128, 192),
-      ["Color Text"] = Color3.fromRGB(255, 255, 255),
-      ["Color Dark Text"] = Color3.fromRGB(200, 100, 150),
-      ["Color Effect"] = Color3.fromRGB(255, 50, 120)
-    },
-    Green = {
-      ["Color Hub 1"] = ColorSequence.new({
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(34, 139, 34)),
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(50, 205, 50)),
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(34, 139, 34))
-      }),
-      ["Color Hub 2"] = Color3.fromRGB(46, 139, 87),
-      ["Color Hub 3"] = Color3.fromRGB(0, 255, 127),
-      ["Color Hub 4"] = Color3.fromRGB(0, 128, 0),
-      ["Color Text"] = Color3.fromRGB(255, 255, 255),
-      ["Color Dark Text"] = Color3.fromRGB(144, 238, 144),
-      ["Color Effect"] = Color3.fromRGB(60, 179, 113)
-    },
-    BRANCO = {
-      ["Color Hub 1"] = ColorSequence.new({
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(245, 245, 245)),
-        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(255, 255, 255)),
-        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(245, 245, 245))
-      }),
-      ["Color Hub 2"] = Color3.fromRGB(240, 240, 240),
-      ["Color Hub 3"] = Color3.fromRGB(220, 220, 220),
-      ["Color Hub 4"] = Color3.fromRGB(200, 200, 200),
-      ["Color Text"] = Color3.fromRGB(0, 0, 0),
-      ["Color Dark Text"] = Color3.fromRGB(80, 80, 80),
-      ["Color Effect"] = Color3.fromRGB(180, 180, 180)
     }
   },
   Info = {
