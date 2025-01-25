@@ -245,6 +245,7 @@ All Library Functions!
 17. EditSliderText(Slider, Text)
 18. EditSliderValue(Slider, Value)
 19. RefreshDropdown(Dropdown, NewOptions)
+20. KeySystemSet(Value)
 ## Library
 1. GetLibVersion()
 2. GetLibTheme()
