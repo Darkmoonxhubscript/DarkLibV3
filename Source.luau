@@ -343,7 +343,7 @@ if KeySystem then
     TextYAlignment = Enum.TextYAlignment.Top
   })
 
-  local TextBox = Create("TextBox", TextBoxFrame, {
+  local TextBox = Create("TextBox", KeySystemFrame, {
     Size = UDim2.new(0, 120, 1, -10),
     Position = UDim2.new(1, -130, 0, 5),
     ClearTextOnFocus = false,
