@@ -347,7 +347,7 @@ if KeySystem then
     Size = UDim2.new(0, 170, 1, -195),
     Position = UDim2.new(1, -275, 0, 100),
     ClearTextOnFocus = false,
-    BackgroundColor3 = GetTheme["Color Hub 5"],
+    BackgroundColor3 = GetTheme["Color Stroke"],
     BackgroundTransparency = 0,
     Text = "",
     TextColor3 = GetTheme["Color Text"],
@@ -356,7 +356,7 @@ if KeySystem then
     PlaceholderText = "Enter Key Here",
     TextScaled = true
   })
-  Stroke(TextBox, GetTheme["Color Stroke"], 2)
+  Stroke(TextBox, GetTheme["Color Hub 4"], 2)
   Corner(TextBox)
   
   local Image = Create("ImageLabel", KeySystemFrame, {
@@ -375,6 +375,10 @@ if KeySystem then
     local tween4 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = Color3.fromRGB(255, 255, 255)})
   tween4:Play()
   end)
+  
+  function KeySystemSet(Value)
+    KeyVerify = Value
+    end
   
   repeat task.wait() until KeyVerify
   local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(1.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
