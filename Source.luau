@@ -344,14 +344,15 @@ if KeySystem then
   })
 
   local TextBox = Create("TextBox", KeySystemFrame, {
-    Size = UDim2.new(0, 120, 1, -10),
-    Position = UDim2.new(1, -130, 0, 5),
+    Size = UDim2.new(0, 170, 1, -195),
+    Position = UDim2.new(1, -275, 0, 100),
     ClearTextOnFocus = false,
     BackgroundColor3 = GetTheme["Color Hub 5"],
     BackgroundTransparency = 0,
     Text = "",
-    TextColor3 = Color3.fromRGB(240, 240, 240),
+    TextColor3 = GetTheme["Color Text"],
     Font = Enum.Font.GothamBold,
+    PlaceholderColor3 = GetTheme["Color Dark Text"],
     PlaceholderText = "Enter Key Here",
     TextScaled = true
   })
@@ -360,12 +361,11 @@ if KeySystem then
   
   local Image = Create("ImageLabel", KeySystemFrame, {
         Image = "rbxassetid://15637081879",
-        Size = UDim2.new(0, 25, 0, 25),
-        Position = UDim2.new(1, -165, 0, 8),
+        Size = UDim2.new(0, 30, 0, 30),
+        Position = UDim2.new(1, -320, 0, 103),
         BackgroundTransparency = 1
     })
   
-  Callback(Default)
   TextBox.Focused:Connect(function()
   local tween2 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = GetTheme["Color Effect"]})
   tween2:Play()
@@ -375,7 +375,6 @@ if KeySystem then
     local tween4 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = Color3.fromRGB(255, 255, 255)})
   tween4:Play()
   end)
-  
   
   repeat task.wait() until KeyVerify
   local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(1.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
@@ -1224,8 +1223,9 @@ end
     BackgroundColor3 = GetTheme["Color Hub 5"],
     BackgroundTransparency = 0,
     Text = Default,
-    TextColor3 = Color3.fromRGB(240, 240, 240),
-    Font = Enum.Font.Gotham,
+    TextColor3 = GetTheme["Color Text"],
+    Font = Enum.Font.GothamBold,
+    PlaceholderColor3 = GetTheme["Color Dark Text"],
     PlaceholderText = PlaceHolder,
     TextScaled = true
   })
