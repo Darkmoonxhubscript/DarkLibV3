@@ -312,6 +312,7 @@ if KeySystem then
     Size = UDim2.new(0, 400, 0, 230),
     Position = UDim2.new(0.5, 0, 0.5, 0),
     AnchorPoint = Vector2.new(0.5, 0.5),
+    Active = true,
     BackgroundTransparency = 0
   })Corner(KeySystemFrame, UDim.new(0, 10))MakeDrag(KeySystemFrame)Stroke(KeySystemFrame, GetTheme["Color Stroke"], 2)
   
