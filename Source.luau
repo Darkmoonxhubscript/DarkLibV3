@@ -342,6 +342,22 @@ if KeySystem then
     TextXAlignment = Enum.TextXAlignment.Left,
     TextYAlignment = Enum.TextYAlignment.Top
   })
+
+  local TextBox = Create("TextBox", TextBoxFrame, {
+    Size = UDim2.new(0, 120, 1, -10),
+    Position = UDim2.new(1, -130, 0, 5),
+    ClearTextOnFocus = false,
+    BackgroundColor3 = GetTheme["Color Hub 5"],
+    BackgroundTransparency = 0,
+    Text = Default,
+    TextColor3 = Color3.fromRGB(240, 240, 240),
+    Font = Enum.Font.GothamBold,
+    PlaceholderText = PlaceHolder,
+    TextScaled = true
+  })
+  Stroke(TextBox, GetTheme["Color Stroke"], 2)
+  Corner(TextBox)
+  
   
   repeat task.wait() until KeyVerify
   local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(1.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
@@ -1411,7 +1427,6 @@ end
 
 ------------- DROPDOWN -------------
 
-local FirstTime = true
 function AddDropDown(Parent, Configs)
     local Name = Configs[1] or Configs.Name or Configs.Text or Configs.Title or "Dropdown"
     local Options = Configs[2] or Configs.Options or {"1", "2"}
