@@ -349,14 +349,32 @@ if KeySystem then
     ClearTextOnFocus = false,
     BackgroundColor3 = GetTheme["Color Hub 5"],
     BackgroundTransparency = 0,
-    Text = Default,
+    Text = "",
     TextColor3 = Color3.fromRGB(240, 240, 240),
     Font = Enum.Font.GothamBold,
-    PlaceholderText = PlaceHolder,
+    PlaceholderText = "Enter Key Here",
     TextScaled = true
   })
   Stroke(TextBox, GetTheme["Color Stroke"], 2)
   Corner(TextBox)
+  
+  local Image = Create("ImageLabel", KeySystemFrame, {
+        Image = "rbxassetid://15637081879",
+        Size = UDim2.new(0, 25, 0, 25),
+        Position = UDim2.new(1, -165, 0, 8),
+        BackgroundTransparency = 1
+    })
+  
+  Callback(Default)
+  TextBox.Focused:Connect(function()
+  local tween2 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = GetTheme["Color Effect"]})
+  tween2:Play()
+  end)
+  
+  TextBox.FocusLost:Connect(function()
+    local tween4 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = Color3.fromRGB(255, 255, 255)})
+  tween4:Play()
+  end)
   
   
   repeat task.wait() until KeyVerify
