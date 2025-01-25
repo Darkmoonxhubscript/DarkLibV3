@@ -361,7 +361,7 @@ if KeySystem then
   
   local Image = Create("ImageLabel", KeySystemFrame, {
         Image = "rbxassetid://15637081879",
-        Size = UDim2.new(0, 30, 0, 30),
+        Size = UDim2.new(0, 28, 0, 28),
         Position = UDim2.new(1, -320, 0, 103),
         BackgroundTransparency = 1
     })
@@ -379,8 +379,8 @@ if KeySystem then
   
   local CopyLink = Create("TextButton", KeySystemFrame, {
     Name = "GetKeyButton",
-    Size = UDim2.new(0, 30, 0, 30),
-    Position = UDim2.new(0, 0, 0, 0),
+    Size = UDim2.new(0, 150, 0, 40),
+    Position = UDim2.new(0, 30, 0, 150),
     Text = "Get Key",
     Font = Enum.Font.GothamBold,
     TextSize = 15,
@@ -400,8 +400,8 @@ Stroke(CopyLink, GetTheme["Color Hub 5"], 2)
   
   local SendKey = Create("TextButton", KeySystemFrame, {
     Name = "SendKeyButton",
-    Size = UDim2.new(0, 30, 0, 30),
-    Position = UDim2.new(0, 0, 0, 0),
+    Size = UDim2.new(0, 150, 0, 40),
+    Position = UDim2.new(0, 220, 0, 150),
     Text = "Send Key",
     Font = Enum.Font.GothamBold,
     TextSize = 15,
@@ -421,7 +421,7 @@ Stroke(SendKey, GetTheme["Color Hub 5"], 2)
     end)
   
   repeat task.wait() until KeyVerify
-  local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(1.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
+  local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {Size = UDim2.new(0, 400, 0, 10000)})
   tween:Play()
   tween.Completed:Wait()
   KeySystemFrame:Destroy()
