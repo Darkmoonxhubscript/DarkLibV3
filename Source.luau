@@ -347,7 +347,7 @@ if KeySystem then
     Size = UDim2.new(0, 170, 1, -195),
     Position = UDim2.new(1, -275, 0, 100),
     ClearTextOnFocus = false,
-    BackgroundColor3 = GetTheme["Color Stroke"],
+    BackgroundColor3 = GetTheme["Color Hub 4"],
     BackgroundTransparency = 0,
     Text = "",
     TextColor3 = GetTheme["Color Text"],
@@ -356,7 +356,7 @@ if KeySystem then
     PlaceholderText = "Enter Key Here",
     TextScaled = true
   })
-  Stroke(TextBox, GetTheme["Color Hub 4"], 2)
+  Stroke(TextBox, GetTheme["Color Hub 6"], 2)
   Corner(TextBox)
   
   local Image = Create("ImageLabel", KeySystemFrame, {
