@@ -356,7 +356,7 @@ if KeySystem then
     PlaceholderText = "Enter Key Here",
     TextScaled = true
   })
-  Stroke(TextBox, GetTheme["Color Hub 6"], 2)
+  Stroke(TextBox, GetTheme["Color Hub 5"], 2)
   Corner(TextBox)
   
   local Image = Create("ImageLabel", KeySystemFrame, {
@@ -370,15 +370,55 @@ if KeySystem then
   local tween2 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = GetTheme["Color Effect"]})
   tween2:Play()
   end)
-  
+  local ActualKey = ""
   TextBox.FocusLost:Connect(function()
     local tween4 = TweenService:Create(Image, TweenInfo.new(0.3, Enum.EasingStyle.Linear), {ImageColor3 = Color3.fromRGB(255, 255, 255)})
   tween4:Play()
+  ActualKey = TextBox.Text
   end)
+  
+  local CopyLink = Create("TextButton", KeySystemFrame, {
+    Name = "GetKeyButton",
+    Size = UDim2.new(0, 30, 0, 30),
+    Position = UDim2.new(0, 0, 0, 0),
+    Text = "Get Key",
+    Font = Enum.Font.GothamBold,
+    TextSize = 15,
+    TextScaled = false,
+    TextColor3 = GetTheme["Color Text"],
+    BackgroundColor3 = GetTheme["Color Hub 4"],
+  })Corner(CopyLink, UDim.new(0, 6))
+Stroke(CopyLink, GetTheme["Color Hub 5"], 2)
+  
+  CopyLink.MouseButton1Click:Connect(function()
+    setclipboard(tostring(KeyLink))
+    end)
   
   function KeySystemSet(Value)
     KeyVerify = Value
     end
+  
+  local SendKey = Create("TextButton", KeySystemFrame, {
+    Name = "SendKeyButton",
+    Size = UDim2.new(0, 30, 0, 30),
+    Position = UDim2.new(0, 0, 0, 0),
+    Text = "Send Key",
+    Font = Enum.Font.GothamBold,
+    TextSize = 15,
+    TextScaled = false,
+    TextColor3 = GetTheme["Color Text"],
+    BackgroundColor3 = GetTheme["Color Hub 4"],
+  })Corner(SendKey, UDim.new(0, 6))
+Stroke(SendKey, GetTheme["Color Hub 5"], 2)
+  
+  SendKey.MouseButton1Click:Connect(function()
+    for _, key in pairs(Keys) do
+      if key == ActualKey then
+        KeySystemSet(true)
+        break
+        end
+      end
+    end)
   
   repeat task.wait() until KeyVerify
   local tween = TweenService:Create(KeySystemFrame, TweenInfo.new(1.5, Enum.EasingStyle.Linear), {Position = UDim2.new(0, 10000, 0, 10000)})
@@ -1993,6 +2033,8 @@ function CloseLibrary()
 end
 
 end -- Window Close
+
+
 
 -- RETURN DARKLIB TABLE (DON'T REMOVE)
 return darklib
