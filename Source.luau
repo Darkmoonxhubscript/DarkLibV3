@@ -305,7 +305,6 @@ end
 
 local KeyVerify = false
 if KeySystem then
-  
   local KeySystemFrame = Create("Frame", ScreenGui, {
     Name = "KeyFrame",
     BackgroundColor3 = GetTheme["Color Hub 2"],
