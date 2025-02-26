@@ -21,4 +21,4 @@ Introducing the DarkLib UI Library, a Roblox Exploit UI Library created just for
 ## Discord
 
 - **__@darkmoonhub#0000__**
-- **__Server:__** **[Click Here](https://discord.gg/YDXM43cBU6)**
+
