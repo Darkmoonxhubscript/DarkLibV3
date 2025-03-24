@@ -1750,7 +1750,7 @@ end
   ListDrop.CanvasSize = ListDrop.CanvasSize + UDim2.new(0, 0, 0, 10)
   
   function RefreshDropdown(Dropdown, NewOptions)
-    for _, v in pairs(Dropdown.listdrop:GetChildren()) do
+    for _, v in pairs(ListDrop:GetChildren()) do
         if v.Name == "Option" then
             v:Destroy()
         end
